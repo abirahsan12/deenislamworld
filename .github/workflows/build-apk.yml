@@ -11,11 +11,10 @@ jobs:
       - name: Organize files (fix flat upload from phone)
         run: |
           mkdir -p www scripts
-          for f in index.html sw.js almushaf.ttf icon-192.png icon.svg manifest.webmanifest; do
-            if [ -f "$f" ]; then mv "$f" www/; fi
+          for f in index.html almushaf.ttf icon-192.png icon-512.png icon.svg manifest.webmanifest sw.js; do
+            if [ -f "$f" ] && [ ! -f "www/$f" ]; then cp "$f" "www/$f"; fi
           done
-          if [ -f localfonts.js ]; then mv localfonts.js scripts/; fi
-          cp -n icon-512.png www/icon-512.png || true
+          if [ -f localfonts.js ] && [ ! -f scripts/localfonts.js ]; then mv localfonts.js scripts/localfonts.js; fi
           ls -R www scripts
       - uses: actions/setup-node@v4
         with:
@@ -42,7 +41,12 @@ jobs:
           grep -n "uses-permission" $M
       - name: App icon and native launch screen
         run: |
-          sudo apt-get updatecommand -v convert >/dev/null || sudo apt-get install -y imagemagick
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          if command -v magick >/dev/null 2>&1; then
+            convert() { magick "$@"; }
+            identify() { magick identify "$@"; }
+          fi
           R=android/app/src/main/res
           rm -rf $R/mipmap-anydpi-v26
           for d in mdpi:48 hdpi:72 xhdpi:96 xxhdpi:144 xxxhdpi:192; do
