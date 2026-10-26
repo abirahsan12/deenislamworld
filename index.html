@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="jannat">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a3f3a" id="metaTheme">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Deen Islam - নামাজের সময়, কুরআন, দোয়া ও হাদীস</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Inter:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'AlMushaf';src:url('almushaf.ttf') format('truetype');font-display:swap}
+:root,[data-theme=jannat]{--bg:#f2f7f6;--surface:#fff;--on:#0c1d1a;--muted:#3f5a54;--primary:#0d7a66;--primary-d:#0a3f3a;--accent:#c8962e;--line:#d3e2de;--chip:#d9efe9;--gold:#f3d58e;--grad:linear-gradient(160deg,#0a3f3a 0%,#0d6657 100%)}
+[data-theme=noor]{--bg:#08110f;--surface:#12201c;--on:#f0f7f4;--muted:#a5bbb3;--primary:#2cc19a;--primary-d:#0a1a16;--accent:#e3b85f;--line:#223630;--chip:#1b3a32;--gold:#efcd86;--grad:linear-gradient(160deg,#0a1a16 0%,#0f3128 100%)}
+[data-theme=sagar]{--bg:#eef4f9;--surface:#fff;--on:#0b1f31;--muted:#445c72;--primary:#1769aa;--primary-d:#0b3b61;--accent:#d99a2b;--line:#d1e1ed;--chip:#d5e8f6;--gold:#f4d38c;--grad:linear-gradient(160deg,#0b3b61 0%,#14609b 100%)}
+[data-theme=royal]{--bg:#f4f1f9;--surface:#fff;--on:#1a1330;--muted:#584d6e;--primary:#6a3fb0;--primary-d:#3a2468;--accent:#cf9c3f;--line:#dfd8ec;--chip:#e8defa;--gold:#f0d395;--grad:linear-gradient(160deg,#3a2468 0%,#5a37a0 100%)}
+[data-theme=marubhumi]{--bg:#f8f4ee;--surface:#fff;--on:#281d12;--muted:#645140;--primary:#8f5f22;--primary-d:#43301a;--accent:#0f7a68;--line:#e5dacb;--chip:#f1e4d0;--gold:#f3d696;--grad:linear-gradient(160deg,#43301a 0%,#7a521f 100%)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--on)}
+body{font-family:'Noto Sans','Noto Sans Bengali','Hind Siliguri',sans-serif;font-size:18px;font-weight:500;line-height:1.65;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ic{display:inline-grid;place-items:center;--ic1:var(--primary);--ic2:var(--accent);--ic3:var(--gold)}
+.ic svg{width:26px;height:26px}
+.ic .p{fill:var(--ic1)}.ic .p2{fill:var(--ic1);opacity:.35}.ic .a{fill:var(--ic2)}.ic .l{fill:var(--ic3)}
+.ic .ps,.ic .as,.ic .ls{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.ic .ps{stroke:var(--ic1)}.ic .as{stroke:var(--ic2)}.ic .ls{stroke:var(--ic3)}
+.appbar .ic,.btn .ic,.list button.on .ic{--ic1:#fff;--ic2:var(--gold);--ic3:var(--gold)}
+.num{font-family:'Inter','Roboto',sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.2px}
+
+/* অ্যাপ বার */
+.appbar{position:sticky;top:0;z-index:30;background:var(--primary-d);color:#fff;display:flex;align-items:center;gap:4px;padding:env(safe-area-inset-top,0px) 6px 0 16px;height:calc(58px + env(safe-area-inset-top,0px))}
+.appbar h1{flex:1;margin:0;font-size:21px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.2px}
+.ib{all:unset;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;color:#fff}
+.ib:hover{background:rgba(255,255,255,.14)}
+.ib:focus-visible{outline:3px solid var(--gold)}
+#back{display:none}
+
+main{max-width:680px;margin:0 auto;padding:0 14px 110px}
+.view{display:none}
+.view.active{display:block}
+
+/* হোম হিরো */
+.hero{position:relative;background:var(--grad);color:#fff;margin:0 -14px;padding:8px 20px 66px;border-radius:0 0 32px 32px;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.08' stroke-width='1.2'%3E%3Cpath d='M32 2l8 22 22 8-22 8-8 22-8-22-22-8 22-8z'/%3E%3Ccircle cx='32' cy='32' r='10'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero>*{position:relative}
+.bism{font-family:'AlMushaf',serif;text-align:center;font-size:19px;line-height:1.7;color:var(--gold);margin:0}
+.clock{font-family:'Inter','Roboto',sans-serif;font-variant-numeric:tabular-nums;font-size:56px;font-size:clamp(46px,14vw,70px);font-weight:700;line-height:1.1;text-align:center;margin-top:6px;letter-spacing:-.5px}
+.clock small{font-size:.3em;font-weight:600;margin-left:6px;color:var(--gold);letter-spacing:.5px}
+.dates{text-align:center;font-size:17px;font-weight:600;margin-top:2px}
+.dates div:first-child{color:#fff}
+.dates div+div{color:var(--gold)}
+.next{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 18px}
+.next small{color:#e4f1ed;font-size:14.5px;display:block;font-weight:500}
+.next b{font-size:26px;font-weight:700;line-height:1.3;display:block}
+.next .cd{font-family:'Inter','Roboto',sans-serif;font-variant-numeric:tabular-nums;font-size:26px;font-weight:700;color:var(--gold);text-align:right}
+.next .cd small{text-align:right;margin-top:-2px}
+
+.card{background:var(--surface);border-radius:20px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.06);margin-top:14px;overflow:hidden}
+.card.pt{margin-top:-42px;position:relative}
+.cardhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);font-weight:700;font-size:18px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);font-size:18.5px;font-weight:600}
+.row:last-child{border-bottom:0}
+.row .nm small{display:block;font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.3}
+.row .tm{font-size:18px;font-weight:600}
+.row.on{background:var(--primary);color:#fff}
+.row.on .nm small{color:#e4f1ed}
+select,input[type=search]{font-family:inherit;font-size:16.5px;font-weight:600;padding:9px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);color:var(--on);max-width:100%}
+input[type=search]{width:100%;margin:12px 0 10px;padding:12px 18px;border-radius:26px;font-weight:500}
+.err{color:#b3261e;padding:10px 18px;font-weight:600}
+[data-theme=noor] .err{color:#ff9288}
+
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.tile{all:unset;cursor:pointer;background:var(--surface);border-radius:18px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.06);text-align:center;padding:14px 4px 12px;font-size:15px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px}
+.tile:focus-visible{outline:3px solid var(--accent)}
+.big{width:56px;height:56px;border-radius:18px;background:var(--chip)}
+.big svg{width:36px;height:36px}
+.daily{padding:16px 18px}
+.daily h3{margin:0 0 6px;font-size:17px;color:var(--primary);font-weight:700}
+.daily .har{font-family:'AlMushaf',serif;direction:rtl;text-align:right;font-size:24px;line-height:2;margin:0 0 4px}
+.daily p{margin:0 0 6px}
+.src{color:var(--muted);font-size:14.5px;font-weight:500}
+
+/* কুরআন */
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 0 4px}
+.bar select{flex:1;min-width:170px}
+label.inl{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:15.5px;font-weight:600}
+.reader{padding:6px 18px 18px;--ff:'AlMushaf',serif;--lh:2.5}
+.reader.uthmani{--ff:'AlMushaf',serif;--lh:2.3}
+.surah-head{font-family:var(--ff);text-align:center;font-size:32px;padding:14px 0 10px;color:var(--primary);line-height:2}
+.bis{font-family:var(--ff);text-align:center;font-size:calc(var(--fs,34px)*.85);padding:6px 0 14px;border-bottom:1px solid var(--line);line-height:var(--lh)}
+.ayah{padding:14px 0;border-bottom:1px solid var(--line)}
+.ayah:last-child{border-bottom:0}
+.ayah .no{display:inline-block;color:#fff;background:var(--primary);border-radius:12px;padding:0 10px;font-weight:700;font-size:13.5px;line-height:22px;margin-bottom:4px}
+.ayah .ar{font-family:var(--ff);direction:rtl;text-align:right;line-height:var(--lh);font-size:var(--fs,34px);font-weight:400}
+.ayah .tr{color:var(--on);margin-top:8px;font-size:17px;opacity:.88}
+.btn{all:unset;cursor:pointer;background:var(--primary);color:#fff;padding:10px 18px;border-radius:24px;font-weight:700;font-size:15.5px;display:inline-flex;gap:6px;align-items:center}
+.btn svg{width:18px;height:18px}
+.btn:focus-visible{outline:3px solid var(--accent)}
+.hint{font-size:14.5px;color:var(--muted);padding:12px 4px;font-weight:500}
+
+/* তিলাওয়াত */
+.list{background:var(--surface);border-radius:20px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.06);overflow:hidden}
+.list button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:13px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;font-weight:600}
+.list button:last-child{border-bottom:0}
+.list button .av{width:42px;height:42px;border-radius:13px;background:var(--chip);color:var(--primary);flex:none}
+.list button .av svg{width:28px;height:28px}
+.list button.on{background:var(--primary);color:#fff}
+.list button.on .av{background:rgba(255,255,255,.2);color:#fff}
+.list button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.list button .arrow{margin-left:auto;opacity:.55}
+.list button .arrow svg{width:20px;height:20px}
+.player{position:sticky;top:calc(58px + env(safe-area-inset-top,0px));z-index:5;background:var(--surface);border-radius:20px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 14px rgba(0,0,0,.08);padding:12px 14px;margin-top:14px}
+.nowp{color:var(--primary);font-weight:700;min-height:26px;font-size:15.5px}
+audio{width:100%}
+
+/* দোয়া / হাদীস / মাসআলা */
+details{background:var(--surface);border-radius:18px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 3px 10px rgba(0,0,0,.05);margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary .n{flex:none;min-width:36px;height:36px;border-radius:12px;background:var(--chip);color:var(--primary);display:grid;place-items:center;font-size:14px;font-weight:700}
+details[open] summary{color:var(--primary);border-bottom:1px solid var(--line)}
+.body{padding:14px 18px 16px}
+.body .ar{font-family:'AlMushaf',serif;direction:rtl;text-align:right;font-size:30px;line-height:2.1;margin:0 0 8px}
+.body .har{font-family:'AlMushaf',serif;direction:rtl;text-align:right;font-size:27px;line-height:2.2;margin:0 0 10px;padding:8px 12px;background:var(--bg);border-radius:12px}
+.body p{margin:0}
+.body ul{margin:0;padding-left:20px}
+.body li{margin:7px 0}
+.meta{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.nar{font-size:15px;color:var(--muted);font-weight:600}
+.refs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{background:var(--chip);color:var(--primary);border-radius:14px;padding:2px 12px;font-size:14px;font-weight:700}
+.note{border-left:4px solid var(--accent);padding:10px 14px;background:var(--surface);border-radius:0 14px 14px 0;margin:8px 0 12px;font-size:15px;color:var(--muted);font-weight:500}
+
+/* থিম ও আরও */
+.themes{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px}
+.theme{all:unset;cursor:pointer;border:2px solid var(--line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px;font-weight:700;font-size:15.5px}
+.theme.on{border-color:var(--primary);background:var(--chip)}
+.theme:focus-visible{outline:3px solid var(--accent)}
+.sw{display:flex;height:30px;border-radius:9px;overflow:hidden}
+.sw i{flex:1}
+.about{padding:16px 18px;color:var(--muted);font-size:15.5px;font-weight:500}
+
+/* নিচের নেভিগেশন */
+.bottom{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -4px 16px rgba(0,0,0,.06)}
+.bottom button{all:unset;flex:1;cursor:pointer;text-align:center;padding:8px 2px;font-size:12.5px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px}
+.bottom button .ic{padding:4px 18px;border-radius:16px}
+.bottom button .ic svg{width:28px;height:28px}
+.bottom button:not(.on) .ic svg{opacity:.78}
+.bottom button.on{color:var(--primary);font-weight:700}
+.bottom button.on .ic{background:var(--chip)}
+.bottom button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+@media (min-width:700px){.bottom{left:50%;right:auto;width:680px;transform:translateX(-50%);border-radius:18px 18px 0 0;border:1px solid var(--line);border-bottom:0}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.appbar{direction:ltr;padding:env(safe-area-inset-top,0px) 6px 0 6px}
+.appbar h1{margin-left:4px}
+.clock{direction:ltr}
+.langmenu{position:fixed;top:calc(58px + env(safe-area-inset-top,0px));left:8px;z-index:40;background:var(--surface);color:var(--on);border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.25);padding:6px;display:none;min-width:170px}
+.langmenu.show{display:block}
+.langmenu button{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;padding:11px 16px;border-radius:10px;font-weight:600;font-size:17px}
+.langmenu button.on{background:var(--chip);color:var(--primary)}
+.langmenu button:focus-visible{outline:3px solid var(--accent)}
+[dir=rtl] .list .arrow svg{transform:scaleX(-1)}
+[dir=rtl] .note{border-left:0;border-right:4px solid var(--accent);border-radius:14px 0 0 14px}
+
+#splash{position:fixed;top:0;right:0;bottom:0;left:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 38%,#0f7a66 0%,#0a3f3a 62%,#062824 100%);color:#fff;overflow:hidden;animation:spOut .55s ease 2.4s forwards}
+#splash .sp-stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#f3d58e;opacity:0;animation:spTw 2.2s ease-in-out infinite}
+#splash .sp-logo{position:relative;width:150px;height:150px;opacity:0;animation:spLogo 1s cubic-bezier(.2,.8,.2,1) .15s forwards}
+#splash .sp-logo img{position:absolute;top:13px;left:13px;width:124px;height:124px;border-radius:50%;box-shadow:0 0 0 0 rgba(243,213,142,.5);animation:spGlow 2s ease-out .9s infinite}
+#splash .sp-ring{position:absolute;top:0;left:0;width:150px;height:150px;transform:rotate(-90deg)}
+#splash .sp-ring circle{fill:none;stroke:#f3d58e;stroke-width:2;stroke-linecap:round;stroke-dasharray:365;stroke-dashoffset:365;animation:spDraw 1.3s ease .35s forwards}
+#splash .sp-title{margin-top:26px;font-family:'Inter','Noto Sans',sans-serif;font-weight:700;font-size:30px;letter-spacing:1.5px;color:#f3d58e;opacity:0;transform:translateY(14px);animation:spUp .7s ease .9s forwards}
+#splash .sp-ar{margin-top:14px;font-family:'AlMushaf',serif;font-size:24px;line-height:1.9;direction:rtl;opacity:0;transform:translateY(14px);animation:spUp .7s ease 1.2s forwards}
+#splash .sp-sub{margin-top:10px;font-size:14px;color:#cfe7e1;opacity:0;animation:spUp .7s ease 1.5s forwards}
+@keyframes spLogo{0%{opacity:0;transform:scale(.55) rotate(-8deg)}60%{opacity:1;transform:scale(1.07) rotate(0)}100%{opacity:1;transform:scale(1)}}
+@keyframes spDraw{to{stroke-dashoffset:0}}
+@keyframes spUp{to{opacity:1;transform:translateY(0)}}
+@keyframes spGlow{0%{box-shadow:0 0 0 0 rgba(243,213,142,.5)}100%{box-shadow:0 0 0 26px rgba(243,213,142,0)}}
+@keyframes spTw{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:.9;transform:scale(1.5)}}
+@keyframes spOut{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){#splash{animation-delay:.9s}#splash *{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div id="splash" aria-hidden="true">
+  <div class="sp-stars"><i style="left:46%;top:23%;animation-delay:0.6s"></i><i style="left:11%;top:13%;animation-delay:1.3s"></i><i style="left:17%;top:50%;animation-delay:0.9s"></i><i style="left:69%;top:31%;animation-delay:0.1s"></i><i style="left:60%;top:57%;animation-delay:0.1s"></i><i style="left:16%;top:74%;animation-delay:0.7s"></i><i style="left:77%;top:19%;animation-delay:1.5s"></i><i style="left:85%;top:84%;animation-delay:0.9s"></i><i style="left:12%;top:77%;animation-delay:0.9s"></i><i style="left:11%;top:32%;animation-delay:0.1s"></i><i style="left:22%;top:41%;animation-delay:0.7s"></i><i style="left:74%;top:19%;animation-delay:0.9s"></i><i style="left:76%;top:91%;animation-delay:0.3s"></i><i style="left:79%;top:77%;animation-delay:1.0s"></i><i style="left:52%;top:16%;animation-delay:0.9s"></i><i style="left:13%;top:76%;animation-delay:0.1s"></i><i style="left:31%;top:67%;animation-delay:1.1s"></i><i style="left:59%;top:44%;animation-delay:0.7s"></i></div>
+  <div class="sp-logo"><svg class="sp-ring" viewBox="0 0 124 124"><circle cx="62" cy="62" r="58"/></svg><img src="icon-192.png" alt=""></div>
+  <div class="sp-title">Deen Islam</div>
+  <div class="sp-ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <div class="sp-sub">নামাজ · কুরআন · দোয়া · হাদীস</div>
+</div>
+<script>(function(){var e=document.getElementById('splash');if(!e)return;function r(){if(e&&e.parentNode){e.parentNode.removeChild(e);}e=null;}e.addEventListener('click',r);setTimeout(r,3200);})();</script>
+
+<header class="appbar">
+  <button class="ib" id="langBtn" aria-label="Language"><span class="ic" data-ic="globe"></span></button>
+  <button class="ib" id="back" aria-label="পিছনে"><span class="ic" data-ic="back"></span></button>
+  <h1 id="title">Deen Islam</h1>
+  <button class="ib" id="modeBtn" aria-label="ডার্ক/লাইট মোড"><span class="ic" id="modeIc"></span></button>
+</header>
+<div class="langmenu" id="langMenu"></div>
+
+<main>
+
+<!-- হোম -->
+<section class="view" id="v-home">
+  <div class="hero">
+    <div class="bism">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <div class="clock" id="clock">--:--:--</div>
+    <div class="dates"><div id="gdate"></div><div id="hdate"></div></div>
+    <div class="next">
+      <div><small data-i="next">পরবর্তী ওয়াক্ত</small><b id="nextName">লোড হচ্ছে...</b></div>
+      <div class="cd"><span id="nextCd"></span><small id="nextAt"></small></div>
+    </div>
+  </div>
+
+  <div class="card pt">
+    <div class="cardhead"><span data-i="times">নামাজের সময়সূচি</span><select id="city" aria-label="শহর বেছে নিন"></select></div>
+    <div id="times"></div>
+    <div class="err" id="terr"></div>
+    <div class="src" id="locinfo" style="padding:0 18px 12px"></div>
+  </div>
+
+  <div class="card">
+    <div class="cardhead"><span data-i="extraH">সেহরি, ইফতার ও অন্যান্য সময়</span></div>
+    <div id="extra"></div>
+  </div>
+  <p class="hint" data-i="hint1">হানাফী মাযহাব (আসর) এবং করাচি ইউনিভার্সিটি অফ ইসলামিক সায়েন্সেস পদ্ধতিতে গণনা। সেহরির শেষ সময় ফজরের ১০ মিনিট আগে ধরা হয়েছে; স্থানীয় ক্যালেন্ডারের সাথে মিলিয়ে নিন।</p>
+
+  <div class="tiles">
+    <button class="tile" data-go="quran"><span class="ic big" data-ic="quran"></span>কুরআন</button>
+    <button class="tile" data-go="tilawat"><span class="ic big" data-ic="tilawat"></span>তিলাওয়াত</button>
+    <button class="tile" data-go="dua"><span class="ic big" data-ic="dua"></span>দোয়া</button>
+    <button class="tile" data-go="hadith"><span class="ic big" data-ic="hadith"></span>হাদীস</button>
+    <button class="tile" data-go="masail"><span class="ic big" data-ic="masail"></span>মাসআলা</button>
+    <button class="tile" data-go="theme"><span class="ic big" data-ic="palette"></span>থিম</button>
+  </div>
+
+  <div class="card daily" id="daily"></div>
+</section>
+
+<!-- কুরআন -->
+<section class="view" id="v-quran">
+  <div class="bar">
+    <select id="surahSel" aria-label="সূরা বেছে নিন"></select>
+    <button class="btn" id="listenBtn" type="button"><span class="ic" data-ic="play"></span>শুনুন</button>
+  </div>
+  <div class="bar" style="padding-top:0">
+    <select id="scriptSel" aria-label="লিপিশৈলী">
+      <option value="hafezi" data-i="hafezi">হাফেজী (১৫ লাইন)</option>
+      <option value="uthmani" data-i="uthmani">উসমানী</option>
+    </select>
+    <label class="inl">অক্ষরের মাপ <input type="range" id="fs" min="24" max="56" value="34"></label>
+    <label class="inl"><input type="checkbox" id="showTr" checked> বাংলা অনুবাদ</label>
+  </div>
+  <div class="card reader hafezi" id="reader"><p class="hint" data-i="surahLoad">সূরা লোড হচ্ছে...</p></div>
+  <p class="hint" data-i="qhint">আরবি পাঠ ও অনুবাদ quran.com ও alquran.cloud থেকে নেওয়া। হাফেজী ১৫ লাইন কুরআনের লেখার রীতি (ইন্দো-পাক নাসখ) অনুসরণ করা হয়েছে।</p>
+</section>
+
+<!-- তিলাওয়াত -->
+<section class="view" id="v-tilawat">
+  <div class="player">
+    <div class="nowp" id="nowp" data-i="pick">ক্বারী ও সূরা বেছে নিন</div>
+    <select id="tSurah" aria-label="তিলাওয়াতের সূরা" style="width:100%;margin:6px 0 8px"></select>
+    <audio id="player" controls preload="none"></audio>
+  </div>
+  <p class="hint" data-i="reciter">বিখ্যাত ক্বারী বেছে নিন:</p>
+  <div class="list" id="qaris"></div>
+</section>
+
+<!-- দোয়া -->
+<section class="view" id="v-dua">
+  <input type="search" id="duaQ" placeholder="দোয়া খুঁজুন..." aria-label="দোয়া খুঁজুন">
+  <div id="duas"></div>
+</section>
+
+<!-- আরও -->
+<section class="view" id="v-more">
+  <div class="list" style="margin-top:14px">
+    <button data-go="hadith"><span class="ic av" data-ic="hadith"></span>১০০ গুরুত্বপূর্ণ হাদীস<span class="ic arrow" data-ic="chev"></span></button>
+    <button data-go="masail"><span class="ic av" data-ic="masail"></span>প্রয়োজনীয় মাসআলা<span class="ic arrow" data-ic="chev"></span></button>
+    <button data-go="theme"><span class="ic av" data-ic="palette"></span>থিম ও রঙ<span class="ic arrow" data-ic="chev"></span></button>
+  </div>
+  <div class="card about"><b style="color:var(--on)">Deen Islam</b><br><span data-i="about">নামাজের সময়, কুরআন, তিলাওয়াত, মাসনূন দোয়া, হাদীস ও মাসআলা এক অ্যাপে। আল্লাহ আমাদের সবাইকে কবুল করুন, আমীন।</span></div>
+</section>
+
+<!-- হাদীস -->
+<section class="view" id="v-hadith">
+  <input type="search" id="hadQ" placeholder="হাদীস খুঁজুন..." aria-label="হাদীস খুঁজুন">
+  <div class="note" id="noteH"></div>
+  <div id="hadiths"></div>
+</section>
+
+<!-- মাসআলা -->
+<section class="view" id="v-masail">
+  <input type="search" id="masQ" placeholder="মাসআলা খুঁজুন..." aria-label="মাসআলা খুঁজুন">
+  <div id="masailList"></div>
+  <div class="note" id="noteM"></div>
+</section>
+
+<!-- থিম -->
+<section class="view" id="v-theme">
+  <div class="card"><div class="themes" id="themes"></div></div>
+</section>
+
+</main>
+
+<nav class="bottom" aria-label="প্রধান মেনু">
+  <button data-go="home"><span class="ic" data-ic="home"></span>হোম</button>
+  <button data-go="quran"><span class="ic" data-ic="quran"></span>কুরআন</button>
+  <button data-go="tilawat"><span class="ic" data-ic="tilawat"></span>তিলাওয়াত</button>
+  <button data-go="dua"><span class="ic" data-ic="dua"></span>দোয়া</button>
+  <button data-go="more"><span class="ic" data-ic="more"></span>আরও</button>
+</nav>
+
+<script>
+const DATA = {"qaris": [{"name": "শায়খ মিশারী রাশিদ আল-আফাসী", "url": "https://server8.mp3quran.net/afs/{n}.mp3"}, {"name": "শায়খ আব্দুর রহমান আস-সুদাইস", "url": "https://server11.mp3quran.net/sds/{n}.mp3"}, {"name": "শায়খ সউদ আশ-শুরাইম", "url": "https://server7.mp3quran.net/shur/{n}.mp3"}, {"name": "শায়খ মাহের আল-মুআইক্বিলী", "url": "https://server12.mp3quran.net/maher/{n}.mp3"}, {"name": "শায়খ আব্দুল বাসিত আব্দুস সামাদ", "url": "https://server7.mp3quran.net/basit/{n}.mp3"}, {"name": "শায়খ মাহমুদ খলীল আল-হুসারী", "url": "https://server13.mp3quran.net/husr/{n}.mp3"}, {"name": "শায়খ মুহাম্মদ সিদ্দীক আল-মিনশাবী", "url": "https://server10.mp3quran.net/minsh/{n}.mp3"}], "duas": [["ঘুমানোর আগে", "اللَّهُمَّ بِاسْمِكَ أَمُوتُ وَأَحْيَا", "হে আল্লাহ! আপনার নামেই আমি মরি (ঘুমাই) এবং বাঁচি (জাগ্রত হই)।"], ["ঘুম থেকে উঠে", "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", "সকল প্রশংসা আল্লাহর, যিনি আমাদের মৃত্যুর (ঘুমের) পর জীবিত করেছেন, আর তাঁরই কাছে পুনরুত্থান।"], ["সকালের দোয়া", "اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ", "হে আল্লাহ! আপনার দয়াতেই আমরা সকাল করেছি, আপনার দয়াতেই সন্ধ্যা করেছি, আপনার দয়াতেই বাঁচি ও মরি, আর আপনারই কাছে পুনরুত্থান।"], ["সায়্যিদুল ইস্তিগফার", "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ", "হে আল্লাহ! আপনি আমার রব, আপনি ছাড়া কোনো ইলাহ নেই। আপনিই আমাকে সৃষ্টি করেছেন, আমি আপনার বান্দা। আমি যথাসাধ্য আপনার অঙ্গীকারে ও প্রতিশ্রুতিতে আছি। আমি যা করেছি তার অনিষ্ট থেকে আপনার আশ্রয় চাই। আমার উপর আপনার নিয়ামত স্বীকার করছি এবং আমার গুনাহও স্বীকার করছি। অতএব আমাকে ক্ষমা করুন, কারণ আপনি ছাড়া গুনাহ ক্ষমাকারী কেউ নেই।"], ["ওযুর পরের দোয়া", "أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ", "আমি সাক্ষ্য দিচ্ছি, আল্লাহ ছাড়া কোনো ইলাহ নেই, তিনি একক, তাঁর কোনো শরীক নেই। আর সাক্ষ্য দিচ্ছি, মুহাম্মদ ﷺ তাঁর বান্দা ও রাসূল।"], ["আযানের পরের দোয়া", "اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ", "হে আল্লাহ! এই পরিপূর্ণ আহ্বান ও প্রতিষ্ঠিত নামাজের রব! মুহাম্মদ ﷺ-কে ওসীলা ও শ্রেষ্ঠত্ব দান করুন এবং তাঁকে সেই প্রশংসিত স্থানে পৌঁছান, যার ওয়াদা আপনি তাঁকে করেছেন।"], ["মসজিদে প্রবেশের দোয়া", "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ", "হে আল্লাহ! আমার জন্য আপনার রহমতের দরজাসমূহ খুলে দিন।"], ["মসজিদ থেকে বের হওয়ার দোয়া", "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ", "হে আল্লাহ! আমি আপনার অনুগ্রহ প্রার্থনা করছি।"], ["দরুদ শরীফ (দরুদে ইবরাহীম)", "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ", "হে আল্লাহ! মুহাম্মদ ﷺ ও তাঁর পরিবারের উপর রহমত বর্ষণ করুন, যেমন ইবরাহীম (আ.) ও তাঁর পরিবারের উপর করেছেন। নিশ্চয়ই আপনি প্রশংসিত ও মহিমান্বিত। হে আল্লাহ! মুহাম্মদ ﷺ ও তাঁর পরিবারের উপর বরকত দিন, যেমন ইবরাহীম (আ.) ও তাঁর পরিবারের উপর দিয়েছেন। নিশ্চয়ই আপনি প্রশংসিত ও মহিমান্বিত।"], ["বাথরুমে প্রবেশের দোয়া", "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ", "হে আল্লাহ! আমি আপনার কাছে নাপাক জিন (পুরুষ ও নারী) থেকে আশ্রয় চাই।"], ["বাথরুম থেকে বের হয়ে", "غُفْرَانَكَ، الْحَمْدُ لِلَّهِ الَّذِي أَذْهَبَ عَنِّي الْأَذَى وَعَافَانِي", "হে আল্লাহ! আমি আপনার ক্ষমা প্রার্থনা করছি। সকল প্রশংসা আল্লাহর, যিনি আমার থেকে কষ্টদায়ক বস্তু দূর করেছেন এবং আমাকে সুস্থতা দিয়েছেন।"], ["খাওয়ার আগে", "بِسْمِ اللَّهِ", "আল্লাহর নামে (শুরু করছি)। শুরুতে বলতে ভুলে গেলে মনে পড়ামাত্র বলুন: বিসমিল্লাহি আওয়ালাহু ওয়া আখিরাহু (بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ), অর্থাৎ শুরুতে ও শেষে আল্লাহর নামে।"], ["খাওয়ার পরে", "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", "সকল প্রশংসা আল্লাহর, যিনি আমাদের খাওয়ালেন, পান করালেন এবং মুসলমান বানালেন।"], ["ইফতারের দোয়া", "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ", "পিপাসা দূর হলো, শিরা-উপশিরা সিক্ত হলো এবং ইনশাআল্লাহ সওয়াব নির্ধারিত হলো।"], ["নতুন কাপড় পরার দোয়া", "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ", "সকল প্রশংসা আল্লাহর, যিনি আমাকে এটি পরিয়েছেন এবং আমার কোনো শক্তি-সামর্থ্য ছাড়াই এটি আমাকে দান করেছেন।"], ["আয়না দেখার দোয়া", "اللَّهُمَّ أَنْتَ حَسَّنْتَ خَلْقِي فَحَسِّنْ خُلُقِي", "হে আল্লাহ! আপনি আমার আকৃতি সুন্দর করেছেন, তাই আমার চরিত্রও সুন্দর করে দিন।"], ["ঘর থেকে বের হওয়ার সময়", "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", "আল্লাহর নামে (বের হলাম), আল্লাহর উপর ভরসা করলাম; আল্লাহ ছাড়া কোনো উপায় ও শক্তি নেই।"], ["ঘরে প্রবেশের দোয়া", "بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى رَبِّنَا تَوَكَّلْنَا", "আল্লাহর নামে প্রবেশ করলাম, আল্লাহর নামে বের হলাম এবং আমাদের রবের উপরই ভরসা করলাম। (এরপর পরিবারের সদস্যদের সালাম দিন।)"], ["সালাম", "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ", "আপনাদের উপর শান্তি, আল্লাহর রহমত ও বরকত বর্ষিত হোক।"], ["সালামের উত্তর", "وَعَلَيْكُمُ السَّلَامُ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ", "আপনাদের উপরও শান্তি, আল্লাহর রহমত ও বরকত বর্ষিত হোক।"], ["হাঁচি দিলে", "الْحَمْدُ لِلَّهِ", "সকল প্রশংসা আল্লাহর। (শ্রোতা বলবে: ইয়ারহামুকাল্লাহ - আল্লাহ তোমার উপর রহম করুন। হাঁচিদাতা উত্তরে বলবে: ইয়াহদীকুমুল্লাহু ওয়া ইউসলিহু বালাকুম - আল্লাহ তোমাদের হেদায়াত দিন ও অবস্থা ভালো করুন।)"], ["সফরের দোয়া", "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ", "পবিত্র সেই সত্তা, যিনি এটিকে আমাদের বশীভূত করে দিয়েছেন, অথচ আমরা একে বশ করতে সক্ষম ছিলাম না। আর আমরা অবশ্যই আমাদের রবের কাছে ফিরে যাব।"], ["নতুন চাঁদ দেখার দোয়া", "اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْيُمْنِ وَالْإِيمَانِ وَالسَّلَامَةِ وَالْإِسْلَامِ رَبِّي وَرَبُّكَ اللَّهُ", "হে আল্লাহ! এই চাঁদকে আমাদের উপর উদিত করুন বরকত, ঈমান, নিরাপত্তা ও ইসলামের সাথে। (হে চাঁদ!) আমার ও তোমার রব আল্লাহ।"], ["বৃষ্টি দেখলে", "اللَّهُمَّ صَيِّبًا نَافِعًا", "হে আল্লাহ! একে উপকারী বৃষ্টি বানিয়ে দিন।"], ["চিন্তা ও দুশ্চিন্তায়", "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ", "হে আল্লাহ! আমি আপনার কাছে দুশ্চিন্তা ও দুঃখ থেকে আশ্রয় চাই।"], ["বিপদে পড়লে", "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ", "নিশ্চয়ই আমরা আল্লাহরই জন্য এবং নিশ্চয়ই আমরা তাঁরই কাছে ফিরে যাব।"], ["ভয় ও সংকটে ভরসা", "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ", "আল্লাহই আমাদের জন্য যথেষ্ট এবং তিনিই উত্তম কর্মবিধায়ক।"], ["বিপদ থেকে মুক্তির দোয়া (ইউনুস আ.)", "لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", "আপনি ছাড়া কোনো ইলাহ নেই, আপনি পবিত্র; নিশ্চয়ই আমি জালিমদের অন্তর্ভুক্ত ছিলাম।"], ["অসুস্থ ব্যক্তিকে দেখতে গেলে", "لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ", "কোনো ক্ষতি নেই, ইনশাআল্লাহ (এ রোগ) পবিত্রকারী।"], ["ব্যথা অনুভব করলে", "أَعُوذُ بِاللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ", "আমি যে কষ্ট অনুভব করছি ও যার আশঙ্কা করছি, তার অনিষ্ট থেকে আল্লাহ ও তাঁর কুদরতের আশ্রয় চাই। (ব্যথার জায়গায় হাত রেখে বিসমিল্লাহ ৩ বার বলে এটি ৭ বার পড়তে হয়।)"], ["ঋণমুক্তি ও হালাল রিযিক", "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ", "হে আল্লাহ! আপনার হালাল দিয়ে আমাকে হারাম থেকে বাঁচিয়ে যথেষ্ট করে দিন এবং আপনার অনুগ্রহে আপনি ছাড়া অন্যদের থেকে আমাকে অমুখাপেক্ষী করে দিন।"], ["কবর যিয়ারতের দোয়া", "السَّلَامُ عَلَيْكُمْ أَهْلَ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَاحِقُونَ", "হে মুমিন ও মুসলিম কবরবাসীরা! তোমাদের উপর শান্তি বর্ষিত হোক। ইনশাআল্লাহ আমরাও তোমাদের সাথে মিলিত হব।"], ["ঈমানের দৃঢ়তার দোয়া", "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ", "হে অন্তরসমূহের পরিবর্তনকারী! আমার অন্তরকে আপনার দ্বীনের উপর দৃঢ় রাখুন।"], ["ইলম বৃদ্ধির দোয়া", "رَبِّ زِدْنِي عِلْمًا", "হে আমার রব! আমার জ্ঞান বৃদ্ধি করে দিন।"], ["পিতামাতার জন্য দোয়া", "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا", "হে আমার রব! তাঁদের উভয়ের প্রতি দয়া করুন, যেমন তাঁরা শৈশবে আমাকে লালন-পালন করেছেন।"], ["সন্তান ও পরিবারের জন্য দোয়া", "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا", "হে আমাদের রব! আমাদের স্ত্রী ও সন্তানদের পক্ষ থেকে আমাদের চোখের শীতলতা দান করুন এবং আমাদের মুত্তাকীদের নেতা বানিয়ে দিন।"], ["বিবাহিতদের জন্য দোয়া", "بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ", "আল্লাহ তোমাকে বরকত দিন, তোমার উপর বরকত বর্ষণ করুন এবং কল্যাণের মধ্যে তোমাদের দুজনকে একত্র রাখুন।"], ["ক্ষমা প্রার্থনার দোয়া (আদম আ.)", "رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ", "হে আমাদের রব! আমরা নিজেদের উপর জুলুম করেছি। আপনি যদি আমাদের ক্ষমা না করেন ও দয়া না করেন, তাহলে আমরা অবশ্যই ক্ষতিগ্রস্তদের অন্তর্ভুক্ত হব।"], ["হেদায়াতের উপর অটল থাকার দোয়া", "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ", "হে আমাদের রব! হেদায়াত দেওয়ার পর আমাদের অন্তরকে বক্র করবেন না এবং আপনার পক্ষ থেকে আমাদের রহমত দান করুন। নিশ্চয়ই আপনি মহাদাতা।"], ["দুনিয়া ও আখিরাতের কল্যাণ", "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ", "হে আমাদের রব! আমাদের দুনিয়াতে কল্যাণ দিন, আখিরাতেও কল্যাণ দিন এবং আমাদের জাহান্নামের আযাব থেকে রক্ষা করুন।"], ["সন্ধ্যার দোয়া", "اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ الْمَصِيرُ", "হে আল্লাহ! আপনার দয়াতেই আমরা সন্ধ্যা করেছি, আপনার দয়াতেই সকাল করেছি, আপনার দয়াতেই বাঁচি ও মরি, আর আপনারই কাছে প্রত্যাবর্তন।"], ["ওযুর পরে (তাওবাকারী ও পবিত্রদের দোয়া)", "اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ", "হে আল্লাহ! আমাকে তাওবাকারীদের অন্তর্ভুক্ত করুন এবং পবিত্রতা অর্জনকারীদের অন্তর্ভুক্ত করুন।"], ["আযানের জবাব", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ", "মুয়াযযিন যা বলেন, শ্রোতাও তা-ই বলবে। কেবল ‘হাইয়্যা আলাস সালাহ’ ও ‘হাইয়্যা আলাল ফালাহ’-এর জবাবে বলবে: আল্লাহ ছাড়া কোনো উপায় ও শক্তি নেই।"], ["নামাজের সানা", "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلَا إِلَهَ غَيْرُكَ", "হে আল্লাহ! আপনি পবিত্র, আপনার প্রশংসা করছি; আপনার নাম বরকতময়, আপনার মর্যাদা সুউচ্চ, আর আপনি ছাড়া কোনো ইলাহ নেই।"], ["রুকু ও সিজদার তাসবীহ", "سُبْحَانَ رَبِّيَ الْعَظِيمِ ... سُبْحَانَ رَبِّيَ الْأَعْلَى", "রুকুতে ‘সুবহানা রাব্বিয়াল আযীম’ (আমার মহান রব পবিত্র) এবং সিজদায় ‘সুবহানা রাব্বিয়াল আ‘লা’ (আমার সর্বোচ্চ রব পবিত্র) — প্রতিটি কমপক্ষে তিনবার।"], ["তাশাহহুদ (আত্তাহিয়্যাতু)", "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ", "সকল সম্মান, ইবাদত ও পবিত্রতা আল্লাহর জন্য। হে নবী! আপনার উপর শান্তি এবং আল্লাহর রহমত ও বরকত বর্ষিত হোক। আমাদের উপর এবং আল্লাহর নেক বান্দাদের উপর শান্তি বর্ষিত হোক। আমি সাক্ষ্য দিচ্ছি, আল্লাহ ছাড়া কোনো ইলাহ নেই, আর সাক্ষ্য দিচ্ছি, মুহাম্মদ ﷺ তাঁর বান্দা ও রাসূল। (হানাফী মাযহাবে ইবনে মাসউদ (রা.) বর্ণিত তাশাহহুদ।)"], ["দোয়া মাসূরা (শেষ বৈঠকে)", "اللَّهُمَّ إِنِّي ظَلَمْتُ نَفْسِي ظُلْمًا كَثِيرًا وَلَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ فَاغْفِرْ لِي مَغْفِرَةً مِنْ عِنْدِكَ وَارْحَمْنِي إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ", "হে আল্লাহ! আমি নিজের উপর অনেক জুলুম করেছি, আর আপনি ছাড়া গুনাহ ক্ষমা করার কেউ নেই। তাই আপনার পক্ষ থেকে আমাকে ক্ষমা করুন এবং আমার প্রতি দয়া করুন। নিশ্চয়ই আপনি ক্ষমাশীল, পরম দয়ালু।"], ["দোয়া কুনূত (বিতর নামাজে)", "اللَّهُمَّ إِنَّا نَسْتَعِينُكَ وَنَسْتَغْفِرُكَ وَنُؤْمِنُ بِكَ وَنَتَوَكَّلُ عَلَيْكَ وَنُثْنِي عَلَيْكَ الْخَيْرَ وَنَشْكُرُكَ وَلَا نَكْفُرُكَ وَنَخْلَعُ وَنَتْرُكُ مَنْ يَفْجُرُكَ. اللَّهُمَّ إِيَّاكَ نَعْبُدُ وَلَكَ نُصَلِّي وَنَسْجُدُ وَإِلَيْكَ نَسْعَى وَنَحْفِدُ وَنَرْجُو رَحْمَتَكَ وَنَخْشَى عَذَابَكَ إِنَّ عَذَابَكَ بِالْكُفَّارِ مُلْحِقٌ", "হে আল্লাহ! আমরা আপনার সাহায্য চাই, ক্ষমা চাই, আপনার উপর ঈমান আনি, ভরসা করি এবং উত্তমভাবে আপনার প্রশংসা করি। আমরা আপনার শুকরিয়া আদায় করি, নাশুকরি করি না; যে আপনার অবাধ্য হয় তাকে ত্যাগ করি ও পরিহার করি। হে আল্লাহ! আমরা শুধু আপনারই ইবাদত করি, আপনারই জন্য নামাজ পড়ি ও সিজদা করি, আপনার দিকেই দৌড়াই ও অগ্রসর হই। আমরা আপনার রহমতের আশা করি এবং আপনার আযাবকে ভয় করি। নিশ্চয়ই আপনার আযাব কাফিরদের উপর পতিত হবে।"], ["জানাযার দোয়া (প্রাপ্তবয়স্কদের জন্য)", "اللَّهُمَّ اغْفِرْ لِحَيِّنَا وَمَيِّتِنَا وَشَاهِدِنَا وَغَائِبِنَا وَصَغِيرِنَا وَكَبِيرِنَا وَذَكَرِنَا وَأُنْثَانَا. اللَّهُمَّ مَنْ أَحْيَيْتَهُ مِنَّا فَأَحْيِهِ عَلَى الْإِسْلَامِ وَمَنْ تَوَفَّيْتَهُ مِنَّا فَتَوَفَّهُ عَلَى الْإِيمَانِ", "হে আল্লাহ! আমাদের জীবিত ও মৃত, উপস্থিত ও অনুপস্থিত, ছোট ও বড়, পুরুষ ও নারী সবাইকে ক্ষমা করুন। হে আল্লাহ! আমাদের মধ্যে যাকে আপনি জীবিত রাখেন তাকে ইসলামের উপর জীবিত রাখুন, আর যাকে মৃত্যু দেন তাকে ঈমানের সাথে মৃত্যু দিন।"], ["জানাযার দোয়া (নাবালেগ ছেলের জন্য)", "اللَّهُمَّ اجْعَلْهُ لَنَا فَرَطًا وَاجْعَلْهُ لَنَا أَجْرًا وَذُخْرًا وَاجْعَلْهُ لَنَا شَافِعًا وَمُشَفَّعًا", "হে আল্লাহ! তাকে আমাদের জন্য অগ্রগামী বানিয়ে দিন, তাকে আমাদের জন্য প্রতিদান ও সঞ্চয় বানিয়ে দিন এবং তাকে আমাদের জন্য সুপারিশকারী বানিয়ে দিন, যার সুপারিশ কবুল করা হবে। (নাবালেগ মেয়ে হলে ‘اجْعَلْهَا’ এবং ‘شَافِعَةً وَمُشَفَّعَةً’ বলতে হয়।)"], ["তাকবীরে তাশরীক", "اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ لَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ وَلِلَّهِ الْحَمْدُ", "আল্লাহ সবচেয়ে বড়, আল্লাহ সবচেয়ে বড়; আল্লাহ ছাড়া কোনো ইলাহ নেই; আল্লাহ সবচেয়ে বড়, আল্লাহ সবচেয়ে বড়, আর সকল প্রশংসা আল্লাহরই। (৯ জিলহজ ফজর থেকে ১৩ জিলহজ আসর পর্যন্ত প্রতি ফরজ নামাজের পর একবার।)"], ["ইফতারের আগের দোয়া (প্রচলিত)", "اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ", "হে আল্লাহ! আমি আপনার জন্যই রোজা রেখেছি এবং আপনার দেওয়া রিযিক দিয়েই ইফতার করছি। (এই দোয়ার সনদ দুর্বল; তবে অর্থ সঠিক এবং আলেমদের মাঝে প্রচলিত। সহীহ সনদে প্রমাণিত দোয়া ইফতারের পরের ‘যাহাবায যামাউ…’।)"]], "masail": [["ওযুর ফরজ (৪টি)", ["সম্পূর্ণ মুখমণ্ডল একবার ধোয়া (কপালের চুল গজানোর স্থান থেকে থুতনির নিচ পর্যন্ত, এক কানের লতি থেকে আরেক কানের লতি পর্যন্ত)", "কনুইসহ দুই হাত ধোয়া", "মাথার এক-চতুর্থাংশ মাসেহ করা", "টাখনুসহ দুই পা ধোয়া"]], ["ওযুর সুন্নত", ["ওযুর নিয়ত করা এবং বিসমিল্লাহ বলা", "দুই হাত কব্জি পর্যন্ত ধোয়া", "মিসওয়াক করা", "তিনবার কুলি করা ও নাকে পানি দেওয়া", "দাড়ি ও হাত-পায়ের আঙুল খিলাল করা", "প্রতিটি অঙ্গ তিনবার করে ধোয়া", "পুরো মাথা এবং দুই কান মাসেহ করা", "ডান দিক থেকে শুরু করা এবং ধারাবাহিকতা (তারতীব) বজায় রেখে বিরতিহীনভাবে ওযু করা"]], ["ওযু ভঙ্গের কারণ", ["পায়খানা-প্রস্রাবের রাস্তা দিয়ে কিছু বের হওয়া", "শরীর থেকে রক্ত বা পুঁজ বের হয়ে গড়িয়ে পড়া (শুধু দাগ বা ফোঁটা হলে ওযু ভাঙে না)", "মুখ ভরে বমি হওয়া", "শুয়ে বা হেলান দিয়ে ঘুমিয়ে পড়া (বসে বা দাঁড়িয়ে ঘুমালে ওযু ভাঙে না)", "অজ্ঞান বা নেশাগ্রস্ত হওয়া", "রুকু-সিজদাসহ নামাজে উচ্চস্বরে হাসা", "স্ত্রীকে বা অন্য কাউকে স্পর্শ করলে এবং নিজের লজ্জাস্থান স্পর্শ করলে ওযু ভাঙে না (হানাফী মাযহাব)"]], ["তায়াম্মুমের মাসআলা", ["আশপাশে এক মাইল (প্রায় ১.৬ কিমি)-এর মধ্যে পানি না পাওয়া গেলে বা পানি ব্যবহারে অসুস্থতা বেড়ে যাওয়ার আশঙ্কা থাকলে তায়াম্মুম করা যায়", "ফরজ ৩টি: নিয়ত করা, দুই হাত মাটিতে মেরে মুখমণ্ডল মাসেহ করা, আবার হাত মেরে কনুইসহ দুই হাত মাসেহ করা", "যেসব কারণে ওযু ভাঙে, সেসব কারণে তায়াম্মুমও ভাঙে; পানি পাওয়া গেলেও তায়াম্মুম ভেঙে যায়", "পাক মাটি ও মাটি-জাতীয় বস্তু (বালু, পাথর, ইট, চুনা ইত্যাদি) দিয়ে তায়াম্মুম জায়েজ; যা পুড়ে ছাই হয় বা গলে যায় (কাঠ, ধাতু, কাচ) তা দিয়ে নয় (হানাফী মাযহাব)"]], ["গোসলের ফরজ (৩টি)", ["কুলি করা (মুখের ভেতরের সব জায়গায় পানি পৌঁছানো)", "নাকের নরম অংশ পর্যন্ত পানি পৌঁছানো", "সারা শরীরে এক চুল পরিমাণ জায়গাও বাদ না রেখে পানি পৌঁছানো", "বীর্যপাত (ঘুমের মধ্যে হলে ভেজা বা চিহ্ন পাওয়া গেলে), সহবাস (বীর্যপাত না হলেও) এবং হায়েয-নেফাস শেষ হলে গোসল ফরজ হয়"]], ["ইস্তিঞ্জার আদব", ["প্রস্রাব-পায়খানার সময় কিবলার দিকে মুখ বা পিঠ করে বসা মাকরূহে তাহরীমী (নিষিদ্ধ)", "ডান হাত দিয়ে ইস্তিঞ্জা করবেন না, বাম হাত ব্যবহার করুন", "বাথরুমে বাম পা দিয়ে প্রবেশ করুন এবং ডান পা দিয়ে বের হন", "পানি বা ঢিলা-কুলুখ দিয়ে পবিত্রতা অর্জন করুন"]], ["নামাজের ফরজ (১৩টি)", ["নামাজের বাইরে ৭টি: শরীর পাক, কাপড় পাক, জায়গা পাক, সতর ঢাকা, কিবলামুখী হওয়া, ওয়াক্ত হওয়া, নিয়ত করা", "নামাজের ভেতরে ৬টি: তাকবীরে তাহরীমা, কিয়াম (দাঁড়ানো), কিরাত পড়া, রুকু, সিজদা, শেষ বৈঠক"]], ["নামাজের ওয়াজিব", ["সূরা ফাতিহা পড়া এবং এর সাথে অন্য সূরা বা আয়াত মেলানো", "ফরজের প্রথম দুই রাকআতে ফাতিহার সাথে সূরা মেলানো; আর বিতর, সুন্নত ও নফলের প্রতি রাকআতে ফাতিহা ও সূরা পড়া", "রুকু-সিজদাসহ রুকনসমূহ ধীরস্থিরভাবে আদায় করা (তা'দীলে আরকান), রুকু থেকে সোজা হয়ে দাঁড়ানো (কওমা) এবং দুই সিজদার মাঝে সোজা হয়ে বসা (জলসা)", "তিন বা চার রাকআতের নামাজে প্রথম বৈঠকে বসা এবং দুই বৈঠকেই তাশাহহুদ পড়া", "বিতরের তৃতীয় রাকআতে তাকবীর বলে দোয়া কুনূত পড়া", "‘আস-সালাম’ শব্দ বলে নামাজ শেষ করা", "দুই ঈদের নামাজে অতিরিক্ত ছয় তাকবীর বলা", "ইমামের জন্য ফজর, মাগরিব, এশা, জুমা ও ঈদের নামাজে কিরাত জোরে এবং যোহর-আসরে আস্তে পড়া"]], ["ওয়াক্তভিত্তিক রাকআত সংখ্যা", ["ফজর: ২ রাকআত সুন্নতে মুয়াক্কাদা (অত্যন্ত গুরুত্বপূর্ণ), ২ রাকআত ফরজ", "যোহর: ৪ সুন্নতে মুয়াক্কাদা, ৪ ফরজ, ২ সুন্নতে মুয়াক্কাদা, ২ নফল", "আসর: ৪ ফরজ (আগে ৪ রাকআত সুন্নতে গায়রে মুয়াক্কাদা)", "মাগরিব: ৩ ফরজ, ২ সুন্নতে মুয়াক্কাদা, ২ নফল", "এশা: ৪ সুন্নতে গায়রে মুয়াক্কাদা (আগে), ৪ ফরজ, ২ সুন্নতে মুয়াক্কাদা, ২ নফল, ৩ বিতর (ওয়াজিব), ২ নফল"]], ["নামাজ ভঙ্গের কারণ", ["নামাজের মধ্যে কথা বলা বা সালাম দেওয়া", "ইচ্ছায় বা ভুলে কিছু খাওয়া বা পান করা", "বুক কিবলা থেকে ঘুরে যাওয়া", "ওযু ভেঙে যাওয়া", "উচ্চস্বরে হাসা", "দুনিয়াবি কারণে উহ্-আহ্ করে কাঁদা", "অপ্রয়োজনীয় অনেক নড়াচড়া (আমলে কাসীর) করা", "ইচ্ছাকৃতভাবে সতর খুলে যাওয়া বা দীর্ঘক্ষণ খোলা থাকা", "দেখে কুরআন পড়া (ইমাম আবু হানীফা (রহ.)-এর মতে)", "অন্যের সালামের জবাব দেওয়া বা হাঁচির জবাবে ‘ইয়ারহামুকাল্লাহ’ বলা"]], ["নামাজ পড়া নিষিদ্ধ সময়", ["সূর্যোদয়ের সময় (সূর্য পুরোপুরি উঠে যাওয়া পর্যন্ত, প্রায় ১৫-২০ মিনিট)", "ঠিক দুপুরে সূর্য মাথার উপর থাকার সময় (যাওয়ালের আগ মুহূর্ত পর্যন্ত)", "সূর্যাস্তের সময় (সূর্য ডুবতে শুরু করা থেকে অস্ত যাওয়া পর্যন্ত) — তবে সেদিনের আসর তখনো পড়া না হলে তা পড়ে নিতে হবে", "এই তিন সময়ে ফরজের কাযা ও নফল নামাজ জায়েজ নয়", "ফজরের ফরজের পর সূর্যোদয় পর্যন্ত এবং আসরের পর সূর্যাস্ত পর্যন্ত নফল নামাজ মাকরূহ (কাযা ও ফরজ পড়া যায়)"]], ["সিজদায়ে সাহু", ["নামাজের কোনো ওয়াজিব ভুলে ছুটে গেলে সিজদায়ে সাহু ওয়াজিব হয়", "পদ্ধতি: শেষ বৈঠকে তাশাহহুদ পড়ার পর এক দিকে সালাম ফিরিয়ে দুইটি সিজদা করুন", "এরপর আবার তাশাহহুদ, দরুদ ও দোয়া পড়ে সালাম ফিরিয়ে নামাজ শেষ করুন", "ইচ্ছাকৃতভাবে ওয়াজিব ছেড়ে দিলে সিজদায়ে সাহু যথেষ্ট নয়; নামাজ পুনরায় পড়া ওয়াজিব", "কোনো ফরজ ছুটে গেলে সিজদায়ে সাহুতে নামাজ আদায় হয় না; পুনরায় পড়তে হয়"]], ["কাযা নামাজ", ["ফরজ ও বিতরের নামাজ কোনো কারণে ছুটে গেলে স্মরণ হওয়ার সাথে সাথে কাযা করা উচিত", "ইচ্ছাকৃতভাবে নামাজ ছাড়া কবীরা গুনাহ; কাযা আদায়ের পাশাপাশি তাওবা করতে হবে", "ফজরের কাযা সূর্যোদয়ের পর পড়তে হয় (নিষিদ্ধ সময় পার হওয়ার পর)"]], ["মুসাফিরের নামাজ (কসর)", ["হানাফী মাযহাবে সফরে কসর করা ওয়াজিব (ঐচ্ছিক নয়)", "প্রায় ৪৮ মাইল (প্রায় ৭৭ কিলোমিটার) বা এর বেশি দূরত্বের সফরের নিয়তে নিজ এলাকার সীমা পার হলে চার রাকআত ফরজ নামাজ দুই রাকআত পড়তে হয়", "কোথাও ১৫ দিন বা এর বেশি থাকার নিয়ত করলে পূর্ণ নামাজ পড়তে হবে", "ফজর, মাগরিব ও বিতরে কসর নেই"]], ["জুমার নামাজ", ["জুমার নামাজ ফরজে আইন; মুকীম, সুস্থ, প্রাপ্তবয়স্ক, স্বাধীন পুরুষের উপর। নারী, মুসাফির, অসুস্থ ও নাবালেগের উপর ফরজ নয়", "জুমা শুদ্ধ হওয়ার শর্ত: শহর বা বড় জনপদ, যোহরের ওয়াক্ত, খুতবা, জামাত (ইমাম ছাড়া কমপক্ষে ৩ জন মুক্তাদি — ইমাম আবু হানীফা (রহ.)-এর মত) এবং সর্বসাধারণের জন্য উন্মুক্ত অনুমতি", "খুতবা মনোযোগ দিয়ে শোনা ওয়াজিব; খুতবার সময় কথা বলা বা নামাজ পড়া নিষেধ", "মোট ১২ রাকআত: ৪ সুন্নতে মুয়াক্কাদা, ২ ফরজ, ৪ সুন্নতে মুয়াক্কাদা, ২ সুন্নত", "জুমার দিন গোসল করা, পরিষ্কার পোশাক পরা, সুগন্ধি ব্যবহার করা এবং আগে মসজিদে যাওয়া সুন্নত"]], ["ঈদের নামাজ", ["ঈদুল ফিতর ও ঈদুল আযহার নামাজ ওয়াজিব; এতে আযান-ইকামত নেই", "দুই রাকআত; প্রথম রাকআতে সানার পর তিন তাকবীর, দ্বিতীয় রাকআতে কিরাতের পর রুকুর আগে তিন তাকবীর (মোট ছয় অতিরিক্ত তাকবীর)", "নামাজের পর খুতবা দেওয়া সুন্নত; তা মনোযোগ দিয়ে শোনা ওয়াজিব", "ঈদুল ফিতরে নামাজের আগে কিছু খেয়ে যাওয়া এবং ঈদুল আযহায় নামাজের পর খাওয়া সুন্নত", "৯ জিলহজ ফজর থেকে ১৩ জিলহজ আসর পর্যন্ত (২৩ ওয়াক্ত) প্রতি ফরজ নামাজের পর একবার তাকবীরে তাশরীক বলা ওয়াজিব (সাহেবাইনের মত, যার উপর ফতোয়া)"]], ["জানাযার নামাজ", ["জানাযার নামাজ ফরজে কিফায়া; কিছু লোক আদায় করলে সবার পক্ষ থেকে আদায় হয়ে যায়", "নামাজ দাঁড়িয়ে পড়তে হয়; এতে রুকু-সিজদা নেই", "ফরজ ২টি: চার তাকবীর ও কিয়াম (দাঁড়ানো); সুন্নত ৩টি: সানা, দরুদ ও মাইয়্যেতের জন্য দোয়া", "চার তাকবীর: ১ম তাকবীরের পর সানা, ২য় তাকবীরের পর দরুদ, ৩য় তাকবীরের পর মাইয়্যেতের জন্য দোয়া, ৪র্থ তাকবীরের পর সালাম", "হানাফী মাযহাবে শুধু প্রথম তাকবীরে হাত কান পর্যন্ত তুলে বাঁধতে হয়; পরের তাকবীরগুলোতে হাত তোলা হয় না"]], ["জামাতের মাসআলা", ["পুরুষদের জন্য ফরজ নামাজ মসজিদে জামাতের সাথে আদায় করা সুন্নতে মুয়াক্কাদা (ওয়াজিবের কাছাকাছি)", "কাতার সোজা করা এবং ফাঁক পূরণ করা জরুরি", "ইমামের আগে রুকু-সিজদা করা যাবে না", "ইমামের পেছনে মুক্তাদি সূরা ফাতিহা বা অন্য কিরাত পড়বে না (হানাফী মাযহাব অনুযায়ী)"]], ["কুরআন তিলাওয়াতের আদব", ["কুরআন স্পর্শ করতে ওযু থাকা জরুরি; তবে মুখস্থ ওযু ছাড়া পড়া জায়েজ", "গোসল ফরজ অবস্থায় এবং হায়েয-নেফাসের সময় কুরআন তিলাওয়াত করা যায় না", "তারতীলের সাথে ধীরে ও সুন্দরভাবে পড়া সুন্নত", "কুরআন শরীফ উঁচু স্থানে ও সম্মানের সাথে রাখতে হয়"]], ["রোজার মাসআলা", ["সুবহে সাদিক থেকে সূর্যাস্ত পর্যন্ত নিয়তসহ পানাহার ও স্ত্রী-সহবাস থেকে বিরত থাকা রোজা", "ভুলে পানাহার করলে রোজা ভাঙে না", "রমজানের রোজা ওজর ছাড়া ইচ্ছাকৃত পানাহার বা সহবাসে ভেঙে ফেললে কাযা ও কাফফারা দুটোই ওয়াজিব (হানাফী মত)", "কাফফারা: দাসমুক্তি (বর্তমানে সম্ভব নয়); না পারলে একটানা ৬০টি রোজা (মাঝে একদিন ভাঙলে আবার প্রথম থেকে শুরু), তাও সম্ভব না হলে ৬০ জন মিসকীনকে দুই বেলা পেট ভরে খাওয়ানো", "রমজানে সফর বা অসুস্থতায় রোজা না রাখলে পরে কাযা করতে হয়"]], ["ফিতরার মাসআলা", ["ঈদুল ফিতরের দিন সুবহে সাদিক হলে নিসাবের মালিক ব্যক্তির উপর নিজের এবং নাবালেগ সন্তানদের (যাদের নিজের সম্পদ নেই) পক্ষ থেকে সদকাতুল ফিতর ওয়াজিব; স্ত্রীর ও প্রাপ্তবয়স্ক সন্তানের পক্ষ থেকে ওয়াজিব নয়", "পরিমাণ: গম বা আটা অর্ধ সা' (প্রায় ১ কেজি ৬৫০ গ্রাম); যব, খেজুর বা কিশমিশ এক সা' (প্রায় ৩ কেজি ৩০০ গ্রাম); অথবা এর সমপরিমাণ মূল্য (প্রতি বছরের নির্ধারিত হার স্থানীয় আলেম বা ইসলামিক ফাউন্ডেশন থেকে জেনে নিন)", "ঈদের নামাজের আগেই আদায় করা উত্তম; ঈদের আগেও আদায় করা যায়", "যাকাতের খাতগুলোতেই ফিতরা দিতে হয়"]], ["যাকাতের মাসআলা", ["সাড়ে সাত ভরি (প্রায় ৮৭.৪৮ গ্রাম) স্বর্ণ বা সাড়ে বাহান্ন ভরি (প্রায় ৬১২.৩৬ গ্রাম) রুপা বা এর সমমূল্যের সম্পদ এক বছর থাকলে মোট সম্পদের ২.৫% (চল্লিশ ভাগের এক ভাগ) যাকাত দিতে হয়", "প্রয়োজনের অতিরিক্ত এবং ঋণমুক্ত সম্পদের উপর যাকাত ফরজ", "স্বর্ণ, রুপা, নগদ টাকা ও ব্যবসার পণ্য একত্রে হিসাব করা হয়; নগদ ও ব্যবসার সম্পদে সাধারণত রুপার নিসাব (সাড়ে বাহান্ন ভরি) ধরা হয়, কারণ তাতে গরিবের উপকার বেশি", "যাকাতের হকদার (হানাফী মতে ৭টি খাত): ফকীর, মিসকীন, ঋণগ্রস্ত, মুসাফির, যাকাত আদায়কারী কর্মী, দাসমুক্তি ও আল্লাহর পথে (নওমুসলিমদের অংশ হানাফী মতে রহিত)", "যাকাত আদায় হতে হলে হকদারকে মালিক বানিয়ে দিতে হয়; মসজিদ-মাদ্রাসা নির্মাণ বা মৃতের কাফন-দাফনে সরাসরি যাকাত দেওয়া যায় না", "নিজের পিতামাতা, দাদা-দাদি, সন্তান, নাতি-নাতনি ও স্বামী-স্ত্রীকে যাকাত দেওয়া যায় না; বনু হাশিম বংশের (সায়্যিদ) লোকদেরও দেওয়া যায় না"]], ["কুরবানীর মাসআলা", ["নিসাবের মালিক (প্রয়োজনের অতিরিক্ত সাড়ে বাহান্ন ভরি রুপার সমমূল্যের সম্পদ) মুকীম ব্যক্তির উপর কুরবানী ওয়াজিব; এজন্য বছর পূর্ণ হওয়া শর্ত নয়", "সময়: জিলহজের ১০, ১১ ও ১২ তারিখ সূর্যাস্তের আগ পর্যন্ত; শহরে ঈদের নামাজের পর, আর যেখানে ঈদের জামাত নেই সেখানে ১০ তারিখ সুবহে সাদিকের পর থেকে", "ছাগল, ভেড়া বা দুম্বা একজনের পক্ষ থেকে; গরু, মহিষ বা উট সাত জন পর্যন্ত শরীক হতে পারে (সবার নিয়ত সওয়াবের হতে হবে)", "বয়স: ছাগল ১ বছর, ভেড়া-দুম্বা ১ বছর (৬ মাসের হলেও দেখতে এক বছরের মতো হলে চলবে), গরু-মহিষ ২ বছর, উট ৫ বছর", "পশু ত্রুটিমুক্ত হতে হবে (অন্ধ, খুব রোগা, খোঁড়া, এক-তৃতীয়াংশের বেশি কান বা লেজ কাটা নয়)", "গোশত তিন ভাগ করা মুস্তাহাব: নিজের, আত্মীয়-স্বজনের ও গরিবদের; চামড়া বা এর মূল্য সদকা করতে হয়"]], ["হজের মাসআলা", ["সামর্থ্যবান মুসলিমের উপর জীবনে একবার হজ ফরজ", "হজের ফরজ ৩টি: ইহরাম বাঁধা, আরাফাতের ময়দানে অবস্থান (উকূফে আরাফা) এবং তাওয়াফে যিয়ারত", "উমরা সুন্নতে মুয়াক্কাদা", "হজের ওয়াজিব: মুযদালিফায় অবস্থান, সাফা-মারওয়ায় সাঈ, জামরায় কংকর নিক্ষেপ, তামাত্তু ও ক্বিরান হজে কুরবানী, মাথা মুণ্ডানো বা চুল ছাঁটা এবং (বাইরে থেকে আগতদের জন্য) তাওয়াফে বিদা"]], ["নারীদের বিশেষ মাসআলা", ["হায়েয ও নেফাস অবস্থায় নামাজ-রোজা মাফ; নামাজের কাযা নেই, তবে রোজার কাযা করতে হয়", "এ অবস্থায় কুরআন তিলাওয়াত ও মসজিদে প্রবেশ করা যাবে না", "হায়েয-নেফাস শেষ হলে গোসল করে পাক হওয়ার পর নামাজ শুরু করতে হবে", "নামাজে নারীর সতর: মুখমণ্ডল, দুই হাতের কব্জি পর্যন্ত এবং (হানাফী মতে) দুই পা ছাড়া পুরো শরীর", "হায়েযের সর্বনিম্ন সময় ৩ দিন, সর্বোচ্চ ১০ দিন; নেফাসের সর্বোচ্চ সময় ৪০ দিন; দুই হায়েযের মাঝে পবিত্রতার সর্বনিম্ন সময় ১৫ দিন (হানাফী মাযহাব)"]], ["লেনদেন ও হালাল-হারাম", ["সুদ নেওয়া ও দেওয়া উভয়ই হারাম", "ঘুষ দেওয়া ও নেওয়া হারাম", "ওজনে বা মাপে কম দেওয়া এবং পণ্যের দোষ গোপন করা হারাম", "মিথ্যা বলে বা ধোঁকা দিয়ে বিক্রি করা নিষিদ্ধ", "ওয়াদা পূরণ করা এবং আমানত ফেরত দেওয়া ওয়াজিব"]], ["নামাজের পদ্ধতি (হানাফী মাযহাব)", ["তাকবীরে তাহরীমার সময় পুরুষ দুই হাত কান পর্যন্ত তুলবে, নারী কাঁধ পর্যন্ত", "পুরুষ নাভির নিচে হাত বাঁধবে, নারী বুকের উপর", "সানা, আউযুবিল্লাহ, বিসমিল্লাহ ও ‘আমীন’ আস্তে বলা হয়", "রুকু ও সিজদায় তাসবীহ কমপক্ষে তিনবার পড়া সুন্নত", "তাকবীরে তাহরীমা ছাড়া রুকুর আগে-পরে হাত তোলা হয় না (রাফউল ইয়াদাইন নেই)", "রুকু থেকে ওঠার সময় ইমাম ‘সামিআল্লাহু লিমান হামিদাহ’, মুক্তাদি ‘রাব্বানা লাকাল হামদ’ বলবে; একাকী নামাজে উভয়টি বলবে"]], ["বিতরের নামাজ", ["বিতর ওয়াজিব; এশার পর থেকে সুবহে সাদিকের আগ পর্যন্ত এর ওয়াক্ত", "৩ রাকআত এক সালামে পড়তে হয়; দ্বিতীয় রাকআতে বসে শুধু আত্তাহিয়্যাতু পড়ে তৃতীয় রাকআতের জন্য দাঁড়াতে হয়", "তৃতীয় রাকআতে সূরার পর ‘আল্লাহু আকবার’ বলে হাত কান পর্যন্ত তুলে আবার বেঁধে রুকুর আগে দোয়া কুনূত পড়তে হয়", "ভুলে দোয়া কুনূত ছুটে গেলে সিজদায়ে সাহু ওয়াজিব"]], ["তারাবীহের নামাজ", ["রমজানে এশার পর বিতরের আগে ২০ রাকআত তারাবীহ সুন্নতে মুয়াক্কাদা (পুরুষ-নারী উভয়ের জন্য)", "প্রতি দুই রাকআতে সালাম ফিরানো উত্তম", "জামাতে পড়া সুন্নতে কিফায়া; রমজানে একবার কুরআন খতম করা সুন্নত"]], ["সিজদায়ে তিলাওয়াত", ["কুরআনে ১৪টি সিজদার আয়াত আছে; তা পড়লে বা শুনলে সিজদায়ে তিলাওয়াত ওয়াজিব", "পদ্ধতি: ‘আল্লাহু আকবার’ বলে সিজদায় গিয়ে তিনবার ‘সুবহানা রাব্বিয়াল আ‘লা’ পড়ে ‘আল্লাহু আকবার’ বলে উঠে যাওয়া; এতে তাশাহহুদ ও সালাম নেই", "ওযু থাকা ও কিবলামুখী হওয়া শর্ত"]], ["নামাজ ত্যাগের বিধান", ["ফরজ নামাজকে ফরজ বলে অস্বীকার করলে ঈমান থাকে না", "অস্বীকার না করে অলসতাবশত নামাজ ছাড়লে কাফির হয় না, তবে কবীরা গুনাহগার হয়; কাযা আদায় ও তাওবা জরুরি", "নামাজ ত্যাগ সম্পর্কিত হাদীসগুলো কঠোর সতর্কবাণী; হানাফী আলেমগণ এগুলোর এই ব্যাখ্যাই করেছেন"]]], "hadith": [["নিয়তের গুরুত্ব", "সকল কাজ নিয়তের উপর নির্ভরশীল। প্রত্যেক ব্যক্তি তা-ই পাবে, যার নিয়ত সে করেছে।", "উমার ইবনুল খাত্তাব (রা.) | বুখারী ও মুসলিম"], ["ইসলামের পাঁচ ভিত্তি", "ইসলাম পাঁচটি ভিত্তির উপর প্রতিষ্ঠিত: আল্লাহ ছাড়া কোনো ইলাহ নেই ও মুহাম্মদ ﷺ আল্লাহর রাসূল—এ সাক্ষ্য দেওয়া, নামাজ কায়েম করা, যাকাত দেওয়া, হজ করা এবং রমজানের রোজা রাখা।", "ইবনে উমার (রা.) | বুখারী ও মুসলিম"], ["ঈমানের পূর্ণতা", "তোমাদের কেউ প্রকৃত মুমিন হবে না, যতক্ষণ না সে নিজের জন্য যা পছন্দ করে, তার ভাইয়ের জন্যও তা-ই পছন্দ করে।", "আনাস (রা.) | বুখারী ও মুসলিম"], ["কথা বলার আদব", "যে আল্লাহ ও আখিরাত দিবসে বিশ্বাস রাখে, সে যেন ভালো কথা বলে, নয়তো চুপ থাকে।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["প্রকৃত মুসলিম", "প্রকৃত মুসলিম সে, যার জিহ্বা ও হাত থেকে অন্য মুসলিমরা নিরাপদ থাকে।", "আব্দুল্লাহ ইবনে আমর (রা.) | বুখারী ও মুসলিম"], ["রাগ নিয়ন্ত্রণ", "এক ব্যক্তি নবী ﷺ-এর কাছে উপদেশ চাইলে তিনি বললেন, ‘রাগ করো না।’ লোকটি কয়েকবার চাইলেও তিনি একই কথা বললেন।", "আবু হুরায়রা (রা.) | বুখারী"], ["প্রকৃত বীর", "কুস্তিতে অন্যকে হারিয়ে দেওয়া ব্যক্তি শক্তিশালী নয়; প্রকৃত শক্তিশালী সে, যে রাগের সময় নিজেকে নিয়ন্ত্রণ করে।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["সর্বোত্তম মানুষ", "তোমাদের মধ্যে সর্বোত্তম সে, যে কুরআন শেখে এবং অন্যকে শেখায়।", "উসমান (রা.) | বুখারী"], ["পবিত্রতা", "পবিত্রতা ঈমানের অর্ধেক।", "আবু মালিক আল-আশআরী (রা.) | মুসলিম"], ["অন্তরের দিকে দৃষ্টি", "আল্লাহ তোমাদের চেহারা ও সম্পদের দিকে তাকান না; তিনি তাকান তোমাদের অন্তর ও আমলের দিকে।", "আবু হুরায়রা (রা.) | মুসলিম"], ["নিয়মিত আমল", "আল্লাহর কাছে সবচেয়ে প্রিয় আমল তা-ই, যা নিয়মিত করা হয়—যদিও তা অল্প হয়।", "আয়িশা (রা.) | বুখারী ও মুসলিম"], ["ইলমের পথ", "যে ব্যক্তি ইলম অর্জনের পথে চলে, আল্লাহ তার জন্য জান্নাতের পথ সহজ করে দেন।", "আবু হুরায়রা (রা.) | মুসলিম"], ["সতর্ক মুমিন", "মুমিন একই গর্ত থেকে দুইবার দংশিত হয় না।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["অহংকার", "যার অন্তরে অণু পরিমাণ অহংকার আছে, সে জান্নাতে প্রবেশ করবে না। অহংকার হলো সত্যকে প্রত্যাখ্যান করা এবং মানুষকে তুচ্ছ মনে করা।", "আব্দুল্লাহ ইবনে মাসউদ (রা.) | মুসলিম"], ["সত্যবাদিতা", "তোমরা সত্যকে আঁকড়ে ধরো। সত্য পুণ্যের পথ দেখায়, আর পুণ্য জান্নাতে নিয়ে যায়। মিথ্যা থেকে বেঁচে থাকো; মিথ্যা পাপের পথ দেখায় আর পাপ জাহান্নামে নিয়ে যায়।", "আব্দুল্লাহ ইবনে মাসউদ (রা.) | বুখারী ও মুসলিম"], ["মুনাফিকের আলামত", "মুনাফিকের আলামত তিনটি: কথা বললে মিথ্যা বলে, ওয়াদা করলে ভঙ্গ করে, আমানত রাখলে খিয়ানত করে।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["দ্বীন কল্যাণ কামনা", "দ্বীন হলো কল্যাণ কামনা (নাসীহা)। আমরা জিজ্ঞেস করলাম, কার জন্য? তিনি বললেন, আল্লাহর জন্য, তাঁর কিতাবের জন্য, তাঁর রাসূলের জন্য, মুসলিম নেতাদের জন্য এবং সাধারণ মুসলিমদের জন্য।", "তামীম আদ-দারী (রা.) | মুসলিম"], ["সহজ করো", "তোমরা সহজ করো, কঠিন করো না; সুসংবাদ দাও, মানুষকে বিতৃষ্ণ করো না।", "আনাস (রা.) | বুখারী ও মুসলিম"], ["দয়া", "যে দয়া করে না, তাকে দয়া করা হয় না।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["প্রতিবেশীর হক", "যে আল্লাহ ও আখিরাত দিবসে বিশ্বাস রাখে, সে যেন তার প্রতিবেশীকে কষ্ট না দেয়।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["মেহমানের সম্মান", "যে আল্লাহ ও আখিরাত দিবসে বিশ্বাস রাখে, সে যেন তার মেহমানকে সম্মান করে।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["পরস্পর ভ্রাতৃত্ব", "তোমরা পরস্পর হিংসা করো না, দাম বাড়িয়ে প্রতারণা করো না, বিদ্বেষ রেখো না, একে অপরের থেকে মুখ ফিরিয়ে নিও না; আল্লাহর বান্দারা, তোমরা ভাই ভাই হয়ে যাও। মুসলিম মুসলিমের ভাই; সে তার উপর জুলুম করে না, তাকে অসহায় ছেড়ে দেয় না এবং তাকে তুচ্ছ করে না।", "আবু হুরায়রা (রা.) | মুসলিম"], ["ভাইয়ের প্রয়োজন পূরণ", "মুসলিম মুসলিমের ভাই; সে তার উপর জুলুম করে না, তাকে অসহায় ছেড়ে দেয় না। যে তার ভাইয়ের প্রয়োজন পূরণ করে, আল্লাহ তার প্রয়োজন পূরণ করেন।", "ইবনে উমার (রা.) | বুখারী ও মুসলিম"], ["এক দেহের মতো", "পারস্পরিক ভালোবাসা, দয়া ও সহানুভূতিতে মুমিনরা একটি দেহের মতো। দেহের একটি অঙ্গ অসুস্থ হলে গোটা দেহ জ্বর ও অনিদ্রায় তার সঙ্গী হয়।", "নুমান ইবনে বাশীর (রা.) | বুখারী ও মুসলিম"], ["দুটি নিয়ামত", "দুটি নিয়ামতের ব্যাপারে অনেক মানুষ ক্ষতিগ্রস্ত: সুস্থতা ও অবসর সময়।", "ইবনে আব্বাস (রা.) | বুখারী"], ["দুনিয়ায় মুসাফিরের মতো", "তুমি দুনিয়ায় এমনভাবে থাকো, যেন তুমি একজন অপরিচিত বা পথিক।", "ইবনে উমার (রা.) | বুখারী"], ["পাঁচটি সুযোগ", "পাঁচটি জিনিসকে পাঁচটির আগে সুযোগ মনে করো: বার্ধক্যের আগে যৌবনকে, অসুস্থতার আগে সুস্থতাকে, দরিদ্রতার আগে সচ্ছলতাকে, ব্যস্ততার আগে অবসরকে এবং মৃত্যুর আগে জীবনকে।", "ইবনে আব্বাস (রা.) | মুস্তাদরাকে হাকিম"], ["সদকায়ে জারিয়া", "মানুষ মারা গেলে তিনটি আমল ছাড়া তার সব আমল বন্ধ হয়ে যায়: সদকায়ে জারিয়া, উপকারী ইলম এবং নেক সন্তান, যে তার জন্য দোয়া করে।", "আবু হুরায়রা (রা.) | মুসলিম"], ["সালামের প্রসার", "তোমরা ঈমান না আনলে জান্নাতে প্রবেশ করবে না, আর পরস্পরকে ভালো না বাসলে ঈমানদার হবে না। আমি কি তোমাদের এমন কাজের কথা বলব না, যা করলে তোমাদের মধ্যে ভালোবাসা সৃষ্টি হবে? তোমরা নিজেদের মধ্যে সালামের প্রসার ঘটাও।", "আবু হুরায়রা (রা.) | মুসলিম"], ["ভালো কাজের পথ দেখানো", "যে ব্যক্তি কোনো ভালো কাজের পথ দেখায়, সে ওই কাজ সম্পাদনকারীর সমান সওয়াব পায়।", "আবু মাসউদ (রা.) | মুসলিম"], ["হাসিমুখে সাক্ষাৎ", "কোনো ভালো কাজকে তুচ্ছ মনে করো না, এমনকি হাসিমুখে তোমার ভাইয়ের সঙ্গে সাক্ষাৎ করাও।", "আবু যার (রা.) | মুসলিম"], ["প্রতিটি ভালো কাজ সদকা", "প্রতিটি ভালো কাজই সদকা।", "জাবির (রা.) | বুখারী"], ["পাঁচ ওয়াক্ত নামাজ", "পাঁচ ওয়াক্ত নামাজ, এক জুমা থেকে আরেক জুমা এবং এক রমজান থেকে আরেক রমজান—এগুলোর মধ্যবর্তী গুনাহের কাফফারা, যদি কবীরা গুনাহ থেকে বেঁচে থাকা হয়।", "আবু হুরায়রা (রা.) | মুসলিম"], ["নামাজ গুনাহ মুছে দেয়", "বলো তো, কারো ঘরের দরজায় একটি নদী থাকলে সে প্রতিদিন পাঁচবার গোসল করলে কি তার শরীরে কোনো ময়লা থাকবে? সাহাবীরা বললেন, না। তিনি বললেন, পাঁচ ওয়াক্ত নামাজের উদাহরণও তা-ই; আল্লাহ এর মাধ্যমে গুনাহ মুছে দেন।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["নামাজ ত্যাগ", "বান্দা এবং শিরক-কুফরের মাঝে পার্থক্য হলো নামাজ ছেড়ে দেওয়া।", "জাবির (রা.) | মুসলিম"], ["ফজরের নামাজ", "যে ব্যক্তি ফজরের নামাজ আদায় করে, সে আল্লাহর হিফাযত ও নিরাপত্তার মধ্যে থাকে।", "জুনদুব ইবনে আব্দুল্লাহ (রা.) | মুসলিম"], ["জামাতের ফযীলত", "জামাতে নামাজ একাকী নামাজের চেয়ে সাতাশ গুণ বেশি মর্যাদাসম্পন্ন।", "ইবনে উমার (রা.) | বুখারী ও মুসলিম"], ["ওযুর ফযীলত", "যে ব্যক্তি উত্তমরূপে ওযু করে, তার শরীর থেকে গুনাহ বের হয়ে যায়, এমনকি তার নখের নিচ থেকেও।", "উসমান (রা.) | মুসলিম"], ["একাগ্র নামাজ", "যে ব্যক্তি আমার এই ওযুর মতো ওযু করে দুই রাকআত নামাজ পড়ে এবং এতে মনে অন্য কিছু ভাবে না, তার পূর্বের গুনাহ ক্ষমা করে দেওয়া হয়।", "উসমান (রা.) | বুখারী ও মুসলিম"], ["রোজাদারের আনন্দ", "রোজাদারের জন্য দুটি আনন্দ: একটি ইফতারের সময়, অন্যটি তার রবের সাথে সাক্ষাতের সময়।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["রমজানের রোজা", "যে ব্যক্তি ঈমান ও সওয়াবের আশায় রমজানের রোজা রাখে, তার পূর্বের গুনাহ ক্ষমা করা হয়।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["রোজা ঢালস্বরূপ", "রোজা ঢালস্বরূপ। তাই রোজাদার যেন অশ্লীল কথা না বলে এবং মূর্খতা না করে।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["লাইলাতুল কদর", "যে ব্যক্তি ঈমান ও সওয়াবের আশায় লাইলাতুল কদরে ইবাদত করে, তার পূর্বের গুনাহ ক্ষমা করা হয়।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["কুরআনের সুপারিশ", "তোমরা কুরআন পড়ো; কিয়ামতের দিন তা তার পাঠকারীদের জন্য সুপারিশকারী হয়ে আসবে।", "আবু উমামা (রা.) | মুসলিম"], ["কুরআনের প্রতিটি হরফ", "যে ব্যক্তি আল্লাহর কিতাবের একটি হরফ পড়ে, সে একটি নেকি পায়, আর প্রতিটি নেকি দশগুণ। আমি বলি না ‘আলিফ-লাম-মীম’ একটি হরফ; বরং আলিফ একটি হরফ, লাম একটি হরফ এবং মীম একটি হরফ।", "আব্দুল্লাহ ইবনে মাসউদ (রা.) | তিরমিযী"], ["কুরআন তিলাওয়াতকারী", "কুরআনে দক্ষ পাঠকারী সম্মানিত পুণ্যবান ফেরেশতাদের সঙ্গে থাকবে। আর যে আটকে আটকে কষ্ট করে পড়ে, তার জন্য দ্বিগুণ সওয়াব।", "আয়িশা (রা.) | বুখারী ও মুসলিম"], ["সুবহানাল্লাহি ওয়া বিহামদিহী", "যে ব্যক্তি দিনে একশবার ‘সুবহানাল্লাহি ওয়া বিহামদিহী’ বলে, তার গুনাহ সমুদ্রের ফেনার সমান হলেও মাফ করে দেওয়া হয়।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["দুটি প্রিয় বাক্য", "দুটি বাক্য জিহ্বায় হালকা, দাঁড়িপাল্লায় ভারী এবং রহমানের কাছে প্রিয়: ‘সুবহানাল্লাহি ওয়া বিহামদিহী, সুবহানাল্লাহিল আযীম’।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["সর্বোত্তম যিকির", "সর্বোত্তম যিকির ‘লা ইলাহা ইল্লাল্লাহ’ এবং সর্বোত্তম দোয়া ‘আলহামদুলিল্লাহ’।", "জাবির (রা.) | তিরমিযী"], ["দোয়া ইবাদত", "দোয়াই ইবাদত।", "নুমান ইবনে বাশীর (রা.) | তিরমিযী ও আবু দাউদ"], ["দরুদের ফযীলত", "যে ব্যক্তি আমার উপর একবার দরুদ পাঠ করে, আল্লাহ তার উপর দশবার রহমত বর্ষণ করেন।", "আবু হুরায়রা (রা.) | মুসলিম"], ["শেষ রাতের দোয়া", "প্রতি রাতের শেষ তৃতীয়াংশে আমাদের রব দুনিয়ার আসমানে নেমে আসেন এবং বলেন, কে আমাকে ডাকবে, আমি তার ডাকে সাড়া দেব; কে আমার কাছে চাইবে, আমি তাকে দেব; কে আমার কাছে ক্ষমা চাইবে, আমি তাকে ক্ষমা করব।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["নবী ﷺ-এর ইস্তিগফার", "আল্লাহর কসম! আমি দিনে সত্তর বারের বেশি আল্লাহর কাছে ইস্তিগফার ও তাওবা করি।", "আবু হুরায়রা (রা.) | বুখারী"], ["তাওবার সময়", "আল্লাহ বান্দার তাওবা কবুল করেন, যতক্ষণ না তার প্রাণ কণ্ঠনালীতে পৌঁছে যায়।", "ইবনে উমার (রা.) | তিরমিযী"], ["আল্লাহর ক্ষমার হাত", "আল্লাহ রাতে তাঁর হাত প্রসারিত করেন, যাতে দিনের পাপী তাওবা করে। আর দিনে হাত প্রসারিত করেন, যাতে রাতের পাপী তাওবা করে।", "আবু মূসা আল-আশআরী (রা.) | মুসলিম"], ["তাওবাকারী শ্রেষ্ঠ", "প্রত্যেক আদম সন্তান ভুলকারী, আর ভুলকারীদের মধ্যে সর্বোত্তম তারা, যারা তাওবা করে।", "আনাস (রা.) | তিরমিযী ও ইবনে মাজাহ"], ["তাকওয়া ও সদাচরণ", "তুমি যেখানেই থাকো আল্লাহকে ভয় করো। মন্দ কাজের পর ভালো কাজ করো, তা মন্দকে মুছে দেবে। আর মানুষের সঙ্গে উত্তম চরিত্রে আচরণ করো।", "আবু যার (রা.) | তিরমিযী"], ["উত্তম চরিত্র", "তোমাদের মধ্যে সর্বোত্তম সে, যার চরিত্র সবচেয়ে সুন্দর।", "আব্দুল্লাহ ইবনে আমর (রা.) | বুখারী ও মুসলিম"], ["দাঁড়িপাল্লার ভার", "কিয়ামতের দিন মুমিনের দাঁড়িপাল্লায় উত্তম চরিত্রের চেয়ে ভারী কিছু হবে না।", "আবু দারদা (রা.) | তিরমিযী"], ["নবীজির প্রেরণের উদ্দেশ্য", "আমি উত্তম চরিত্রের পূর্ণতা দানের জন্যই প্রেরিত হয়েছি।", "আবু হুরায়রা (রা.) | মুসনাদে আহমাদ"], ["পরিবারের সাথে আচরণ", "তোমাদের মধ্যে সর্বোত্তম সে, যে তার পরিবারের কাছে উত্তম। আর আমি আমার পরিবারের কাছে তোমাদের মধ্যে সর্বোত্তম।", "আয়িশা (রা.) | তিরমিযী"], ["স্ত্রীর সাথে আচরণ", "মুমিনদের মধ্যে ঈমানে পরিপূর্ণ সে, যার চরিত্র সবচেয়ে সুন্দর; আর তোমাদের মধ্যে সর্বোত্তম তারা, যারা তাদের স্ত্রীদের প্রতি সর্বোত্তম।", "আবু হুরায়রা (রা.) | তিরমিযী"], ["পিতার সন্তুষ্টি", "রবের সন্তুষ্টি পিতার সন্তুষ্টিতে এবং রবের অসন্তুষ্টি পিতার অসন্তুষ্টিতে।", "আব্দুল্লাহ ইবনে আমর (রা.) | তিরমিযী"], ["সবচেয়ে প্রিয় আমল", "আল্লাহর কাছে সবচেয়ে প্রিয় আমল—সময়মতো নামাজ আদায় করা, তারপর পিতামাতার সঙ্গে সদাচরণ, তারপর আল্লাহর পথে জিহাদ।", "আব্দুল্লাহ ইবনে মাসউদ (রা.) | বুখারী ও মুসলিম"], ["মায়ের অধিকার", "এক ব্যক্তি জিজ্ঞেস করল, আমার সদাচরণ পাওয়ার সবচেয়ে বেশি হকদার কে? তিনি বললেন, তোমার মা। সে আবার জিজ্ঞেস করল, তারপর? তিনি বললেন, তোমার মা। তৃতীয়বারও বললেন, তোমার মা। চতুর্থবার বললেন, তোমার পিতা।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["আত্মীয়তার সম্পর্ক", "আত্মীয়তার সম্পর্ক ছিন্নকারী জান্নাতে প্রবেশ করবে না।", "জুবাইর ইবনে মুতইম (রা.) | বুখারী ও মুসলিম"], ["রিযিক ও আয়ু", "যে ব্যক্তি চায় তার রিযিক প্রশস্ত হোক এবং আয়ু দীর্ঘ হোক, সে যেন আত্মীয়তার সম্পর্ক বজায় রাখে।", "আনাস (রা.) | বুখারী ও মুসলিম"], ["ইয়াতীমের তত্ত্বাবধায়ক", "আমি এবং ইয়াতীমের তত্ত্বাবধায়ক জান্নাতে এভাবে থাকব—এ কথা বলে তিনি তর্জনী ও মধ্যমা আঙুল দিয়ে ইশারা করলেন।", "সাহল ইবনে সাদ (রা.) | বুখারী"], ["বিধবা ও মিসকীনের সেবা", "বিধবা ও মিসকীনের জন্য চেষ্টাকারী আল্লাহর পথে জিহাদকারীর মতো।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["বৃক্ষরোপণের সওয়াব", "কোনো মুসলিম যদি গাছ লাগায় বা ফসল ফলায়, আর তা থেকে মানুষ, পাখি বা চতুষ্পদ জন্তু খায়, তবে তা তার জন্য সদকা হয়ে যায়।", "আনাস (রা.) | বুখারী ও মুসলিম"], ["প্রতিবেশীকে দেওয়া", "হে আবু যার! তুমি তরকারি রান্না করলে তাতে ঝোল বাড়িয়ে দাও এবং প্রতিবেশীদের খোঁজ রেখো।", "আবু যার (রা.) | মুসলিম"], ["উপরের হাত", "উপরের হাত নিচের হাতের চেয়ে উত্তম। আর প্রয়োজনের অতিরিক্ত সম্পদ থেকে সদকা করাই উত্তম।", "হাকীম ইবনে হিযাম (রা.) | বুখারী ও মুসলিম"], ["সদকা সম্পদ কমায় না", "সদকা সম্পদ কমায় না।", "আবু হুরায়রা (রা.) | মুসলিম"], ["নিজ হাতের উপার্জন", "নিজ হাতের উপার্জন থেকে খাওয়ার চেয়ে উত্তম খাবার কেউ কখনো খায়নি। আল্লাহর নবী দাঊদ (আ.) নিজ হাতে উপার্জন করে খেতেন।", "মিকদাম ইবনে মাদীকারিব (রা.) | বুখারী"], ["সৎ ব্যবসায়ী", "সত্যবাদী ও আমানতদার ব্যবসায়ী (কিয়ামতের দিন) নবী, সিদ্দীক ও শহীদদের সঙ্গে থাকবে।", "আবু সাঈদ আল-খুদরী (রা.) | তিরমিযী"], ["প্রতারণা নিষেধ", "যে ব্যক্তি ধোঁকা দেয়, সে আমার দলভুক্ত নয়।", "আবু হুরায়রা (রা.) | মুসলিম"], ["সুদের ভয়াবহতা", "রাসূলুল্লাহ ﷺ সুদগ্রহীতা, সুদদাতা, সুদের লেখক ও সুদের সাক্ষীদের উপর অভিশাপ দিয়েছেন এবং বলেছেন, তারা সবাই সমান।", "জাবির (রা.) | মুসলিম"], ["জুলুমের পরিণতি", "যে ব্যক্তি অন্যায়ভাবে এক বিঘত জমি দখল করে, কিয়ামতের দিন সাত জমিন তার গলায় বেড়ির মতো পরানো হবে।", "সাঈদ ইবনে যায়দ (রা.) | বুখারী ও মুসলিম"], ["শ্রমিকের মজুরি", "শ্রমিকের ঘাম শুকানোর আগে তার মজুরি দিয়ে দাও।", "ইবনে উমার (রা.) | ইবনে মাজাহ"], ["গীবত", "তোমরা কি জানো গীবত কী? সাহাবীরা বললেন, আল্লাহ ও তাঁর রাসূল ভালো জানেন। তিনি বললেন, তোমার ভাইয়ের অনুপস্থিতিতে এমন কিছু বলা, যা সে অপছন্দ করে।", "আবু হুরায়রা (রা.) | মুসলিম"], ["চোগলখোরি", "চোগলখোর জান্নাতে প্রবেশ করবে না।", "হুযাইফা (রা.) | বুখারী ও মুসলিম"], ["কুধারণা", "তোমরা ধারণা থেকে বেঁচে থাকো, কারণ ধারণা সবচেয়ে বড় মিথ্যা কথা।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["মুমিনের বাক্য", "মুমিন অভিশাপকারী, গালিগালাজকারী, অশ্লীল ও কটুভাষী হয় না।", "আব্দুল্লাহ ইবনে মাসউদ (রা.) | তিরমিযী"], ["দোষ গোপন", "যে ব্যক্তি দুনিয়ায় কোনো মুসলিমের দোষ গোপন রাখে, আল্লাহ দুনিয়া ও আখিরাতে তার দোষ গোপন রাখবেন।", "আবু হুরায়রা (রা.) | মুসলিম"], ["কষ্ট দূর করা", "যে ব্যক্তি কোনো মুমিনের দুনিয়ার একটি কষ্ট দূর করে, আল্লাহ কিয়ামতের দিন তার একটি কষ্ট দূর করবেন।", "আবু হুরায়রা (রা.) | মুসলিম"], ["আরশের ছায়া", "কিয়ামতের দিন সাত শ্রেণির মানুষকে আল্লাহ তাঁর ছায়ায় আশ্রয় দেবেন: ন্যায়পরায়ণ শাসক; আল্লাহর ইবাদতে বেড়ে ওঠা যুবক; যার অন্তর মসজিদের সঙ্গে লেগে থাকে; আল্লাহর জন্য পরস্পর ভালোবাসা স্থাপনকারী দুজন; যে সুন্দরী ও মর্যাদাবান নারীর আহ্বান ‘আমি আল্লাহকে ভয় করি’ বলে প্রত্যাখ্যান করে; যে এমন গোপনে দান করে যে বাম হাত জানে না ডান হাত কী দিল; আর যে নির্জনে আল্লাহকে স্মরণ করে কাঁদে।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["কলম উঠিয়ে নেওয়া", "তিন ব্যক্তি থেকে কলম তুলে নেওয়া হয়েছে: ঘুমন্ত ব্যক্তি জেগে ওঠা পর্যন্ত, শিশু প্রাপ্তবয়স্ক হওয়া পর্যন্ত এবং পাগল সুস্থ হওয়া পর্যন্ত।", "আলী (রা.) | আবু দাউদ ও তিরমিযী"], ["লজ্জাশীলতা", "লজ্জা ঈমানের একটি অংশ।", "ইবনে উমার (রা.) | বুখারী ও মুসলিম"], ["ঈমানের শাখা", "ঈমানের সত্তরের বেশি শাখা আছে। সর্বোচ্চ শাখা ‘লা ইলাহা ইল্লাল্লাহ’ বলা, আর সর্বনিম্ন শাখা রাস্তা থেকে কষ্টদায়ক বস্তু সরানো। আর লজ্জা ঈমানের একটি শাখা।", "আবু হুরায়রা (রা.) | মুসলিম"], ["অন্তরের গুরুত্ব", "জেনে রাখো, শরীরে একটি গোশতের টুকরা আছে; তা ঠিক থাকলে সমস্ত শরীর ঠিক থাকে, আর তা নষ্ট হলে সমস্ত শরীর নষ্ট হয়। জেনে রাখো, সেটি হলো অন্তর।", "নুমান ইবনে বাশীর (রা.) | বুখারী ও মুসলিম"], ["সন্দেহ থেকে বাঁচা", "যা তোমাকে সন্দেহে ফেলে, তা ছেড়ে দিয়ে যা সন্দেহমুক্ত তা গ্রহণ করো।", "হাসান ইবনে আলী (রা.) | তিরমিযী ও নাসায়ী"], ["অনর্থক কাজ ত্যাগ", "কোনো ব্যক্তির ইসলামের সৌন্দর্য হলো অনর্থক বিষয় ত্যাগ করা।", "আবু হুরায়রা (রা.) | তিরমিযী"], ["প্রকৃত দেউলিয়া", "আমার উম্মতের প্রকৃত দেউলিয়া সে, যে কিয়ামতের দিন নামাজ, রোজা ও যাকাত নিয়ে আসবে; কিন্তু সে কাউকে গালি দিয়েছে, কাউকে অপবাদ দিয়েছে, কারো সম্পদ খেয়েছে, কারো রক্ত ঝরিয়েছে ও কাউকে মেরেছে। তাই তার নেকিগুলো তাদের দেওয়া হবে; নেকি শেষ হয়ে গেলে তাদের গুনাহ তার উপর চাপানো হবে, তারপর তাকে জাহান্নামে নিক্ষেপ করা হবে।", "আবু হুরায়রা (রা.) | মুসলিম"], ["অন্যায়ের প্রতিবাদ", "তোমাদের কেউ কোনো অন্যায় দেখলে হাত দিয়ে তা পরিবর্তন করবে; তা সম্ভব না হলে মুখ দিয়ে; তাও সম্ভব না হলে অন্তর দিয়ে ঘৃণা করবে। আর এটি ঈমানের সবচেয়ে দুর্বল স্তর।", "আবু সাঈদ আল-খুদরী (রা.) | মুসলিম"], ["রাসূলের প্রতি ভালোবাসা", "তোমাদের কেউ প্রকৃত মুমিন হবে না, যতক্ষণ না আমি তার কাছে তার পিতা, সন্তান ও সকল মানুষের চেয়ে প্রিয় হই।", "আনাস (রা.) | বুখারী ও মুসলিম"], ["শেষ কথা কালিমা", "যার শেষ কথা হবে ‘লা ইলাহা ইল্লাল্লাহ’, সে জান্নাতে প্রবেশ করবে।", "মুআয ইবনে জাবাল (রা.) | আবু দাউদ"], ["মসজিদ নির্মাণ", "যে ব্যক্তি আল্লাহর সন্তুষ্টির জন্য মসজিদ নির্মাণ করে, আল্লাহ তার জন্য জান্নাতে অনুরূপ একটি ঘর নির্মাণ করেন।", "উসমান (রা.) | বুখারী ও মুসলিম"], ["মসজিদে যাওয়া", "যে ব্যক্তি সকালে বা সন্ধ্যায় মসজিদে যায়, আল্লাহ তার জন্য প্রতিবার জান্নাতে মেহমানদারির আয়োজন করেন।", "আবু হুরায়রা (রা.) | বুখারী ও মুসলিম"], ["মৃত্যুর স্মরণ", "তোমরা স্বাদ বিনাশকারী মৃত্যুকে বেশি বেশি স্মরণ করো।", "আবু হুরায়রা (রা.) | তিরমিযী ও নাসায়ী"], ["কিয়ামতের পাঁচ প্রশ্ন", "কিয়ামতের দিন পাঁচটি বিষয়ে প্রশ্ন না করা পর্যন্ত বান্দার পা সরবে না: তার জীবন কীভাবে কাটিয়েছে, যৌবন কোথায় ব্যয় করেছে, সম্পদ কোথা থেকে অর্জন করেছে ও কোথায় ব্যয় করেছে এবং ইলম অনুযায়ী কী আমল করেছে।", "আব্দুল্লাহ ইবনে মাসউদ (রা.) | তিরমিযী"]], "hadithAr": ["إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى", "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ", "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ", "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ", "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ", "أَنَّ رَجُلًا قَالَ لِلنَّبِيِّ ﷺ: أَوْصِنِي، قَالَ: لَا تَغْضَبْ، فَرَدَّدَ مِرَارًا، قَالَ: لَا تَغْضَبْ", "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ", "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ", "الطُّهُورُ شَطْرُ الْإِيمَانِ", "إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ", "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ", "وَمَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ", "لَا يُلْدَغُ الْمُؤْمِنُ مِنْ جُحْرٍ وَاحِدٍ مَرَّتَيْنِ", "لَا يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ... الْكِبْرُ بَطَرُ الْحَقِّ وَغَمْطُ النَّاسِ", "عَلَيْكُمْ بِالصِّدْقِ، فَإِنَّ الصِّدْقَ يَهْدِي إِلَى الْبِرِّ، وَإِنَّ الْبِرَّ يَهْدِي إِلَى الْجَنَّةِ، وَإِيَّاكُمْ وَالْكَذِبَ، فَإِنَّ الْكَذِبَ يَهْدِي إِلَى الْفُجُورِ، وَإِنَّ الْفُجُورَ يَهْدِي إِلَى النَّارِ", "آيَةُ الْمُنَافِقِ ثَلَاثٌ: إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ", "الدِّينُ النَّصِيحَةُ، قُلْنَا: لِمَنْ؟ قَالَ: لِلَّهِ وَلِكِتَابِهِ وَلِرَسُولِهِ وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ", "يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا", "مَنْ لَا يَرْحَمْ لَا يُرْحَمْ", "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلَا يُؤْذِ جَارَهُ", "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ", "لَا تَحَاسَدُوا، وَلَا تَنَاجَشُوا، وَلَا تَبَاغَضُوا، وَلَا تَدَابَرُوا، وَكُونُوا عِبَادَ اللَّهِ إِخْوَانًا، الْمُسْلِمُ أَخُو الْمُسْلِمِ، لَا يَظْلِمُهُ وَلَا يَخْذُلُهُ وَلَا يَحْقِرُهُ", "الْمُسْلِمُ أَخُو الْمُسْلِمِ، لَا يَظْلِمُهُ وَلَا يُسْلِمُهُ، وَمَنْ كَانَ فِي حَاجَةِ أَخِيهِ كَانَ اللَّهُ فِي حَاجَتِهِ", "تَرَى الْمُؤْمِنِينَ فِي تَرَاحُمِهِمْ وَتَوَادِّهِمْ وَتَعَاطُفِهِمْ كَمَثَلِ الْجَسَدِ، إِذَا اشْتَكَى عُضْوًا تَدَاعَى لَهُ سَائِرُ جَسَدِهِ بِالسَّهَرِ وَالْحُمَّى", "نِعْمَتَانِ مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ: الصِّحَّةُ وَالْفَرَاغُ", "كُنْ فِي الدُّنْيَا كَأَنَّكَ غَرِيبٌ أَوْ عَابِرُ سَبِيلٍ", "اغْتَنِمْ خَمْسًا قَبْلَ خَمْسٍ: شَبَابَكَ قَبْلَ هَرَمِكَ، وَصِحَّتَكَ قَبْلَ سَقَمِكَ، وَغِنَاكَ قَبْلَ فَقْرِكَ، وَفَرَاغَكَ قَبْلَ شُغْلِكَ، وَحَيَاتَكَ قَبْلَ مَوْتِكَ", "إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلَّا مِنْ ثَلَاثَةٍ: إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ", "لَا تَدْخُلُونَ الْجَنَّةَ حَتَّى تُؤْمِنُوا، وَلَا تُؤْمِنُوا حَتَّى تَحَابُّوا، أَوَلَا أَدُلُّكُمْ عَلَى شَيْءٍ إِذَا فَعَلْتُمُوهُ تَحَابَبْتُمْ؟ أَفْشُوا السَّلَامَ بَيْنَكُمْ", "مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ", "لَا تَحْقِرَنَّ مِنَ الْمَعْرُوفِ شَيْئًا وَلَوْ أَنْ تَلْقَى أَخَاكَ بِوَجْهٍ طَلْقٍ", "كُلُّ مَعْرُوفٍ صَدَقَةٌ", "الصَّلَوَاتُ الْخَمْسُ، وَالْجُمُعَةُ إِلَى الْجُمُعَةِ، وَرَمَضَانُ إِلَى رَمَضَانَ، مُكَفِّرَاتٌ مَا بَيْنَهُنَّ إِذَا اجْتَنَبَ الْكَبَائِرَ", "أَرَأَيْتُمْ لَوْ أَنَّ نَهَرًا بِبَابِ أَحَدِكُمْ يَغْتَسِلُ مِنْهُ كُلَّ يَوْمٍ خَمْسًا، هَلْ يَبْقَى مِنْ دَرَنِهِ شَيْءٌ؟ قَالُوا: لَا يَبْقَى مِنْ دَرَنِهِ شَيْءٌ، قَالَ: فَذَلِكَ مَثَلُ الصَّلَوَاتِ الْخَمْسِ يَمْحُو اللَّهُ بِهِنَّ الْخَطَايَا", "إِنَّ بَيْنَ الرَّجُلِ وَبَيْنَ الشِّرْكِ وَالْكُفْرِ تَرْكَ الصَّلَاةِ", "مَنْ صَلَّى الصُّبْحَ فَهُوَ فِي ذِمَّةِ اللَّهِ", "صَلَاةُ الْجَمَاعَةِ تَفْضُلُ صَلَاةَ الْفَذِّ بِسَبْعٍ وَعِشْرِينَ دَرَجَةً", "مَنْ تَوَضَّأَ فَأَحْسَنَ الْوُضُوءَ خَرَجَتْ خَطَايَاهُ مِنْ جَسَدِهِ حَتَّى تَخْرُجَ مِنْ تَحْتِ أَظْفَارِهِ", "مَنْ تَوَضَّأَ نَحْوَ وُضُوئِي هَذَا ثُمَّ صَلَّى رَكْعَتَيْنِ لَا يُحَدِّثُ فِيهِمَا نَفْسَهُ غَفَرَ اللَّهُ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ", "لِلصَّائِمِ فَرْحَتَانِ يَفْرَحُهُمَا: إِذَا أَفْطَرَ فَرِحَ بِفِطْرِهِ، وَإِذَا لَقِيَ رَبَّهُ فَرِحَ بِصَوْمِهِ", "مَنْ صَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ", "الصِّيَامُ جُنَّةٌ، فَلَا يَرْفُثْ وَلَا يَجْهَلْ", "مَنْ قَامَ لَيْلَةَ الْقَدْرِ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ", "اقْرَءُوا الْقُرْآنَ فَإِنَّهُ يَأْتِي يَوْمَ الْقِيَامَةِ شَفِيعًا لِأَصْحَابِهِ", "مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ، وَالْحَسَنَةُ بِعَشْرِ أَمْثَالِهَا، لَا أَقُولُ الم حَرْفٌ، وَلَكِنْ أَلِفٌ حَرْفٌ وَلَامٌ حَرْفٌ وَمِيمٌ حَرْفٌ", "الَّذِي يَقْرَأُ الْقُرْآنَ وَهُوَ مَاهِرٌ بِهِ مَعَ السَّفَرَةِ الْكِرَامِ الْبَرَرَةِ، وَالَّذِي يَقْرَأُ الْقُرْآنَ وَيَتَتَعْتَعُ فِيهِ وَهُوَ عَلَيْهِ شَاقٌّ لَهُ أَجْرَانِ", "مَنْ قَالَ سُبْحَانَ اللَّهِ وَبِحَمْدِهِ فِي يَوْمٍ مِائَةَ مَرَّةٍ حُطَّتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ", "كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ، ثَقِيلَتَانِ فِي الْمِيزَانِ، حَبِيبَتَانِ إِلَى الرَّحْمَنِ: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ", "أَفْضَلُ الذِّكْرِ لَا إِلَهَ إِلَّا اللَّهُ، وَأَفْضَلُ الدُّعَاءِ الْحَمْدُ لِلَّهِ", "الدُّعَاءُ هُوَ الْعِبَادَةُ", "مَنْ صَلَّى عَلَيَّ وَاحِدَةً صَلَّى اللَّهُ عَلَيْهِ عَشْرًا", "يَنْزِلُ رَبُّنَا تَبَارَكَ وَتَعَالَى كُلَّ لَيْلَةٍ إِلَى السَّمَاءِ الدُّنْيَا حِينَ يَبْقَى ثُلُثُ اللَّيْلِ الْآخِرُ فَيَقُولُ: مَنْ يَدْعُونِي فَأَسْتَجِيبَ لَهُ؟ مَنْ يَسْأَلُنِي فَأُعْطِيَهُ؟ مَنْ يَسْتَغْفِرُنِي فَأَغْفِرَ لَهُ؟", "وَاللَّهِ إِنِّي لَأَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ فِي الْيَوْمِ أَكْثَرَ مِنْ سَبْعِينَ مَرَّةً", "إِنَّ اللَّهَ يَقْبَلُ تَوْبَةَ الْعَبْدِ مَا لَمْ يُغَرْغِرْ", "إِنَّ اللَّهَ عَزَّ وَجَلَّ يَبْسُطُ يَدَهُ بِاللَّيْلِ لِيَتُوبَ مُسِيءُ النَّهَارِ، وَيَبْسُطُ يَدَهُ بِالنَّهَارِ لِيَتُوبَ مُسِيءُ اللَّيْلِ", "كُلُّ ابْنِ آدَمَ خَطَّاءٌ، وَخَيْرُ الْخَطَّائِينَ التَّوَّابُونَ", "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ", "إِنَّ مِنْ خِيَارِكُمْ أَحْسَنَكُمْ أَخْلَاقًا", "مَا مِنْ شَيْءٍ أَثْقَلُ فِي مِيزَانِ الْمُؤْمِنِ يَوْمَ الْقِيَامَةِ مِنْ خُلُقٍ حَسَنٍ", "إِنَّمَا بُعِثْتُ لِأُتَمِّمَ صَالِحَ الْأَخْلَاقِ", "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ، وَأَنَا خَيْرُكُمْ لِأَهْلِي", "أَكْمَلُ الْمُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا، وَخِيَارُكُمْ خِيَارُكُمْ لِنِسَائِهِمْ", "رِضَا الرَّبِّ فِي رِضَا الْوَالِدِ، وَسَخَطُ الرَّبِّ فِي سَخَطِ الْوَالِدِ", "الصَّلَاةُ عَلَى وَقْتِهَا، ثُمَّ بِرُّ الْوَالِدَيْنِ، ثُمَّ الْجِهَادُ فِي سَبِيلِ اللَّهِ", "مَنْ أَحَقُّ النَّاسِ بِحُسْنِ صَحَابَتِي؟ قَالَ: أُمُّكَ، ثُمَّ أُمُّكَ، ثُمَّ أُمُّكَ، ثُمَّ أَبُوكَ", "لَا يَدْخُلُ الْجَنَّةَ قَاطِعٌ", "مَنْ أَحَبَّ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ، وَأَنْ يُنْسَأَ لَهُ فِي أَثَرِهِ، فَلْيَصِلْ رَحِمَهُ", "أَنَا وَكَافِلُ الْيَتِيمِ فِي الْجَنَّةِ هَكَذَا، وَأَشَارَ بِالسَّبَّابَةِ وَالْوُسْطَى", "السَّاعِي عَلَى الْأَرْمَلَةِ وَالْمِسْكِينِ كَالْمُجَاهِدِ فِي سَبِيلِ اللَّهِ", "مَا مِنْ مُسْلِمٍ يَغْرِسُ غَرْسًا أَوْ يَزْرَعُ زَرْعًا فَيَأْكُلُ مِنْهُ طَيْرٌ أَوْ إِنْسَانٌ أَوْ بَهِيمَةٌ إِلَّا كَانَ لَهُ بِهِ صَدَقَةٌ", "يَا أَبَا ذَرٍّ، إِذَا طَبَخْتَ مَرَقَةً فَأَكْثِرْ مَاءَهَا، وَتَعَاهَدْ جِيرَانَكَ", "الْيَدُ الْعُلْيَا خَيْرٌ مِنَ الْيَدِ السُّفْلَى، وَخَيْرُ الصَّدَقَةِ مَا كَانَ عَنْ ظَهْرِ غِنًى", "مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ", "مَا أَكَلَ أَحَدٌ طَعَامًا قَطُّ خَيْرًا مِنْ أَنْ يَأْكُلَ مِنْ عَمَلِ يَدِهِ، وَإِنَّ نَبِيَّ اللَّهِ دَاوُدَ عَلَيْهِ السَّلَامُ كَانَ يَأْكُلُ مِنْ عَمَلِ يَدِهِ", "التَّاجِرُ الصَّدُوقُ الْأَمِينُ مَعَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ", "مَنْ غَشَّنَا فَلَيْسَ مِنَّا", "لَعَنَ رَسُولُ اللَّهِ ﷺ آكِلَ الرِّبَا وَمُوكِلَهُ وَكَاتِبَهُ وَشَاهِدَيْهِ، وَقَالَ: هُمْ سَوَاءٌ", "مَنْ ظَلَمَ قِيدَ شِبْرٍ مِنَ الْأَرْضِ طُوِّقَهُ مِنْ سَبْعِ أَرَضِينَ", "أَعْطُوا الْأَجِيرَ أَجْرَهُ قَبْلَ أَنْ يَجِفَّ عَرَقُهُ", "أَتَدْرُونَ مَا الْغِيبَةُ؟ قَالُوا: اللَّهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: ذِكْرُكَ أَخَاكَ بِمَا يَكْرَهُ", "لَا يَدْخُلُ الْجَنَّةَ نَمَّامٌ", "إِيَّاكُمْ وَالظَّنَّ، فَإِنَّ الظَّنَّ أَكْذَبُ الْحَدِيثِ", "لَيْسَ الْمُؤْمِنُ بِالطَّعَّانِ، وَلَا اللَّعَّانِ، وَلَا الْفَاحِشِ، وَلَا الْبَذِيءِ", "وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيَا وَالْآخِرَةِ", "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ", "سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: الْإِمَامُ الْعَادِلُ، وَشَابٌّ نَشَأَ فِي عِبَادَةِ رَبِّهِ، وَرَجُلٌ قَلْبُهُ مُعَلَّقٌ فِي الْمَسَاجِدِ، وَرَجُلَانِ تَحَابَّا فِي اللَّهِ اجْتَمَعَا عَلَيْهِ وَتَفَرَّقَا عَلَيْهِ، وَرَجُلٌ دَعَتْهُ امْرَأَةٌ ذَاتُ مَنْصِبٍ وَجَمَالٍ فَقَالَ: إِنِّي أَخَافُ اللَّهَ، وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ، وَرَجُلٌ ذَكَرَ اللَّهَ خَالِيًا فَفَاضَتْ عَيْنَاهُ", "رُفِعَ الْقَلَمُ عَنْ ثَلَاثَةٍ: عَنِ النَّائِمِ حَتَّى يَسْتَيْقِظَ، وَعَنِ الصَّبِيِّ حَتَّى يَحْتَلِمَ، وَعَنِ الْمَجْنُونِ حَتَّى يَعْقِلَ", "الْحَيَاءُ مِنَ الْإِيمَانِ", "الْإِيمَانُ بِضْعٌ وَسَبْعُونَ شُعْبَةً، فَأَفْضَلُهَا قَوْلُ لَا إِلَهَ إِلَّا اللَّهُ، وَأَدْنَاهَا إِمَاطَةُ الْأَذَى عَنِ الطَّرِيقِ، وَالْحَيَاءُ شُعْبَةٌ مِنَ الْإِيمَانِ", "أَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً إِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ، وَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ، أَلَا وَهِيَ الْقَلْبُ", "دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ", "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ", "إِنَّ الْمُفْلِسَ مِنْ أُمَّتِي مَنْ يَأْتِي يَوْمَ الْقِيَامَةِ بِصَلَاةٍ وَصِيَامٍ وَزَكَاةٍ، وَيَأْتِي قَدْ شَتَمَ هَذَا، وَقَذَفَ هَذَا، وَأَكَلَ مَالَ هَذَا، وَسَفَكَ دَمَ هَذَا، وَضَرَبَ هَذَا، فَيُعْطَى هَذَا مِنْ حَسَنَاتِهِ، وَهَذَا مِنْ حَسَنَاتِهِ، فَإِنْ فَنِيَتْ حَسَنَاتُهُ قَبْلَ أَنْ يُقْضَى مَا عَلَيْهِ أُخِذَ مِنْ خَطَايَاهُمْ فَطُرِحَتْ عَلَيْهِ، ثُمَّ طُرِحَ فِي النَّارِ", "مَنْ رَأَى مِنْكُمْ مُنْكَرًا فَلْيُغَيِّرْهُ بِيَدِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِلِسَانِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِقَلْبِهِ، وَذَلِكَ أَضْعَفُ الْإِيمَانِ", "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ", "مَنْ كَانَ آخِرُ كَلَامِهِ لَا إِلَهَ إِلَّا اللَّهُ دَخَلَ الْجَنَّةَ", "مَنْ بَنَى مَسْجِدًا يَبْتَغِي بِهِ وَجْهَ اللَّهِ بَنَى اللَّهُ لَهُ مِثْلَهُ فِي الْجَنَّةِ", "مَنْ غَدَا إِلَى الْمَسْجِدِ أَوْ رَاحَ أَعَدَّ اللَّهُ لَهُ فِي الْجَنَّةِ نُزُلًا كُلَّمَا غَدَا أَوْ رَاحَ", "أَكْثِرُوا ذِكْرَ هَاذِمِ اللَّذَّاتِ: الْمَوْتِ", "لَا تَزُولُ قَدَمَا ابْنِ آدَمَ يَوْمَ الْقِيَامَةِ مِنْ عِنْدِ رَبِّهِ حَتَّى يُسْأَلَ عَنْ خَمْسٍ: عَنْ عُمُرِهِ فِيمَ أَفْنَاهُ، وَعَنْ شَبَابِهِ فِيمَ أَبْلَاهُ، وَمَالِهِ مِنْ أَيْنَ اكْتَسَبَهُ وَفِيمَ أَنْفَقَهُ، وَمَاذَا عَمِلَ فِيمَا عَلِمَ"], "hadithRef": ["B:1,M:1907", "B:8,M:16", "B:13,M:45", "B:6018,M:47", "B:10,M:40", "B:6116", "B:6114,M:2609", "B:5027", "M:223", "M:2564", "B:6464,M:783", "M:2699", "B:6133,M:2998", "M:91", "B:6094,M:2607", "B:33,M:59", "M:55", "B:69,M:1734", "B:5997,M:2318", "B:6018,M:47", "B:6018,M:47", "M:2564", "B:2442,M:2580", "B:6011,M:2586", "B:6412", "B:6416", "H:7846", "M:1631", "M:54", "M:1893", "M:2626", "B:6021", "M:233", "B:528,M:667", "M:82", "M:657", "B:645,M:650", "M:245", "B:159,M:226", "B:1904,M:1151", "B:38,M:760", "B:1894", "B:2014,M:760", "M:804", "T:2910", "B:4937,M:798", "B:6405,M:2691", "B:6406,M:2694", "T:3383", "T:2969,D:1479", "M:408", "B:1145,M:758", "B:6307", "T:3537", "M:2759", "T:2499,I:4251", "T:1987", "B:3559,M:2321", "T:2002", "A:8952", "T:3895", "T:1162", "T:1899", "B:527,M:85", "B:5971,M:2548", "B:5984,M:2556", "B:5985,M:2557", "B:5304", "B:5353,M:2982", "B:2320,M:1553", "M:2625", "B:1427", "M:2588", "B:2072", "T:1209", "M:101", "M:1598", "B:2452,M:1610", "I:2443", "M:2589", "B:6056,M:105", "B:6064,M:2563", "T:1977", "M:2699", "M:2699", "B:660,M:1031", "D:4403,T:1423", "B:24,M:36", "M:35", "B:52,M:1599", "T:2518,N:5711", "T:2317", "M:2581", "M:49", "B:15,M:44", "D:3116", "B:450,M:533", "B:662,M:669", "T:2307,N:1824,I:4258", "T:2416"], "noteH": "প্রতিটি হাদীসে আরবি পাঠ, বাংলা ভাবানুবাদ, বর্ণনাকারী ও গ্রন্থের হাদীস নম্বর দেওয়া হয়েছে। হাদীস নম্বর প্রচলিত সংস্করণ অনুযায়ী; সংস্করণভেদে সামান্য ভিন্নতা থাকতে পারে।", "noteM": "মাসআলাসমূহ হানাফী ফিকহ অনুযায়ী সংক্ষেপে দেওয়া হয়েছে। বিস্তারিত ও নির্দিষ্ট পরিস্থিতির জন্য নির্ভরযোগ্য আলেমের সাথে পরামর্শ করুন।"};
+const $ = id => document.getElementById(id);
+const DIG = {bn:'০১২৩৪৫৬৭৮৯'};
+let lang = 'bn'; try{ lang = localStorage.getItem('lang') || 'bn'; }catch(e){}
+const bn = s => DIG[lang] ? String(s).replace(/[0-9]/g, d => DIG[lang][d]) : String(s);
+const HIJRI = ['মুহাররম','সফর','রবিউল আউয়াল','রবিউস সানি','জমাদিউল আউয়াল','জমাদিউস সানি','রজব','শা\u2019বান','রমজান','শাওয়াল','জিলকদ','জিলহজ'];
+const CITIES = [['Dhaka','ঢাকা'],['Chittagong','চট্টগ্রাম'],['Rajshahi','রাজশাহী'],['Khulna','খুলনা'],['Barisal','বরিশাল'],['Sylhet','সিলেট'],['Rangpur','রংপুর'],['Mymensingh','ময়মনসিংহ'],['Comilla','কুমিল্লা'],['Cox\u2019s Bazar','কক্সবাজার'],['Bogra','বগুড়া'],['Jessore','যশোর']];
+const THEMES = [
+  ['jannat','জান্নাত (সবুজ)',['#0a3f3a','#0d7a66','#c8962e']],
+  ['noor','নূর (ডার্ক)',['#0a1a16','#2cc19a','#e3b85f']],
+  ['sagar','সাগর নীল',['#0b3b61','#1769aa','#d99a2b']],
+  ['royal','রয়্যাল বেগুনি',['#3a2468','#6a3fb0','#cf9c3f']],
+  ['marubhumi','মরুভূমি',['#43301a','#8f5f22','#0f7a68']]
+];
+const COLL = {B:'সহীহ বুখারী',M:'সহীহ মুসলিম',T:'জামে তিরমিযী',D:'সুনানে আবু দাউদ',N:'সুনানে নাসায়ী',I:'সুনানে ইবনে মাজাহ',A:'মুসনাদে আহমাদ',H:'মুস্তাদরাকে হাকিম'};
+
+/* ---------- ভাষা ---------- */
+const LANGS = [['bn','বাংলা','bn-BD-u-ca-gregory-nu-beng','bn.bengali'],['en','English','en-GB-u-ca-gregory','en.sahih']];
+if(!LANGS.some(x => x[0] === lang)) lang = 'bn';
+const RTL = [];
+const KEYS = 'home quran tilawat dua more hadith masail theme l_hadith l_masail l_theme next times extraH listen size tr ayah start hijri today narr fajr dhuhr asr maghrib isha tahajjud sehri sunrise ishraq sunset iftar search auto loading locating locFail locFailS timesErr timesErrS hint1 hafezi uthmani surahLoad surahListErr surahErr qhint pick reciter surahW playErr noDua noHad noMas hadithW about noteH noteM th_jannat th_noor th_sagar th_royal th_marubhumi coll_B coll_M coll_T coll_D coll_N coll_I coll_A coll_H'.split(' ');
+const L = {"bn": "হোম|কুরআন|তিলাওয়াত|দোয়া|আরও|হাদীস|মাসআলা|থিম|১০০ গুরুত্বপূর্ণ হাদীস|প্রয়োজনীয় মাসআলা|থিম ও রঙ|পরবর্তী ওয়াক্ত|নামাজের সময়সূচি|সেহরি, ইফতার ও অন্যান্য সময়|শুনুন|অক্ষরের মাপ|বাংলা অনুবাদ|আয়াত|শুরু|হিজরি|আজকের হাদীস|বর্ণনাকারী|ফজর|যোহর|আসর|মাগরিব|এশা|তাহাজ্জুদ|সেহরির শেষ সময়|সূর্যোদয়|ইশরাক|সূর্যাস্ত|ইফতার|খুঁজুন...|অটো লোকেশন|লোড হচ্ছে...|লোকেশন খোঁজা হচ্ছে...|লোকেশন পাওয়া যায়নি। ফোনের লোকেশন (GPS) ও অনুমতি চালু করুন, অথবা তালিকা থেকে শহর বেছে নিন।|লোকেশন পাওয়া যায়নি|নামাজের সময় আনা যায়নি। ইন্টারনেট সংযোগ দেখে পেজটি রিফ্রেশ করুন।|সময় পাওয়া যায়নি|হানাফী মাযহাব (আসর) এবং করাচি ইউনিভার্সিটি অফ ইসলামিক সায়েন্সেস পদ্ধতিতে গণনা। সেহরির শেষ সময় ফজরের ১০ মিনিট আগে ধরা হয়েছে; স্থানীয় ক্যালেন্ডারের সাথে মিলিয়ে নিন।|হাফেজী (১৫ লাইন)|উসমানী|সূরা লোড হচ্ছে...|সূরার তালিকা আনা যায়নি। ইন্টারনেট সংযোগ দেখে পেজটি রিফ্রেশ করুন।|সূরা আনা যায়নি। আবার চেষ্টা করুন।|আরবি পাঠ ও অনুবাদ quran.com ও alquran.cloud থেকে নেওয়া। হাফেজী ১৫ লাইন কুরআনের লেখার রীতি (ইন্দো-পাক নাসখ) অনুসরণ করা হয়েছে।|ক্বারী ও সূরা বেছে নিন|বিখ্যাত ক্বারী বেছে নিন:|সূরা|এই তিলাওয়াতটি এখন চালানো যাচ্ছে না। অন্য ক্বারী বেছে নিন।|কোনো দোয়া পাওয়া যায়নি।|কোনো হাদীস পাওয়া যায়নি।|কোনো মাসআলা পাওয়া যায়নি।|হাদীস|নামাজের সময়, কুরআন, তিলাওয়াত, মাসনূন দোয়া, হাদীস ও মাসআলা এক অ্যাপে। আল্লাহ আমাদের সবাইকে কবুল করুন, আমীন।|প্রতিটি হাদীসে আরবি পাঠ, বাংলা ভাবানুবাদ, বর্ণনাকারী ও গ্রন্থের হাদীস নম্বর দেওয়া হয়েছে। হাদীস নম্বর প্রচলিত সংস্করণ অনুযায়ী; সংস্করণভেদে সামান্য ভিন্নতা থাকতে পারে।|মাসআলাসমূহ হানাফী ফিকহ অনুযায়ী সংক্ষেপে দেওয়া হয়েছে। বিস্তারিত ও নির্দিষ্ট পরিস্থিতির জন্য নির্ভরযোগ্য আলেমের সাথে পরামর্শ করুন।|জান্নাত (সবুজ)|নূর (ডার্ক)|সাগর নীল|রয়্যাল বেগুনি|মরুভূমি|সহীহ বুখারী|সহীহ মুসলিম|জামে তিরমিযী|সুনানে আবু দাউদ|সুনানে নাসায়ী|সুনানে ইবনে মাজাহ|মুসনাদে আহমাদ|মুস্তাদরাকে হাকিম", "en": "Home|Quran|Recitation|Duas|More|Hadith|Rulings|Theme|100 Key Hadith|Essential Rulings|Theme & Colors|Next prayer|Prayer Times|Suhoor, Iftar & Other Times|Listen|Text size|Translation|Ayah|Starts|AH|Hadith of the Day|Narrator|Fajr|Dhuhr|Asr|Maghrib|Isha|Tahajjud|Suhoor ends|Sunrise|Ishraq|Sunset|Iftar|Search...|Auto location|Loading...|Finding location...|Location not found. Turn on GPS and location permission, or pick a city from the list.|Location not found|Could not load prayer times. Check your internet and refresh the page.|Times unavailable|Calculated with the Hanafi school (Asr) and the University of Islamic Sciences, Karachi method. Suhoor end is set 10 minutes before Fajr; please confirm with your local calendar.|Hafezi (15-line)|Uthmani|Loading surah...|Could not load the surah list. Check your internet and refresh the page.|Could not load the surah. Please try again.|Arabic text and translation are from quran.com and alquran.cloud. Hafezi follows the Indo-Pak Naskh style of the 15-line Quran.|Choose a reciter and surah|Choose a famous reciter:|Surah|This recitation cannot play now. Choose another reciter.|No duas found.|No hadith found.|No rulings found.|Hadith|Prayer times, Quran, recitation, masnoon duas, hadith and rulings in one app. May Allah accept us all, Ameen.|Each hadith shows the Arabic text, translation, narrator and book reference. Numbers follow common editions and may differ slightly between editions.|Rulings are given briefly according to Hanafi fiqh. For details or specific situations, consult a reliable scholar.|Jannah (Green)|Noor (Dark)|Ocean Blue|Royal Purple|Desert|Sahih al-Bukhari|Sahih Muslim|Jami at-Tirmidhi|Sunan Abi Dawud|Sunan an-Nasa’i|Sunan Ibn Majah|Musnad Ahmad|Mustadrak al-Hakim"};
+const ENQ = ['Mishary Rashid Alafasy','Abdul Rahman Al-Sudais','Saud Al-Shuraim','Maher Al-Muaiqly','Abdul Basit Abdus Samad','Mahmoud Khalil Al-Hussary','Muhammad Siddiq Al-Minshawi'];
+const DUA_EN = [["Before Sleeping", "O Allah, in Your name I die (sleep) and I live (wake)."], ["On Waking Up", "All praise is for Allah who gave us life after causing us to die (sleep), and to Him is the resurrection."], ["Morning Dua", "O Allah, by You we reach the morning and by You we reach the evening; by You we live and die, and to You is the resurrection."], ["Sayyidul Istighfar", "O Allah, You are my Lord; there is no god but You. You created me and I am Your servant. I keep Your covenant and promise as best I can. I seek refuge in You from the evil I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for none forgives sins but You."], ["After Wudu", "I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad ﷺ is His servant and Messenger."], ["After the Adhan", "O Allah, Lord of this perfect call and the established prayer, grant Muhammad ﷺ the Wasilah and excellence, and raise him to the praised station You have promised him."], ["Entering the Mosque", "O Allah, open for me the doors of Your mercy."], ["Leaving the Mosque", "O Allah, I ask You of Your bounty."], ["Durood Sharif (Durood Ibrahim)", "O Allah, send blessings upon Muhammad ﷺ and the family of Muhammad ﷺ as You sent blessings upon Ibrahim (peace be upon him) and his family. Indeed You are Praiseworthy and Glorious. O Allah, bless Muhammad ﷺ and the family of Muhammad ﷺ as You blessed Ibrahim and his family. Indeed You are Praiseworthy and Glorious."], ["Entering the Bathroom", "O Allah, I seek refuge in You from male and female evil jinn."], ["Leaving the Bathroom", "(O Allah,) I seek Your forgiveness. All praise is for Allah who removed harm from me and granted me well-being."], ["Before Eating", "In the name of Allah (I begin). If you forgot to say it at the start, say when you remember: Bismillahi awwalahu wa akhirahu (بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ), meaning: in the name of Allah at its beginning and its end."], ["After Eating", "All praise is for Allah who fed us, gave us drink, and made us Muslims."], ["Dua at Iftar", "The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills."], ["Wearing New Clothes", "All praise is for Allah who clothed me with this and provided it for me without any power or strength from me."], ["Looking in the Mirror", "O Allah, You have made my form beautiful, so make my character beautiful too."], ["Leaving Home", "In the name of Allah; I trust in Allah; there is no power or strength except with Allah."], ["Entering Home", "In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we rely. (Then greet your family with salam.)"], ["Salam (Greeting)", "Peace, and the mercy and blessings of Allah be upon you."], ["Replying to Salam", "And upon you be peace, and the mercy and blessings of Allah."], ["When Sneezing", "All praise is for Allah. (The listener says: Yarhamukallah – may Allah have mercy on you. The sneezer replies: Yahdikumullahu wa yuslihu balakum – may Allah guide you and set your affairs right.)"], ["Travel Dua", "Glory to the One who subjected this to us, though we could not have subdued it ourselves. And indeed, to our Lord we will return."], ["Seeing the New Moon", "O Allah, bring this moon over us with blessing, faith, safety and Islam. (O moon,) my Lord and your Lord is Allah."], ["When It Rains", "O Allah, make it a beneficial rain."], ["Worry and Grief", "O Allah, I seek refuge in You from worry and grief."], ["In Times of Calamity", "Indeed we belong to Allah, and indeed to Him we will return."], ["Trust in Times of Fear", "Allah is sufficient for us, and He is the best disposer of affairs."], ["Relief from Distress (Yunus AS)", "There is no god but You; glory be to You. Indeed, I was among the wrongdoers."], ["Visiting the Sick", "No harm; it is a purification, if Allah wills."], ["When Feeling Pain", "I seek refuge in Allah and His power from the evil of what I feel and fear. (Place a hand on the painful spot, say Bismillah 3 times, then recite this 7 times.)"], ["Freedom from Debt & Halal Provision", "O Allah, suffice me with what You have made lawful instead of what You have forbidden, and make me independent of all others by Your bounty."], ["Visiting Graves", "Peace be upon you, people of these abodes, believers and Muslims. And, if Allah wills, we will surely join you."], ["Steadfast Faith", "O Turner of hearts, keep my heart firm upon Your religion."], ["Increase in Knowledge", "My Lord, increase me in knowledge."], ["Dua for Parents", "My Lord, have mercy on them as they raised me when I was small."], ["Dua for Children & Family", "Our Lord, grant us comfort of our eyes in our spouses and children, and make us leaders of the righteous."], ["Dua for Newlyweds", "May Allah bless you, shower blessings upon you, and unite you both in goodness."], ["Forgiveness (Adam AS)", "Our Lord, we have wronged ourselves. If You do not forgive us and have mercy on us, we will surely be among the losers."], ["Staying Firm on Guidance", "Our Lord, do not let our hearts deviate after You have guided us, and grant us mercy from Yourself. Indeed You are the Bestower."], ["Good in Both Worlds", "Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire."], ["Evening Dua", "O Allah, by You we reach the evening and by You we reach the morning; by You we live and die, and to You is the final return."], ["After Wudu (Repentant and Purified)", "O Allah, make me among those who repent and make me among those who purify themselves."], ["Replying to the Adhan", "Repeat what the muadhdhin says. Only in reply to ‘Hayya alas-salah’ and ‘Hayya alal-falah’ say: there is no power or strength except with Allah."], ["Thana (Opening Dua of Prayer)", "O Allah, glory and praise be to You; blessed is Your name, exalted is Your majesty, and there is no god but You."], ["Tasbih of Ruku and Sajdah", "In ruku say ‘Subhana Rabbiyal Azim’ (glory to my Mighty Lord) and in sajdah ‘Subhana Rabbiyal A'la’ (glory to my Most High Lord) — each at least three times."], ["Tashahhud (At-Tahiyyat)", "All greetings, prayers and good words are for Allah. Peace be upon you, O Prophet, and the mercy and blessings of Allah. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad ﷺ is His servant and Messenger. (The Tashahhud narrated by Ibn Mas'ud (RA), followed in the Hanafi school.)"], ["Dua Masurah (Final Sitting)", "O Allah, I have wronged myself greatly, and none forgives sins but You. So grant me forgiveness from Yourself and have mercy on me. Indeed You are the Forgiving, the Merciful."], ["Dua Qunut (in Witr)", "O Allah, we seek Your help and Your forgiveness; we believe in You, rely on You and praise You with the best of praise. We thank You and do not deny You; we cast off and abandon whoever disobeys You. O Allah, You alone we worship, to You we pray and prostrate, and toward You we hasten and strive. We hope for Your mercy and fear Your punishment; indeed Your punishment will overtake the disbelievers."], ["Funeral Dua (for Adults)", "O Allah, forgive our living and our dead, those present and those absent, our young and our old, our males and our females. O Allah, whoever You keep alive among us, keep him alive upon Islam, and whoever You cause to die among us, cause him to die upon faith."], ["Funeral Dua (for a Minor Boy)", "O Allah, make him a forerunner for us, make him a reward and a treasure for us, and make him an intercessor for us whose intercession is accepted. (For a girl say ‘ij'alha’ and ‘shafi'atan wa mushaffa'ah’.)"], ["Takbir al-Tashriq", "Allah is the Greatest, Allah is the Greatest; there is no god but Allah; Allah is the Greatest, Allah is the Greatest, and all praise is for Allah. (Once after every fard prayer from Fajr of 9 Dhul Hijjah to Asr of 13 Dhul Hijjah.)"], ["Dua Before Iftar (Commonly Recited)", "O Allah, I fasted for You and I break my fast with Your provision. (The chain of this dua is weak, though its meaning is sound and it is commonly recited among scholars; the authentically reported dua is the one after iftar, ‘Dhahabaz-zama'u…’.)"]];
+const HAD_EN = [["The Importance of Intention", "Actions are judged by intentions, and each person will get what they intended."], ["Five Pillars of Islam", "Islam is built on five: testifying that there is no god but Allah and Muhammad ﷺ is His Messenger, establishing prayer, giving zakat, performing Hajj, and fasting Ramadan."], ["Perfection of Faith", "None of you truly believes until he loves for his brother what he loves for himself."], ["Etiquette of Speech", "Whoever believes in Allah and the Last Day should speak good or remain silent."], ["The True Muslim", "A Muslim is one from whose tongue and hand other Muslims are safe."], ["Controlling Anger", "A man asked the Prophet ﷺ for advice; he said, 'Do not get angry.' The man asked several times, and he said the same."], ["The Truly Strong", "The strong one is not the one who defeats others in wrestling; the truly strong is the one who controls himself in anger."], ["The Best of People", "The best among you is the one who learns the Quran and teaches it."], ["Purity", "Purity is half of faith."], ["Allah Looks at Hearts", "Allah does not look at your faces and wealth; He looks at your hearts and deeds."], ["Consistent Deeds", "The most beloved deed to Allah is the most consistent, even if small."], ["Path of Knowledge", "Whoever travels a path seeking knowledge, Allah makes the path to Paradise easy for him."], ["The Alert Believer", "A believer is not bitten twice from the same hole."], ["Arrogance", "Whoever has an atom's weight of arrogance in his heart will not enter Paradise. Arrogance is rejecting the truth and looking down on people."], ["Truthfulness", "Hold to truth, for truth leads to righteousness and righteousness leads to Paradise. Beware of lying, for lying leads to wickedness and wickedness leads to the Fire."], ["Signs of a Hypocrite", "The signs of a hypocrite are three: when he speaks he lies, when he promises he breaks it, and when trusted he betrays."], ["Religion Is Sincere Advice", "Religion is sincere advice. We asked: for whom? He said: for Allah, His Book, His Messenger, the leaders of the Muslims and their common people."], ["Make It Easy", "Make things easy and do not make them difficult; give glad tidings and do not drive people away."], ["Mercy", "He who shows no mercy will not be shown mercy."], ["Rights of the Neighbor", "Whoever believes in Allah and the Last Day should not harm his neighbor."], ["Honoring the Guest", "Whoever believes in Allah and the Last Day should honor his guest."], ["Brotherhood", "Do not envy one another, do not bid up prices to deceive, do not hate, do not turn away from one another; be servants of Allah as brothers. A Muslim is the brother of a Muslim; he does not wrong him, abandon him or look down on him."], ["Fulfilling a Brother's Need", "A Muslim is the brother of a Muslim; he does not wrong him or abandon him. Whoever fulfills his brother's need, Allah fulfills his need."], ["Like One Body", "In mutual love, mercy and compassion, believers are like one body: when one part suffers, the whole body responds with fever and sleeplessness."], ["Two Blessings", "Many people are at a loss regarding two blessings: health and free time."], ["Like a Traveler in the World", "Be in this world as if you were a stranger or a traveler."], ["Five Opportunities", "Value five before five: youth before old age, health before sickness, wealth before poverty, free time before busyness, and life before death."], ["Ongoing Charity", "When a person dies, his deeds end except three: ongoing charity, beneficial knowledge, and a righteous child who prays for him."], ["Spreading Salam", "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you something that will make you love one another? Spread salam among yourselves."], ["Guiding to Good", "Whoever guides to a good deed gets a reward equal to the one who does it."], ["Meeting with a Smile", "Do not belittle any good deed, even meeting your brother with a cheerful face."], ["Every Good Deed Is Charity", "Every good deed is charity."], ["Five Daily Prayers", "The five prayers, one Friday to the next, and one Ramadan to the next expiate what lies between them, if major sins are avoided."], ["Prayer Erases Sins", "If a river ran by someone's door and he bathed in it five times a day, would any dirt remain? They said no. He said: that is like the five prayers; Allah erases sins through them."], ["Abandoning Prayer", "Between a servant and polytheism and disbelief is abandoning prayer."], ["The Fajr Prayer", "Whoever prays Fajr is under the protection of Allah."], ["Virtue of Congregation", "Prayer in congregation is twenty-seven times better than praying alone."], ["Virtue of Wudu", "Whoever performs wudu well, his sins leave his body, even from under his nails."], ["Focused Prayer", "Whoever performs wudu like mine and prays two rak'ahs without his mind wandering, his previous sins are forgiven."], ["Joy of the Fasting Person", "The fasting person has two joys: one when he breaks his fast, and one when he meets his Lord."], ["Fasting in Ramadan", "Whoever fasts Ramadan with faith and seeking reward, his previous sins are forgiven."], ["Fasting Is a Shield", "Fasting is a shield, so the fasting person should not speak obscenely or act foolishly."], ["Laylat al-Qadr", "Whoever prays on Laylat al-Qadr with faith and seeking reward, his previous sins are forgiven."], ["Quran's Intercession", "Read the Quran; on the Day of Resurrection it will come as an intercessor for its readers."], ["Every Letter of the Quran", "Whoever reads a letter of Allah's Book gets a good deed, and each good deed is multiplied tenfold. I do not say 'Alif-Lam-Mim' is one letter; rather Alif is a letter, Lam is a letter and Mim is a letter."], ["The Reciter of the Quran", "One skilled in the Quran is with the noble, righteous angels. One who stumbles through it with difficulty gets a double reward."], ["Subhanallahi wa bihamdihi", "Whoever says 'Subhanallahi wa bihamdihi' a hundred times a day, his sins are forgiven even if they equal the foam of the sea."], ["Two Beloved Phrases", "Two phrases are light on the tongue, heavy on the scale and beloved to the Most Merciful: 'Subhanallahi wa bihamdihi, Subhanallahil Azim.'"], ["The Best Dhikr", "The best dhikr is 'La ilaha illallah' and the best dua is 'Alhamdulillah.'"], ["Dua Is Worship", "Dua is worship."], ["Virtue of Durood", "Whoever sends blessings upon me once, Allah sends ten blessings upon him."], ["Dua in the Last Third of the Night", "Our Lord descends to the lowest heaven in the last third of every night and says: who calls on Me, that I may answer? Who asks Me, that I may give? Who seeks My forgiveness, that I may forgive?"], ["The Prophet's ﷺ Istighfar", "By Allah, I seek Allah's forgiveness and repent to Him more than seventy times a day."], ["Time of Repentance", "Allah accepts a servant's repentance until his soul reaches his throat."], ["Allah's Hand of Forgiveness", "Allah stretches out His hand at night so that the sinner of the day may repent, and stretches it out by day so that the sinner of the night may repent."], ["The Best Are Those Who Repent", "Every son of Adam makes mistakes, and the best of those who err are those who repent."], ["Taqwa and Good Conduct", "Fear Allah wherever you are. Follow a bad deed with a good one and it will erase it, and treat people with good character."], ["Good Character", "The best among you are those with the best character."], ["Weight on the Scale", "On the Day of Resurrection nothing will be heavier on the believer's scale than good character."], ["Purpose of the Prophet's Mission", "I was sent only to perfect good character."], ["Treatment of Family", "The best among you is the best to his family, and I am the best among you to my family."], ["Treatment of Wives", "The most complete believers in faith are those with the best character, and the best of you are those best to their wives."], ["Father's Pleasure", "The Lord's pleasure is in the father's pleasure, and the Lord's displeasure is in the father's displeasure."], ["The Most Beloved Deed", "The deeds most beloved to Allah: praying on time, then being good to parents, then striving in the way of Allah."], ["Mother's Right", "A man asked: who is most deserving of my good company? He said: your mother. Then who? Your mother. Then who? Your mother. Then who? Your father."], ["Ties of Kinship", "One who cuts family ties will not enter Paradise."], ["Provision and Lifespan", "Whoever wishes for expanded provision and a long life should maintain ties of kinship."], ["Caretaker of an Orphan", "I and the caretaker of an orphan will be in Paradise like this, and he gestured with his index and middle fingers."], ["Serving Widows and the Poor", "One who strives for the widow and the poor is like one who strives in the way of Allah."], ["Reward of Planting Trees", "If a Muslim plants a tree or sows a crop and a person, bird or animal eats from it, it counts as charity for him."], ["Giving to Neighbors", "O Abu Dharr! When you cook a stew, add more water to it and look after your neighbors."], ["The Upper Hand", "The upper hand is better than the lower hand, and the best charity is from what is surplus to one's needs."], ["Charity Does Not Reduce Wealth", "Charity does not decrease wealth."], ["Earning by One's Own Hand", "No one has ever eaten better food than what he earns by his own hand. Prophet Dawud (AS) used to eat from the work of his own hands."], ["The Honest Merchant", "The truthful, trustworthy merchant will be with the prophets, the truthful and the martyrs."], ["Prohibition of Deceit", "Whoever deceives is not one of us."], ["The Gravity of Riba", "The Messenger of Allah ﷺ cursed the one who takes interest, the one who pays it, its writer and its two witnesses, and said they are all the same."], ["Consequence of Oppression", "Whoever unjustly takes even a handspan of land, on the Day of Resurrection seven earths will be hung around his neck like a collar."], ["Wages of Workers", "Pay the worker his wages before his sweat dries."], ["Backbiting", "Do you know what backbiting is? They said: Allah and His Messenger know best. He said: mentioning your brother in his absence with what he dislikes."], ["Tale-bearing", "The tale-bearer will not enter Paradise."], ["Suspicion", "Beware of suspicion, for suspicion is the most false speech."], ["Speech of the Believer", "A believer is not a slanderer, a curser, obscene or foul-mouthed."], ["Concealing Faults", "Whoever conceals a Muslim's faults in this world, Allah will conceal his faults in this world and the Hereafter."], ["Relieving Hardship", "Whoever relieves a believer of a hardship of this world, Allah will relieve him of a hardship on the Day of Resurrection."], ["Shade of the Throne", "On the Day of Resurrection Allah will shade seven under His shade: a just ruler; a youth raised in worship of his Lord; a man whose heart is attached to the mosques; two who love each other for Allah's sake; a man who refuses a beautiful, high-status woman's call saying 'I fear Allah'; a man who gives charity so secretly that his left hand does not know what his right gave; and one who remembers Allah in solitude and his eyes overflow."], ["The Pen Is Lifted", "The pen is lifted from three: the sleeper until he wakes, the child until he reaches puberty, and the insane until he regains reason."], ["Modesty", "Modesty is a part of faith."], ["Branches of Faith", "Faith has over seventy branches. The highest is saying 'La ilaha illallah,' the lowest is removing harm from the road, and modesty is a branch of faith."], ["Importance of the Heart", "In the body there is a piece of flesh; if it is sound the whole body is sound, and if it is corrupt the whole body is corrupt. Indeed, it is the heart."], ["Avoiding Doubt", "Leave what makes you doubt for what does not make you doubt."], ["Leaving What Does Not Concern You", "Part of the excellence of a person's Islam is leaving what does not concern him."], ["The Truly Bankrupt", "The truly bankrupt of my Ummah is one who comes on the Day of Resurrection with prayer, fasting and zakat, but has insulted one, slandered another, consumed another's wealth, shed another's blood and struck another. His good deeds are given to them; if they run out before the debts are paid, their sins are put on him, and then he is thrown into the Fire."], ["Opposing Wrong", "Whoever among you sees a wrong should change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart, and that is the weakest level of faith."], ["Love for the Messenger", "None of you truly believes until I am dearer to him than his father, his children and all people."], ["Last Words: The Kalimah", "Whoever's last words are 'La ilaha illallah' will enter Paradise."], ["Building a Mosque", "Whoever builds a mosque seeking Allah's pleasure, Allah builds for him a similar house in Paradise."], ["Going to the Mosque", "Whoever goes to the mosque morning or evening, Allah prepares for him a hospitality in Paradise each time he goes."], ["Remembering Death", "Remember often the destroyer of pleasures: death."], ["Five Questions on Judgment Day", "On the Day of Resurrection a servant's feet will not move until he is asked about five: how he spent his life, how he used his youth, where he earned his wealth and how he spent it, and what he did with his knowledge."]];
+const NAR_EN = {"উমার ইবনুল খাত্তাব (রা.)": "Umar ibn al-Khattab (RA)", "ইবনে উমার (রা.)": "Ibn Umar (RA)", "আনাস (রা.)": "Anas (RA)", "আবু হুরায়রা (রা.)": "Abu Hurayrah (RA)", "আব্দুল্লাহ ইবনে আমর (রা.)": "Abdullah ibn Amr (RA)", "উসমান (রা.)": "Uthman (RA)", "আবু মালিক আল-আশআরী (রা.)": "Abu Malik al-Ash‘ari (RA)", "আয়িশা (রা.)": "Aisha (RA)", "আব্দুল্লাহ ইবনে মাসউদ (রা.)": "Abdullah ibn Mas‘ud (RA)", "তামীম আদ-দারী (রা.)": "Tamim ad-Dari (RA)", "নুমান ইবনে বাশীর (রা.)": "Nu‘man ibn Bashir (RA)", "ইবনে আব্বাস (রা.)": "Ibn Abbas (RA)", "আবু উমামা (রা.)": "Abu Umamah (RA)", "জাবির (রা.)": "Jabir (RA)", "জুনদুব ইবনে আব্দুল্লাহ (রা.)": "Jundub ibn Abdullah (RA)", "আবু যার (রা.)": "Abu Dharr (RA)", "আবু মাসউদ (রা.)": "Abu Mas‘ud (RA)", "হাকীম ইবনে হিযাম (রা.)": "Hakim ibn Hizam (RA)", "মিকদাম ইবনে মাদীকারিব (রা.)": "Miqdam ibn Ma‘dikarib (RA)", "আবু সাঈদ আল-খুদরী (রা.)": "Abu Sa‘id al-Khudri (RA)", "আবু মূসা আল-আশআরী (রা.)": "Abu Musa al-Ash‘ari (RA)", "আবু দারদা (রা.)": "Abu ad-Darda (RA)", "আলী (রা.)": "Ali (RA)", "সাহল ইবনে সাদ (রা.)": "Sahl ibn Sa‘d (RA)", "জুবাইর ইবনে মুতইম (রা.)": "Jubayr ibn Mut‘im (RA)", "হুযাইফা (রা.)": "Hudhayfah (RA)", "সাঈদ ইবনে যায়দ (রা.)": "Sa‘id ibn Zayd (RA)", "হাসান ইবনে আলী (রা.)": "Hasan ibn Ali (RA)", "মুআয ইবনে জাবাল (রা.)": "Mu‘adh ibn Jabal (RA)"};
+const hv = (h,i) => lang === 'en' ? [HAD_EN[i][0], HAD_EN[i][1], h[2]] : h;
+const nv = n => lang === 'en' ? (NAR_EN[n] || n) : n;
+const MAS_EN = [["Obligatory Acts of Wudu (4)", ["Wash the whole face once (from where the hair grows on the forehead to below the chin, and from one earlobe to the other)", "Wash both arms including the elbows", "Wipe a quarter of the head (masah)", "Wash both feet including the ankles"]], ["Sunnahs of Wudu", ["Make the intention and say Bismillah", "Wash both hands up to the wrists", "Use the miswak", "Rinse the mouth and sniff water into the nose three times", "Run fingers through the beard and between the fingers and toes", "Wash each limb three times", "Wipe the whole head and both ears", "Start from the right side, keep the sequence (tartib) and perform wudu without a break"]], ["What Breaks Wudu", ["Anything exiting from the private passages", "Blood or pus flowing out of the body (a mere stain or drop does not break wudu)", "Vomiting a mouthful", "Falling asleep lying down or leaning (sleeping while sitting or standing does not break wudu)", "Fainting or intoxication", "Loud laughter in a prayer that has ruku and sajdah", "Touching one's wife or anyone else, or touching one's own private part, does not break wudu (Hanafi school)"]], ["Rulings on Tayammum", ["Tayammum is allowed when no water is available within about a mile (about 1.6 km), or when using water may worsen an illness", "Three fard acts: make the intention, strike both hands on clean earth and wipe the face, strike again and wipe both arms up to the elbows", "Whatever breaks wudu also breaks tayammum; it also breaks when water becomes available", "Tayammum is valid on clean earth and earth-like materials (sand, stone, brick, lime etc.), not on things that burn to ash or melt (wood, metal, glass) (Hanafi school)"]], ["Obligatory Acts of Ghusl (3)", ["Rinse the mouth (water reaching all parts inside)", "Water reaching the soft part of the nose", "Water reaching the whole body without leaving even a hair's breadth dry", "Ghusl becomes obligatory after seminal discharge (in sleep, if wetness or a trace is found), after intercourse (even without discharge), and when menstruation or postnatal bleeding ends"]], ["Etiquette of Relieving Oneself", ["Facing or turning one's back to the qiblah while relieving oneself is makruh tahrimi (prohibited)", "Do not clean with the right hand; use the left", "Enter the bathroom with the left foot and leave with the right", "Purify with water or with clay/stones"]], ["Fard Acts of Prayer (13)", ["Outside the prayer, 7: clean body, clean clothes, clean place, covering the awrah, facing the qiblah, the time having entered, and intention", "Inside the prayer, 6: Takbir Tahrimah, standing (qiyam), recitation, ruku, sajdah, and the final sitting"]], ["Wajib Acts of Prayer", ["Recite Surah Fatihah and add another surah or verses", "In the first two rak'ahs of fard prayers, add a surah after Fatihah; in every rak'ah of witr, sunnah and nafl recite Fatihah and a surah", "Perform ruku, sajdah and other pillars calmly (ta'dil al-arkan), stand upright after ruku (qawmah) and sit upright between the two sajdahs (jalsah)", "In three- or four-rak'ah prayers, sit after the second rak'ah and recite Tashahhud in both sittings", "In the third rak'ah of Witr, say takbir and recite Dua Qunut", "End the prayer by saying the word ‘As-salam’", "Say six extra takbirs in the two Eid prayers", "For the imam: recite aloud in Fajr, Maghrib, Isha, Jumu'ah and Eid, and silently in Dhuhr and Asr"]], ["Rak'ahs for Each Prayer", ["Fajr: 2 sunnah muakkadah (very important), 2 fard", "Dhuhr: 4 sunnah muakkadah, 4 fard, 2 sunnah muakkadah, 2 nafl", "Asr: 4 fard (preceded by 4 rak'ahs of ghayr muakkadah sunnah)", "Maghrib: 3 fard, 2 sunnah muakkadah, 2 nafl", "Isha: 4 ghayr muakkadah sunnah (before), 4 fard, 2 sunnah muakkadah, 2 nafl, 3 witr (wajib), 2 nafl"]], ["What Invalidates the Prayer", ["Speaking or giving salam during prayer", "Eating or drinking, intentionally or by mistake", "Turning the chest away from the qiblah", "Wudu breaking", "Loud laughter", "Crying out loud for worldly reasons", "Excessive unnecessary movement (amal kathir)", "Intentionally uncovering the awrah, or leaving it uncovered for long", "Reading the Quran from a mushaf (according to Imam Abu Hanifa)", "Replying to someone's salam, or saying ‘Yarhamukallah’ to a sneezer"]], ["Times When Prayer Is Forbidden", ["At sunrise (until the sun has fully risen, about 15-20 minutes)", "At exact midday when the sun is overhead (until just before zawal)", "At sunset (from when the sun begins to set until it has set) — but that day's Asr, if not yet prayed, must still be prayed", "In these three times, making up fard prayers and offering nafl prayers are not valid", "Nafl prayers are makruh after the Fajr fard until sunrise, and after Asr until sunset (qada and fard may be prayed)"]], ["Sajdah Sahw (Prostration of Forgetfulness)", ["If a wajib of the prayer is missed by mistake, sajdah sahw becomes wajib", "Method: after reciting Tashahhud in the final sitting, give salam to one side and perform two sajdahs", "Then recite Tashahhud, durood and dua again, and give salam to end the prayer", "If a wajib is left out intentionally, sajdah sahw is not enough; the prayer must be repeated", "If a fard is missed, sajdah sahw does not make the prayer valid; it must be prayed again"]], ["Qada (Missed) Prayers", ["Missed fard and witr prayers should be made up (qada) as soon as remembered", "Leaving prayer intentionally is a major sin; repentance is required along with qada", "Qada of Fajr is prayed after sunrise (once the forbidden time has passed)"]], ["Traveler's Prayer (Qasr)", ["In the Hanafi school, shortening the prayer (qasr) while travelling is wajib, not optional", "After leaving the limits of one's town with the intention of a journey of about 48 miles (about 77 km) or more, four-rak'ah fard prayers are shortened to two", "If one intends to stay 15 days or more somewhere, the full prayer is required", "There is no qasr in Fajr, Maghrib and Witr"]], ["Friday (Jumu'ah) Prayer", ["Jumu'ah is fard ayn on a resident, healthy, adult, free man; it is not obligatory on women, travellers, the sick and minors", "Conditions for validity: a city or large town, the time of Dhuhr, the khutbah, congregation (at least 3 followers besides the imam — the view of Imam Abu Hanifa) and open public permission", "Listening attentively to the khutbah is wajib; speaking or praying during the khutbah is prohibited", "Total 12 rak'ahs: 4 sunnah muakkadah, 2 fard, 4 sunnah muakkadah, 2 sunnah", "Sunnah: ghusl on Friday, wearing clean clothes, using perfume and going early to the mosque"]], ["Eid Prayers", ["The Eid al-Fitr and Eid al-Adha prayers are wajib; there is no adhan or iqamah", "Two rak'ahs; three takbirs after Thana in the first rak'ah, and three takbirs after recitation before ruku in the second (six extra takbirs in total)", "Delivering the khutbah after the prayer is sunnah; listening to it attentively is wajib", "It is sunnah to eat something before the prayer on Eid al-Fitr, and after the prayer on Eid al-Adha", "From Fajr of 9 Dhul Hijjah to Asr of 13 Dhul Hijjah (23 prayers), saying Takbir al-Tashriq once after every fard prayer is wajib (view of the two companions of Abu Hanifa, on which the fatwa rests)"]], ["Funeral (Janazah) Prayer", ["The funeral prayer is fard kifayah; if some perform it, it is fulfilled for all", "It is prayed standing, without ruku or sajdah", "Two fard acts: the four takbirs and standing (qiyam); three sunnah acts: Thana, durood and the dua for the deceased", "Four takbirs: Thana after the first, durood after the second, dua for the deceased after the third, and salam after the fourth", "In the Hanafi school the hands are raised to the ears only at the first takbir, then folded; they are not raised at the later takbirs"]], ["Rulings on Congregation", ["For men, praying fard in congregation at the mosque is sunnah muakkadah (close to wajib)", "Straightening the rows and filling gaps is important", "Do not go into ruku or sajdah before the imam", "The follower does not recite Fatihah or other recitation behind the imam (according to the Hanafi school)"]], ["Etiquette of Reciting the Quran", ["Wudu is required to touch the Quran; reciting from memory without wudu is permitted", "One cannot recite the Quran while in need of ghusl, or during menstruation or postnatal bleeding", "Reciting slowly and beautifully (tarteel) is sunnah", "Keep the Quran in a high place and treat it with respect"]], ["Rulings on Fasting", ["Fasting means abstaining from food, drink and marital relations from true dawn (subh sadiq) to sunset, with intention", "Eating or drinking by mistake does not break the fast", "If a Ramadan fast is broken intentionally without a valid excuse by eating, drinking or intercourse, both qada and kaffarah are wajib (Hanafi view)", "Kaffarah: freeing a slave (not possible today); if unable, fast 60 consecutive days (if one day is missed, start over); if unable, feed 60 poor people two full meals", "If one does not fast in Ramadan due to travel or illness, it must be made up later"]], ["Rulings on Fitrah", ["Sadaqat al-Fitr becomes wajib at dawn on the day of Eid al-Fitr on one who owns nisab, for himself and for his minor children who own no wealth; it is not wajib on behalf of one's wife or adult children", "Amount: half a sa' of wheat or flour (about 1 kg 650 g); one sa' of barley, dates or raisins (about 3 kg 300 g); or the equivalent value (ask a local scholar or the Islamic Foundation for the yearly rate)", "It is better to pay before the Eid prayer; it may also be paid before Eid day", "It is given to the same categories of recipients as zakat"]], ["Rulings on Zakat", ["If one owns 7.5 bhori (about 87.48 g) of gold, 52.5 bhori (about 612.36 g) of silver or wealth of equal value for one year, 2.5% (one-fortieth) of the total wealth must be given as zakat", "Zakat is fard on wealth that is in excess of needs and free of debt", "Gold, silver, cash and trade goods are counted together; for cash and trade wealth the silver nisab (52.5 bhori) is generally used, as it benefits the poor more", "Recipients (seven categories in the Hanafi school): the poor, the needy, debtors, travelers, zakat collectors, freeing captives, and in the way of Allah (the share of new Muslims is considered discontinued in the Hanafi school)", "For zakat to be valid, the recipient must be made the owner; zakat cannot be given directly for building a mosque or madrasa or for a deceased person's shroud and burial", "Zakat cannot be given to one's own parents, grandparents, children, grandchildren or spouse; nor to descendants of Banu Hashim (sayyids)"]], ["Rulings on Qurbani", ["Qurbani is wajib on a resident (muqim) who owns nisab (wealth beyond needs equal to 52.5 bhori of silver); a full year need not pass", "Time: 10th, 11th and 12th of Dhul Hijjah until sunset; in cities after the Eid prayer, and where there is no Eid congregation from dawn on the 10th", "A goat, sheep or ram is for one person; a cow, buffalo or camel may be shared by up to seven (everyone's intention must be reward-seeking worship)", "Age: goat 1 year; sheep/ram 1 year (6 months is acceptable if it looks like a one-year-old); cow/buffalo 2 years; camel 5 years", "The animal must be free of defects (not blind, very thin, lame, or with more than a third of the ear or tail cut)", "It is recommended to divide the meat in three: for oneself, relatives and the poor; the hide or its price must be given in charity"]], ["Rulings on Hajj", ["Hajj is fard once in a lifetime on a Muslim who is able", "Three fard acts of Hajj: entering ihram, standing at Arafah (wuquf), and Tawaf al-Ziyarah", "Umrah is sunnah muakkadah", "Wajib acts of Hajj: staying at Muzdalifah, sa'i between Safa and Marwah, stoning the jamarat, the sacrifice in Tamattu' and Qiran Hajj, shaving or trimming the hair, and (for those coming from outside) Tawaf al-Wida"]], ["Special Rulings for Women", ["During menstruation and postnatal bleeding, prayer and fasting are waived; prayers are not made up, but missed fasts must be made up", "In this state one cannot recite the Quran or enter the mosque", "After menstruation or postnatal bleeding ends, she performs ghusl to become pure and then begins prayer", "A woman's awrah in prayer: her whole body except the face, the hands up to the wrists and (in the Hanafi school) the feet", "Menstruation lasts a minimum of 3 days and a maximum of 10; postnatal bleeding a maximum of 40 days; the minimum period of purity between two menstrual periods is 15 days (Hanafi school)"]], ["Transactions and Halal-Haram", ["Both taking and giving interest (riba) are haram", "Giving and taking bribes is haram", "Giving short weight or measure and hiding defects in goods is haram", "Selling by lying or deceiving is forbidden", "Keeping promises and returning trusts is wajib"]], ["Method of Prayer (Hanafi School)", ["At the opening takbir men raise their hands to the ears, women to the shoulders", "Men fold their hands below the navel, women on the chest", "Thana, Ta'awwudh, Bismillah and ‘Amin’ are said silently", "It is sunnah to say the tasbih in ruku and sajdah at least three times", "Hands are not raised before or after ruku (no raf' al-yadayn) except at the opening takbir", "On rising from ruku the imam says ‘Sami'allahu liman hamidah’, the follower says ‘Rabbana lakal hamd’, and one praying alone says both"]], ["The Witr Prayer", ["Witr is wajib; its time is from after Isha until true dawn", "It is prayed as 3 rak'ahs with one salam; after the second rak'ah sit and recite only Tashahhud, then stand for the third", "In the third rak'ah, after the surah say ‘Allahu Akbar’, raise the hands to the ears, fold them again and recite Dua Qunut before ruku", "If Dua Qunut is forgotten, sajdah sahw is wajib"]], ["The Taraweeh Prayer", ["In Ramadan, 20 rak'ahs of Taraweeh after Isha and before Witr are sunnah muakkadah (for men and women)", "It is better to give salam after every two rak'ahs", "Praying in congregation is sunnah kifayah; completing the Quran once in Ramadan is sunnah"]], ["Sajdah of Recitation (Tilawah)", ["There are 14 verses of sajdah in the Quran; sajdah of tilawah becomes wajib on whoever recites or hears them", "Method: say ‘Allahu Akbar’ and go into sajdah, say ‘Subhana Rabbiyal A'la’ three times, then rise saying ‘Allahu Akbar’; there is no Tashahhud or salam", "Wudu and facing the qiblah are required"]], ["Ruling on Abandoning Prayer", ["Denying that the fard prayer is obligatory takes one out of faith", "Leaving prayer out of laziness without denying it does not make one a disbeliever, but it is a major sin; qada and repentance are required", "The hadiths on abandoning prayer are severe warnings; Hanafi scholars interpret them this way"]]];
+const qn = i => lang === 'en' ? ENQ[i] : DATA.qaris[i].name;
+let S = {}, placeName = '', hijri = null;
+function loadStrings(){ const a = L[lang].split('|'); S = {}; KEYS.forEach((k,i) => S[k] = a[i]); }
+loadStrings();
+function setTxt(el, t){ if(!el) return; const n = [...el.childNodes].find(x => x.nodeType === 3 && x.nodeValue.trim()); if(n) n.nodeValue = t; else el.appendChild(document.createTextNode(t)); }
+function applyLang(){
+  const h = document.documentElement; h.lang = lang; h.dir = RTL.includes(lang) ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i]').forEach(e => setTxt(e, S[e.dataset.i]));
+  document.querySelectorAll('[data-go]').forEach(b => { const k = b.closest('.list') ? 'l_'+b.dataset.go : b.dataset.go; if(S[k]) setTxt(b, S[k]); });
+  setTxt($('listenBtn'), S.listen); setTxt($('fs').parentNode, S.size); setTxt($('showTr').parentNode, S.tr);
+  ['duaQ','hadQ','masQ'].forEach(id => $(id).placeholder = S.search);
+  document.querySelectorAll('#langMenu button').forEach(b => b.classList.toggle('on', b.dataset.l === lang));
+  if($('city').options[0]) $('city').options[0].textContent = '📍 ' + (placeName || S.auto);
+  $('noteH').textContent = S.noteH; $('noteM').textContent = S.noteM;
+  if(!timings) $('nextName').textContent = S.loading;
+  renderThemes(); renderQaris();
+  setTitle(); showHijri();
+}
+function showHijri(){
+  if(!hijri) return;
+  const m = lang === 'bn' ? HIJRI[hijri.month.number-1] : (RTL.includes(lang) ? hijri.month.ar : hijri.month.en);
+  $('hdate').textContent = bn(hijri.day)+' '+m+' '+bn(hijri.year)+' '+S.hijri;
+}
+function buildLangMenu(){ $('langMenu').innerHTML = LANGS.map(x => '<button type="button" data-l="'+x[0]+'">'+x[1]+'</button>').join(''); }
+function setLang(l){
+  lang = l; try{ localStorage.setItem('lang', l); }catch(e){}
+  loadStrings(); placeName = ''; applyLang(); fillSurahs(); tick();
+  renderDuas($('duaQ').value.trim()); renderHadith($('hadQ').value.trim()); renderMasail($('masQ').value.trim()); renderDaily();
+  loadTimes(); if(surahs.length) loadSurah();
+}
+
+/* ---------- আইকন (লাইন স্টাইল) ---------- */
+const ICONS = {
+  globe:'<circle class="ps" style="stroke-width:3.4" cx="24" cy="24" r="18"/><path class="ps" style="stroke-width:3" d="M6 24h36M24 6c-9 9-9 27 0 36M24 6c9 9 9 27 0 36"/>',
+  home:"<path class=\"p\" d=\"M9 21.5 24 9l15 12.5V37a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4z\"/><rect class=\"a\" x=\"20\" y=\"28\" width=\"8\" height=\"13\" rx=\"2.5\"/><path class=\"as\" d=\"M5.5 23.5 24 8l18.5 15.5\"/>",
+  quran:"<path class=\"as\" d=\"M11 30 36 43.5M37 30 12 43.5\"/><path class=\"p2\" d=\"M8 12.5c6-2.5 12-1.5 16 2v15c-4-3.5-10-4.5-16-2z\"/><path class=\"p2\" d=\"M40 12.5c-6-2.5-12-1.5-16 2v15c4-3.5 10-4.5 16-2z\"/><path class=\"ps\" style=\"stroke-width:3.4\" d=\"M6.5 14.5v15c6-2.5 12-1.5 17.5 2 5.5-3.5 11.5-4.5 17.5-2v-15\"/><path class=\"as\" style=\"stroke-width:2.4\" d=\"M24 15v16.5\"/>",
+  tilawat:"<path class=\"ps\" d=\"M9 28v-4a15 15 0 0 1 30 0v4\"/><rect class=\"a\" x=\"5\" y=\"26\" width=\"9\" height=\"15\" rx=\"3.5\"/><rect class=\"a\" x=\"34\" y=\"26\" width=\"9\" height=\"15\" rx=\"3.5\"/><path class=\"ps\" style=\"stroke-width:3.2\" d=\"M19.5 33.5v5M24 29.5v13M28.5 33.5v5\"/>",
+  dua:"<path class=\"as\" style=\"stroke-width:2.6\" d=\"M5 43.5h30\"/><path class=\"p\" d=\"M15 33H33c4.5 0 5 4 5 4.5 0 2.2-1.6 4-4 4H16.5c-4 0-5.5-2.7-5.5-4.5 0-2.2 1.6-4 4-4z\"/><path class=\"p\" d=\"M20.5 17.5c4-1.8 8.8-.6 9.2 4.2l-1.9 11.3h-13l2.7-11c.5-2 1.4-3.5 3-4.5z\"/><circle class=\"p\" cx=\"26.5\" cy=\"11.5\" r=\"5.4\"/><path class=\"a\" d=\"M21.1 11a5.4 5.4 0 0 1 10.8 0z\"/><path class=\"ps\" style=\"stroke-width:4.4\" d=\"M26 23.5l6 3.6 5.6-3.4\"/><ellipse class=\"a\" cx=\"39.6\" cy=\"20.6\" rx=\"2.7\" ry=\"4\" transform=\"rotate(25 39.6 20.6)\"/><path class=\"a\" d=\"M39.71 2.4A6.6 6.6 0 1 0 45.5 11.74A5.5 5.5 0 1 1 39.71 2.4Z\"/>",
+  hadith:"<rect class=\"p\" x=\"9\" y=\"4.5\" width=\"30\" height=\"39\" rx=\"4.5\"/><path class=\"a\" d=\"M33.5 4.5H35a4 4 0 0 1 4 4v31a4 4 0 0 1-4 4h-1.5z\"/><path class=\"a\" d=\"M14.5 4.5h8v15l-4-3.2-4 3.2z\"/><path class=\"l\" d=\"M25.05 18.07A8 8 0 1 0 31.06 29.75A6.6 6.6 0 1 1 25.05 18.07Z\"/><path class=\"ls\" style=\"stroke-width:2.6\" d=\"M16 38h13\"/>",
+  masail:"<circle class=\"p\" cx=\"24\" cy=\"24\" r=\"19\"/><path class=\"ls\" d=\"M18.2 19.6a5.9 5.9 0 1 1 8.5 5.3c-1.9 1-2.7 2.2-2.7 4.1\"/><circle class=\"l\" cx=\"24\" cy=\"35.2\" r=\"2.5\"/>",
+  more:"<rect class=\"p\" x=\"6\" y=\"6\" width=\"15\" height=\"15\" rx=\"4.5\"/><rect class=\"a\" x=\"27\" y=\"6\" width=\"15\" height=\"15\" rx=\"4.5\"/><rect class=\"a\" x=\"6\" y=\"27\" width=\"15\" height=\"15\" rx=\"4.5\"/><rect class=\"p\" x=\"27\" y=\"27\" width=\"15\" height=\"15\" rx=\"4.5\"/>",
+  palette:"<path class=\"p\" d=\"M24 5C13 5 5 13.5 5 24c0 10.5 8.5 19 19 19 3.5 0 5-2.2 5-4.5 0-2.5-1.8-3.5-1.8-6 0-2.3 1.9-4 4.2-4H37c4.4 0 7-3.2 7-7.5C44 12 35.5 5 24 5z\"/><circle class=\"a\" cx=\"14.5\" cy=\"23.5\" r=\"3.2\"/><circle class=\"l\" cx=\"19.5\" cy=\"13.5\" r=\"3.2\"/><circle class=\"a\" cx=\"30.5\" cy=\"13.5\" r=\"3.2\"/><circle class=\"l\" cx=\"37\" cy=\"22\" r=\"3.2\"/>",
+  moon:"<path class=\"l\" d=\"M22.34 8A17 17 0 1 0 37.82 31.23A14 14 0 0 1 22.34 8Z\"/>",
+  sun:"<circle class=\"l\" cx=\"24\" cy=\"24\" r=\"9\"/><path class=\"as\" style=\"stroke-width:3.6\" d=\"M24 5v5M24 38v5M5 24h5M38 24h5M10.6 10.6l3.5 3.5M33.9 33.9l3.5 3.5M10.6 37.4l3.5-3.5M33.9 14.1l3.5-3.5\"/>",
+  back:"<path class=\"ps\" d=\"M39 24H10M20.5 12.5 9 24l11.5 11.5\"/>",
+  chev:"<path class=\"ps\" style=\"stroke-width:4.6\" d=\"M18 10l14 14-14 14\"/>",
+  mic:"<rect class=\"p\" x=\"17\" y=\"4\" width=\"14\" height=\"25\" rx=\"7\"/><path class=\"as\" d=\"M10 22a14 14 0 0 0 28 0M24 37v7\"/>",
+  play:"<path class=\"p\" d=\"M15 9.5v29a2 2 0 0 0 3 1.7l24-14.5a2 2 0 0 0 0-3.4L18 7.8a2 2 0 0 0-3 1.7z\"/>"
+};
+const ic = n => '<svg viewBox="0 0 48 48" aria-hidden="true">'+ICONS[n]+'</svg>';
+function hydrate(root){ (root||document).querySelectorAll('[data-ic]').forEach(e => { e.innerHTML = ic(e.dataset.ic); }); }
+hydrate();
+
+/* ---------- নেভিগেশন ---------- */
+const VIEWS = { home:['','home'], quran:['quran','quran'], tilawat:['tilawat','tilawat'], dua:['dua','dua'], more:['more','more'], hadith:['l_hadith','more'], masail:['l_masail','more'], theme:['l_theme','more'] };
+let curView = 'home';
+function setTitle(){ const k = VIEWS[curView][0]; $('title').textContent = k ? S[k] : 'Deen Islam'; }
+const SUB = ['hadith','masail','theme'];
+function show(v){
+  if(!VIEWS[v]) v = 'home';
+  document.querySelectorAll('.view').forEach(s => s.classList.toggle('active', s.id === 'v-'+v));
+  curView = v; setTitle();
+  document.querySelectorAll('.bottom button').forEach(b => b.classList.toggle('on', b.dataset.go === VIEWS[v][1]));
+  $('back').style.display = SUB.includes(v) ? 'grid' : 'none';
+  window.scrollTo(0,0);
+}
+function go(v){ if(location.hash === '#'+v) show(v); else location.hash = v; }
+window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'home'));
+document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if(b) go(b.dataset.go); });
+$('back').onclick = () => go('more');
+
+/* ---------- থিম ---------- */
+function setTheme(t){
+  if(!THEMES.some(x => x[0] === t)) t = 'jannat';
+  document.documentElement.dataset.theme = t;
+  try{ localStorage.setItem('theme2', t); if(t !== 'noor') localStorage.setItem('lightTheme2', t); }catch(e){}
+  $('metaTheme').setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--primary-d').trim());
+  $('modeIc').innerHTML = ic(t === 'noor' ? 'sun' : 'moon');
+  renderThemes();
+}
+function renderThemes(){
+  const cur = document.documentElement.dataset.theme;
+  $('themes').innerHTML = THEMES.map(t =>
+    '<button class="theme'+(t[0]===cur?' on':'')+'" data-t="'+t[0]+'"><div class="sw">'+t[2].map(c=>'<i style="background:'+c+'"></i>').join('')+'</div>'+S['th_'+t[0]]+'</button>').join('');
+}
+$('themes').onclick = e => { const b = e.target.closest('[data-t]'); if(b) setTheme(b.dataset.t); };
+$('modeBtn').onclick = () => {
+  const cur = document.documentElement.dataset.theme;
+  let light = 'jannat'; try{ light = localStorage.getItem('lightTheme2') || 'jannat'; }catch(e){}
+  setTheme(cur === 'noor' ? light : 'noor');
+};
+let saved = 'jannat'; try{ saved = localStorage.getItem('theme2') || 'jannat'; }catch(e){}
+setTheme(saved);
+
+/* ---------- ঘড়ি (ইংরেজি) ---------- */
+function tick(){
+  const d = new Date();
+  let h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+  const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+  const p = n => String(n).padStart(2,'0');
+  $('clock').innerHTML = p(h)+':'+p(m)+':'+p(s) + '<small>' + ap + '</small>';
+  $('gdate').textContent = d.toLocaleDateString(LANGS.find(x=>x[0]===lang)[2],{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  updateNext();
+}
+setInterval(tick, 1000);
+
+/* ---------- নামাজ ও অন্যান্য সময় ---------- */
+let timings = null;
+const sel = $('city');
+sel.add(new Option('📍 অটো লোকেশন', 'auto'));
+CITIES.forEach(c => sel.add(new Option(c[1], c[0])));
+try{ sel.value = localStorage.getItem('city2') || 'auto'; }catch(e){}
+if(!sel.value) sel.value = 'auto';
+sel.onchange = () => { try{ localStorage.setItem('city2', sel.value); }catch(e){} loadTimes(); };
+
+const MAIN = [['Fajr','ফজর'],['Dhuhr','যোহর'],['Asr','আসর'],['Maghrib','মাগরিব'],['Isha','এশা']];
+function toMin(t){ const [h,m] = t.slice(0,5).split(':').map(Number); return h*60+m; }
+function addMin(t, k){ let x = (toMin(t)+k) % 1440; return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0'); }
+function fmt12(t){
+  let [h,m] = t.slice(0,5).split(':').map(Number);
+  const ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+  return h+':'+String(m).padStart(2,'0')+' '+ap;
+}
+function getPos(){
+  return new Promise((res, rej) => {
+    if(!navigator.geolocation) return rej(new Error('nogeo'));
+    navigator.geolocation.getCurrentPosition(
+      p => res({lat:p.coords.latitude, lon:p.coords.longitude}),
+      err => rej(err),
+      {enableHighAccuracy:false, timeout:15000, maximumAge:3600000}
+    );
+  });
+}
+async function loadTimes(){
+  $('terr').textContent = ''; $('locinfo').textContent = '';
+  const city = sel.value, auto = city === 'auto';
+  const d = new Date(), p2 = n => String(n).padStart(2,'0');
+  const ds = p2(d.getDate())+'-'+p2(d.getMonth()+1)+'-'+d.getFullYear();
+  try{
+    let url, key, pos = null, old = false;
+    if(auto){
+      $('nextName').textContent = S.locating;
+      try{
+        pos = await getPos();
+        try{ localStorage.setItem('lastPos', JSON.stringify(pos)); }catch(e){}
+      }catch(e){
+        try{ pos = JSON.parse(localStorage.getItem('lastPos') || 'null'); }catch(e2){}
+        old = true;
+        if(!pos){
+          $('terr').textContent = S.locFail;
+          $('nextName').textContent = S.locFailS;
+          return;
+        }
+      }
+      key = 'pt3-auto-'+pos.lat.toFixed(2)+'-'+pos.lon.toFixed(2)+'-'+ds;
+      url = 'https://api.aladhan.com/v1/timings/'+ds+'?latitude='+pos.lat+'&longitude='+pos.lon+'&method=1&school=1';
+    }else{
+      key = 'pt2-'+city+'-'+d.toDateString();
+      url = 'https://api.aladhan.com/v1/timingsByCity?city='+encodeURIComponent(city)+'&country=Bangladesh&method=1&school=1';
+    }
+    let data = null;
+    try{ data = JSON.parse(localStorage.getItem(key) || 'null'); }catch(e){}
+    if(!data){
+      const r = await fetch(url);
+      if(!r.ok) throw new Error('http');
+      data = (await r.json()).data;
+      try{ localStorage.setItem(key, JSON.stringify(data)); }catch(e){}
+    }
+    timings = data.timings;
+    hijri = data.date.hijri; showHijri();
+    if(auto) lookupPlace(pos);
+    render();
+  }catch(e){
+    $('terr').textContent = S.timesErr;
+    $('nextName').textContent = S.timesErrS;
+  }
+}
+async function lookupPlace(pos){
+  const key = 'pl-'+lang+'-'+pos.lat.toFixed(2)+'-'+pos.lon.toFixed(2);
+  let n = null; try{ n = localStorage.getItem(key); }catch(e){}
+  if(!n){
+    try{
+      const r = await fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=14&addressdetails=1&accept-language='+lang+'&lat='+pos.lat+'&lon='+pos.lon);
+      const a = (await r.json()).address || {};
+      const cut = x => x ? x.replace(/\s*(District|Upazila|Upazilla|Thana|জেলা|উপজেলা|থানা)$/i, '') : '';
+      const t = cut(a.county || a.city || a.town || a.suburb || a.village), d = cut(a.state_district || a.city_district || a.state);
+      n = [t, d].filter((x,i,arr) => x && arr.indexOf(x) === i).join(', ');
+      if(n) try{ localStorage.setItem(key, n); }catch(e){}
+    }catch(e){}
+  }
+  placeName = n || (bn(pos.lat.toFixed(2))+', '+bn(pos.lon.toFixed(2)));
+  if(sel.options[0] && sel.options[0].value === 'auto') sel.options[0].textContent = '📍 ' + placeName;
+}
+function nextPrayer(){
+  if(!timings) return null;
+  const now = new Date(), nm = now.getHours()*60 + now.getMinutes() + now.getSeconds()/60;
+  for(const p of MAIN){ if(toMin(timings[p[0]]) > nm) return {p, day:0}; }
+  return {p:MAIN[0], day:1};
+}
+function rowHtml(name, sub, time, on){
+  return '<div class="row'+(on?' on':'')+'"><span class="nm">'+name+(sub?'<small>'+sub+'</small>':'')+'</span><span class="tm num">'+fmt12(time)+'</span></div>';
+}
+function render(){
+  const nx = nextPrayer();
+  $('times').innerHTML = MAIN.map(p => rowHtml(S[p[0].toLowerCase()], '', timings[p[0]], nx && nx.p[0] === p[0])).join('');
+  const sr = timings.Sunrise;
+  const sb = t => lang === 'bn' ? t : '';
+  $('extra').innerHTML =
+    rowHtml(S.tahajjud, sb('রাতের শেষ এক-তৃতীয়াংশের শুরু'), timings.Lastthird) +
+    rowHtml(S.sehri, sb('ফজরের ১০ মিনিট আগে'), timings.Imsak) +
+    rowHtml(S.sunrise, sb('এ সময় নামাজ পড়া নিষিদ্ধ'), sr) +
+    rowHtml(S.ishraq, sb('সূর্যোদয়ের ১৫ মিনিট পর'), addMin(sr, 15)) +
+    rowHtml(S.sunset, '', timings.Sunset) +
+    rowHtml(S.iftar, sb('মাগরিবের ওয়াক্ত শুরু'), timings.Maghrib);
+  updateNext();
+}
+function updateNext(){
+  const nx = nextPrayer(); if(!nx) return;
+  const now = new Date(), target = new Date(now);
+  const [h,m] = timings[nx.p[0]].slice(0,5).split(':').map(Number);
+  target.setHours(h, m, 0, 0);
+  if(nx.day) target.setDate(target.getDate()+1);
+  const diff = Math.max(0, Math.floor((target - now)/1000));
+  const hh = Math.floor(diff/3600), mm = Math.floor(diff%3600/60), ss = diff%60;
+  const p = n => String(n).padStart(2,'0');
+  $('nextName').textContent = S[nx.p[0].toLowerCase()];
+  $('nextAt').textContent = S.start + ' ' + fmt12(timings[nx.p[0]]);
+  $('nextAt').className = 'num';
+  $('nextCd').textContent = p(hh)+':'+p(mm)+':'+p(ss);
+  if(diff === 0) render();
+}
+
+/* ---------- সূরা তালিকা ---------- */
+let surahs = [];
+function fillSurahs(){
+  if(!surahs.length) return;
+  const a = $('surahSel').value, b = $('tSurah').value;
+  $('surahSel').innerHTML = ''; $('tSurah').innerHTML = '';
+  surahs.forEach(s => { const t = bn(s.number)+'. '+s.englishName+' - '+s.name; $('surahSel').add(new Option(t, s.number)); $('tSurah').add(new Option(t, s.number)); });
+  if(a) $('surahSel').value = a; if(b) $('tSurah').value = b;
+}
+async function loadSurahs(){
+  try{
+    const r = await fetch('https://api.alquran.cloud/v1/surah');
+    surahs = (await r.json()).data;
+  }catch(e){
+    $('reader').innerHTML = '<p class="err">'+S.surahListErr+'</p>';
+    return;
+  }
+  fillSurahs();
+  let last = 1; try{ last = localStorage.getItem('surah') || 1; }catch(e){}
+  $('surahSel').value = last;
+  loadSurah();
+}
+
+/* ---------- কুরআন পড়া (হাফেজী / উসমানী) ---------- */
+let cur = null;
+let style = 'hafezi';
+try{ style = localStorage.getItem('qstyle') || 'hafezi'; }catch(e){}
+$('scriptSel').value = style;
+
+async function fetchIndopak(n, count){
+  try{
+    const r = await fetch('https://api.quran.com/api/v4/quran/verses/indopak?chapter_number='+n);
+    const j = await r.json();
+    const arr = j.verses.map(v => v.text_indopak || null);
+    if(arr.length !== count || arr.some(x => !x)) return null;
+    return arr;
+  }catch(e){ return null; }
+}
+async function loadSurah(){
+  const n = $('surahSel').value;
+  try{ localStorage.setItem('surah', n); }catch(e){}
+  $('reader').innerHTML = '<p class="hint">'+S.surahLoad+'</p>';
+  try{
+    const r = await fetch('https://api.alquran.cloud/v1/surah/'+n+'/editions/quran-uthmani,'+LANGS.find(x=>x[0]===lang)[3]);
+    const d = (await r.json()).data;
+    cur = {n:+n, ar:d[0], tr:d[1], ind:null};
+    if(style === 'hafezi') cur.ind = await fetchIndopak(n, d[0].ayahs.length);
+    renderReader();
+  }catch(e){
+    $('reader').innerHTML = '<p class="err">'+S.surahErr+'</p>';
+  }
+}
+function renderReader(){
+  if(!cur) return;
+  const n = cur.n, useInd = style === 'hafezi' && cur.ind;
+  $('reader').className = 'card reader ' + (useInd ? 'hafezi' : 'uthmani');
+  let html = '<div class="surah-head">'+cur.ar.name+'</div>';
+  if(n != 1 && n != 9) html += '<div class="bis">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>';
+  cur.ar.ayahs.forEach((a,i) => {
+    let text;
+    if(useInd) text = cur.ind[i];
+    else {
+      text = a.text;
+      if(i === 0 && n != 1 && n != 9) text = text.replace(/^[^ ]+ [^ ]+ [^ ]+ [^ ]+ /, '');
+    }
+    html += '<div class="ayah"><span class="no">'+S.ayah+' '+bn(a.numberInSurah)+'</span><div class="ar">'+text+'</div><div class="tr">'+cur.tr.ayahs[i].text+'</div></div>';
+  });
+  $('reader').innerHTML = html;
+  applyTr();
+}
+function applyTr(){ document.querySelectorAll('.tr').forEach(e => e.style.display = $('showTr').checked ? '' : 'none'); }
+$('surahSel').onchange = loadSurah;
+$('showTr').onchange = applyTr;
+$('scriptSel').onchange = async e => {
+  style = e.target.value;
+  try{ localStorage.setItem('qstyle', style); }catch(e2){}
+  if(cur && style === 'hafezi' && !cur.ind) cur.ind = await fetchIndopak(cur.n, cur.ar.ayahs.length);
+  renderReader();
+};
+$('fs').oninput = e => document.documentElement.style.setProperty('--fs', e.target.value+'px');
+$('listenBtn').onclick = () => { $('tSurah').value = $('surahSel').value; go('tilawat'); play(); };
+
+/* ---------- তিলাওয়াত ---------- */
+let qi = 0;
+function renderQaris(){
+  $('qaris').innerHTML = DATA.qaris.map((q,i) => '<button type="button" data-i="'+i+'" class="'+(i===qi?'on':'')+'"><span class="ic av">'+ic('mic')+'</span>'+qn(i)+'</button>').join('');
+}
+renderQaris();
+$('qaris').onclick = e => { const b = e.target.closest('button'); if(!b) return; qi = +b.dataset.i; renderQaris(); play(); };
+$('tSurah').onchange = play;
+function play(){
+  const n = +$('tSurah').value; if(!n || !surahs.length) return;
+  const p = $('player');
+  p.src = DATA.qaris[qi].url.replace('{n}', String(n).padStart(3,'0'));
+  p.play().catch(() => {});
+  $('nowp').textContent = qn(qi) + ' - ' + S.surahW + ' ' + surahs[n-1].englishName;
+}
+$('player').onerror = () => { $('nowp').textContent = S.playErr; };
+
+/* ---------- দোয়া, হাদীস, মাসআলা ---------- */
+function refChips(code){
+  return code.split(',').map(x => { const p = x.split(':'); return '<span class="chip">'+S['coll_'+p[0]]+' · '+S.hadithW+' '+bn(p[1])+'</span>'; }).join('');
+}
+function renderDuas(q){
+  const l = DATA.duas.map((d,i) => lang === 'en' ? [DUA_EN[i][0], d[1], DUA_EN[i][1]] : d).filter(d => !q || (d[0]+d[2]).toLowerCase().includes(q.toLowerCase()));
+  $('duas').innerHTML = l.length ? l.map((d,i) =>
+    '<details><summary><span class="n">'+bn(i+1)+'</span>'+d[0]+'</summary><div class="body"><p class="ar">'+d[1]+'</p><p>'+d[2]+'</p></div></details>').join('')
+    : '<p class="hint">'+S.noDua+'</p>';
+}
+function renderHadith(q){
+  const l = DATA.hadith.map((h,i) => [i,hv(h,i)]).filter(x => !q || (x[1][0]+x[1][1]).toLowerCase().includes(q.toLowerCase()));
+  $('hadiths').innerHTML = l.length ? l.map(x => {
+    const i = x[0], h = x[1], nar = nv(h[2].split(' | ')[0]);
+    return '<details><summary><span class="n">'+bn(i+1)+'</span>'+h[0]+'</summary><div class="body"><p class="har">'+DATA.hadithAr[i]+'</p><p>'+h[1]+'</p><div class="meta"><div class="nar">'+S.narr+': '+nar+'</div><div class="refs">'+refChips(DATA.hadithRef[i])+'</div></div></div></details>';
+  }).join('') : '<p class="hint">'+S.noHad+'</p>';
+}
+function renderMasail(q){
+  const l = DATA.masail.map((m,i) => lang === 'en' ? MAS_EN[i] : m).filter(m => !q || (m[0]+m[1].join(' ')).toLowerCase().includes(q.toLowerCase()));
+  $('masailList').innerHTML = l.length ? l.map(m =>
+    '<details><summary>'+m[0]+'</summary><div class="body"><ul>'+m[1].map(i => '<li>'+i+'</li>').join('')+'</ul></div></details>').join('')
+    : '<p class="hint">'+S.noMas+'</p>';
+}
+$('duaQ').oninput = e => renderDuas(e.target.value.trim());
+$('hadQ').oninput = e => renderHadith(e.target.value.trim());
+$('masQ').oninput = e => renderMasail(e.target.value.trim());
+renderDuas(''); renderHadith(''); renderMasail('');
+
+/* ---------- আজকের হাদীস ---------- */
+function renderDaily(){
+  const d = new Date(), day = Math.floor((d - new Date(d.getFullYear(),0,0)) / 86400000);
+  const i = day % DATA.hadith.length, h = hv(DATA.hadith[i], i);
+  const ar = DATA.hadithAr[i];
+  const r0 = DATA.hadithRef[i].split(',')[0].split(':');
+  $('daily').innerHTML = '<h3>'+S.today+': '+h[0]+'</h3>'
+    + (ar.length < 150 ? '<p class="har">'+ar+'</p>' : '')
+    + '<p>'+h[1]+'</p><div class="src">'+nv(h[2].split(' | ')[0])+' · '+S['coll_'+r0[0]]+' '+bn(r0[1])+'</div>';
+}
+renderDaily();
+
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(() => {}); }
+
+buildLangMenu(); applyLang();
+$('langBtn').onclick = e => { e.stopPropagation(); $('langMenu').classList.toggle('show'); };
+document.addEventListener('click', e => { const b = e.target.closest('#langMenu button'); if(b) setLang(b.dataset.l); if(!e.target.closest('#langBtn')) $('langMenu').classList.remove('show'); });
+show(location.hash.slice(1) || 'home');
+tick();
+loadTimes();
+loadSurahs();
+</script>
+</body>
+</html>
