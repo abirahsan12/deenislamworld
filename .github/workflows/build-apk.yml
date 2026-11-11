@@ -3,19 +3,27 @@ on:
   workflow_dispatch:
   push:
     branches: [main, master]
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RUN: ${{ github.run_number }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Organize files (fix flat upload from phone)
         run: |
-          mkdir -p www scripts
-          for f in index.html almushaf.ttf icon-192.png icon-512.png icon.svg manifest.webmanifest sw.js; do
-            if [ -f "$f" ] && [ ! -f "www/$f" ]; then cp "$f" "www/$f"; fi
+          mkdir -p www scripts keystore
+          newer() { [ "$(git log -1 --format=%ct -- "$1" 2>/dev/null || echo 0)" -gt "$(git log -1 --format=%ct -- "$2" 2>/dev/null || echo 0)" ]; }
+          for f in index.html sw.js manifest.webmanifest almushaf.ttf icon-192.png icon-512.png icon.svg; do
+            if [ -f "$f" ] && { [ ! -f "www/$f" ] || newer "$f" "www/$f"; }; then cp -f "$f" "www/$f"; fi
           done
-          if [ -f localfonts.js ] && [ ! -f scripts/localfonts.js ]; then mv localfonts.js scripts/localfonts.js; fi
-          ls -R www scripts
+          if [ -f localfonts.js ] && { [ ! -f scripts/localfonts.js ] || newer localfonts.js scripts/localfonts.js; }; then cp -f localfonts.js scripts/localfonts.js; fi
+          if [ -f deen.keystore ] && [ ! -f keystore/deen.keystore ]; then cp -f deen.keystore keystore/deen.keystore; fi
+          ls -R www scripts keystore
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -34,7 +42,7 @@ jobs:
           grep -n "minSdkVersion" android/variables.gradle
           V=$(grep -o "minSdkVersion = [0-9]*" android/variables.gradle | grep -o "[0-9]*$")
           if [ "$V" -gt 24 ]; then echo "minSdk $V is too high for Android 7"; exit 1; fi
-      - name: Permissions (location for prayer times)
+      - name: Permissions (location for prayer times and Qibla)
         run: |
           M=android/app/src/main/AndroidManifest.xml
           sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#<uses-permission android:name="android.permission.INTERNET" />\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />#' $M
@@ -60,9 +68,186 @@ jobs:
             m=$(( w < h ? w : h )); s=$(( m * 35 / 100 ))
             convert -size $dim xc:'#0a3f3a' \( icon-512.png -resize ${s}x${s} \) -gravity center -composite "$f"
           done
-      - name: Build debug APK
-        run: cd android && chmod +x gradlew && ./gradlew assembleDebug
+      - name: Signing key and version number
+        run: |
+          if [ ! -f keystore/deen.keystore ]; then
+            keytool -genkeypair -storetype PKCS12 -keystore keystore/deen.keystore -alias deen -keyalg RSA -keysize 2048 -validity 10000 -storepass deenislam2026 -keypass deenislam2026 -dname "CN=Deen Islam, O=Deen Islam, C=BD"
+            echo "::warning::deen.keystore পাওয়া যায়নি, নতুন বানানো হয়েছে। আগের অ্যাপের ওপর আপডেট করতে deen.keystore repo-তে রাখুন।"
+          fi
+          python3 - <<'PY'
+          import re, os
+          p = 'android/app/build.gradle'
+          s = open(p).read()
+          run = os.environ['RUN']
+          s = re.sub(r'versionCode\s+\d+', 'versionCode ' + run, s, 1)
+          s = re.sub(r'versionName\s+"[^"]*"', 'versionName "1.' + run + '"', s, 1)
+          sign = """
+              signingConfigs {
+                  release {
+                      storeFile file('../../keystore/deen.keystore')
+                      storePassword 'deenislam2026'
+                      keyAlias 'deen'
+                      keyPassword 'deenislam2026'
+                      storeType 'pkcs12'
+                  }
+              }
+          """
+          s = re.sub(r'(\n\s*)buildTypes\s*\{', lambda m: sign + m.group(0), s, 1)
+          s = re.sub(r'(buildTypes\s*\{\s*release\s*\{)', lambda m: m.group(1) + '\n            signingConfig signingConfigs.release', s, 1)
+          open(p, 'w').write(s)
+          PY
+          grep -n "signingConfig\|versionCode\|versionName" android/app/build.gradle
+          grep -q "signingConfig signingConfigs.release" android/app/build.gradle
+      - name: Build release APK
+        run: cd android && chmod +x gradlew && ./gradlew assembleRelease
+      - name: Rename and verify APK
+        run: |
+          cp android/app/build/outputs/apk/release/app-release.apk Deen-Islam.apk
+          ls -la Deen-Islam.apk
+          $ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort -V | tail -1)/apksigner verify --print-certs Deen-Islam.apk || true
       - uses: actions/upload-artifact@v4
         with:
           name: deen-islam-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: Deen-Islam.apk
+      - name: Publish release (permanent download link)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cat > notes.md <<'NOTE'
+          ## ইনস্টল করার নিয়ম
+          1. নিচের **Deen-Islam.apk** ফাইলে ট্যাপ করে নামান।
+          2. নামা ফাইলটি খুলুন। "অজানা উৎস / Unknown sources" জিজ্ঞেস করলে সেটিংসে গিয়ে অনুমতি দিন (Android 7: Settings > Security > Unknown sources)।
+          3. Install চাপুন। আগের সংস্করণ থাকলে এটি তার ওপরেই আপডেট হবে।
+
+          Android 7.0 বা তার ওপরের সব ফোনে চলে। নামাজের সময় (ফোনের হিসাব), কিবলা, ক্যালেন্ডার, দোয়া, হাদীস, মাসআলা ও আসমাউল হুসনা ইন্টারনেট ছাড়াই চলে।
+          NOTE
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest Deen-Islam.apk --title "Deen Islam 1.${RUN}" --notes-file notes.md --latest
+          echo "ডাউনলোড লিংক: https://github.com/${GH_REPO}/releases/latest/download/Deen-Islam.apk"name: Build APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      RUN: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Organize files (fix flat upload from phone)
+        run: |
+          mkdir -p www scripts keystore
+          newer() { [ "$(git log -1 --format=%ct -- "$1" 2>/dev/null || echo 0)" -gt "$(git log -1 --format=%ct -- "$2" 2>/dev/null || echo 0)" ]; }
+          for f in index.html sw.js manifest.webmanifest almushaf.ttf icon-192.png icon-512.png icon.svg; do
+            if [ -f "$f" ] && { [ ! -f "www/$f" ] || newer "$f" "www/$f"; }; then cp -f "$f" "www/$f"; fi
+          done
+          if [ -f localfonts.js ] && { [ ! -f scripts/localfonts.js ] || newer localfonts.js scripts/localfonts.js; }; then cp -f localfonts.js scripts/localfonts.js; fi
+          if [ -f deen.keystore ] && [ ! -f keystore/deen.keystore ]; then cp -f deen.keystore keystore/deen.keystore; fi
+          ls -R www scripts keystore
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Install
+        run: npm install
+      - name: Bundle fonts inside the app (offline)
+        run: node scripts/localfonts.js
+      - name: Add Android platform
+        run: npx cap add android && npx cap sync android
+      - name: Check Android 7 support (minSdk must be 24 or lower)
+        run: |
+          grep -n "minSdkVersion" android/variables.gradle
+          V=$(grep -o "minSdkVersion = [0-9]*" android/variables.gradle | grep -o "[0-9]*$")
+          if [ "$V" -gt 24 ]; then echo "minSdk $V is too high for Android 7"; exit 1; fi
+      - name: Permissions (location for prayer times and Qibla)
+        run: |
+          M=android/app/src/main/AndroidManifest.xml
+          sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#<uses-permission android:name="android.permission.INTERNET" />\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />#' $M
+          grep -n "uses-permission" $M
+      - name: App icon and native launch screen
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          if command -v magick >/dev/null 2>&1; then
+            convert() { magick "$@"; }
+            identify() { magick identify "$@"; }
+          fi
+          R=android/app/src/main/res
+          rm -rf $R/mipmap-anydpi-v26
+          for d in mdpi:48 hdpi:72 xhdpi:96 xxhdpi:144 xxxhdpi:192; do
+            n=${d%%:*}; s=${d##*:}
+            for f in ic_launcher ic_launcher_round ic_launcher_foreground; do
+              convert icon-512.png -resize ${s}x${s} $R/mipmap-$n/$f.png
+            done
+          done
+          for f in $(find $R -name splash.png); do
+            dim=$(identify -format "%wx%h" "$f"); w=${dim%x*}; h=${dim#*x}
+            m=$(( w < h ? w : h )); s=$(( m * 35 / 100 ))
+            convert -size $dim xc:'#0a3f3a' \( icon-512.png -resize ${s}x${s} \) -gravity center -composite "$f"
+          done
+      - name: Signing key and version number
+        run: |
+          if [ ! -f keystore/deen.keystore ]; then
+            keytool -genkeypair -storetype PKCS12 -keystore keystore/deen.keystore -alias deen -keyalg RSA -keysize 2048 -validity 10000 -storepass deenislam2026 -keypass deenislam2026 -dname "CN=Deen Islam, O=Deen Islam, C=BD"
+            echo "::warning::deen.keystore পাওয়া যায়নি, নতুন বানানো হয়েছে। আগের অ্যাপের ওপর আপডেট করতে deen.keystore repo-তে রাখুন।"
+          fi
+          python3 - <<'PY'
+          import re, os
+          p = 'android/app/build.gradle'
+          s = open(p).read()
+          run = os.environ['RUN']
+          s = re.sub(r'versionCode\s+\d+', 'versionCode ' + run, s, 1)
+          s = re.sub(r'versionName\s+"[^"]*"', 'versionName "1.' + run + '"', s, 1)
+          sign = """
+              signingConfigs {
+                  release {
+                      storeFile file('../../keystore/deen.keystore')
+                      storePassword 'deenislam2026'
+                      keyAlias 'deen'
+                      keyPassword 'deenislam2026'
+                      storeType 'pkcs12'
+                  }
+              }
+          """
+          s = re.sub(r'(\n\s*)buildTypes\s*\{', lambda m: sign + m.group(0), s, 1)
+          s = re.sub(r'(buildTypes\s*\{\s*release\s*\{)', lambda m: m.group(1) + '\n            signingConfig signingConfigs.release', s, 1)
+          open(p, 'w').write(s)
+          PY
+          grep -n "signingConfig\|versionCode\|versionName" android/app/build.gradle
+          grep -q "signingConfig signingConfigs.release" android/app/build.gradle
+      - name: Build release APK
+        run: cd android && chmod +x gradlew && ./gradlew assembleRelease
+      - name: Rename and verify APK
+        run: |
+          cp android/app/build/outputs/apk/release/app-release.apk Deen-Islam.apk
+          ls -la Deen-Islam.apk
+          $ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort -V | tail -1)/apksigner verify --print-certs Deen-Islam.apk || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deen-islam-apk
+          path: Deen-Islam.apk
+      - name: Publish release (permanent download link)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          cat > notes.md <<'NOTE'
+          ## ইনস্টল করার নিয়ম
+          1. নিচের **Deen-Islam.apk** ফাইলে ট্যাপ করে নামান।
+          2. নামা ফাইলটি খুলুন। "অজানা উৎস / Unknown sources" জিজ্ঞেস করলে সেটিংসে গিয়ে অনুমতি দিন (Android 7: Settings > Security > Unknown sources)।
+          3. Install চাপুন। আগের সংস্করণ থাকলে এটি তার ওপরেই আপডেট হবে।
+
+          Android 7.0 বা তার ওপরের সব ফোনে চলে। নামাজের সময় (ফোনের হিসাব), কিবলা, ক্যালেন্ডার, দোয়া, হাদীস, মাসআলা ও আসমাউল হুসনা ইন্টারনেট ছাড়াই চলে।
+          NOTE
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest Deen-Islam.apk --title "Deen Islam 1.${RUN}" --notes-file notes.md --latest
+          echo "ডাউনলোড লিংক: https://github.com/${GH_REPO}/releases/latest/download/Deen-Islam.apk"
