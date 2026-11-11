@@ -1,4 +1,4 @@
-const CACHE = 'deen-islam-v7';
+const CACHE = 'deen-islam-v10';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'almushaf.ttf'];
 
 self.addEventListener('install', e => {
@@ -38,6 +38,12 @@ self.addEventListener('fetch', e => {
     e.respondWith(
       fetch(req).then(r => save(req, r)).catch(() => caches.match(req))
     );
+    return;
+  }
+
+  // অ্যাপের মূল পাতা: আগে ইন্টারনেট (নতুন সংস্করণ সাথে সাথে), না থাকলে সংরক্ষিত
+  if (req.mode === 'navigate' || u.pathname.endsWith('/index.html') || u.pathname.endsWith('/')) {
+    e.respondWith(fetch(req).then(r => save(req, r)).catch(() => caches.match(req).then(h => h || caches.match('index.html'))));
     return;
   }
 
