@@ -127,4 +127,4 @@ jobs:
           NOTE
           gh release delete latest --yes --cleanup-tag || true
           gh release create latest Deen-Islam.apk --title "Deen Islam 1.${RUN}" --notes-file notes.md --latest
-          echo "ডাউনলোড লিংক: https://github.com/${GH_REPO}/releases/latest/download/Deen-Islam.apk"
+          echo "ডাউনলোড লিংক: https://github.com/${GH_REPO}/releases/latest/download/Deen-Islam.apk
