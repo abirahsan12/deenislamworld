@@ -23,7 +23,6 @@ jobs:
           done
           if [ -f localfonts.js ] && { [ ! -f scripts/localfonts.js ] || newer localfonts.js scripts/localfonts.js; }; then cp -f localfonts.js scripts/localfonts.js; fi
           if [ -f deen.keystore ] && [ ! -f keystore/deen.keystore ]; then cp -f deen.keystore keystore/deen.keystore; fi
-          if [ -f build-mushaf.js ] && { [ ! -f scripts/build-mushaf.js ] || newer build-mushaf.js scripts/build-mushaf.js; }; then cp -f build-mushaf.js scripts/build-mushaf.js; fi
           ls -R www scripts keystore
       - uses: actions/setup-node@v4
         with:
@@ -36,8 +35,6 @@ jobs:
         run: npm install
       - name: Bundle fonts inside the app (offline)
         run: node scripts/localfonts.js
-      - name: Bundle Mushaf pages inside the app (offline)
-        run: node scripts/build-mushaf.js
       - name: Add Android platform
         run: npx cap add android && npx cap sync android
       - name: Check Android 7 support (minSdk must be 24 or lower)
