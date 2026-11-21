@@ -46,8 +46,6 @@ main{max-width:680px;margin:0 auto;padding:0 14px 110px}
 .hero{position:relative;background:var(--grad);color:#fff;margin:0 -14px;padding:8px 20px 66px;border-radius:0 0 32px 32px;overflow:hidden}
 .hero::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.08' stroke-width='1.2'%3E%3Cpath d='M32 2l8 22 22 8-22 8-8 22-8-22-22-8 22-8z'/%3E%3Ccircle cx='32' cy='32' r='10'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
 .hero>*{position:relative}
-.hero>.mosque-bg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.hero>.bism,.hero>.clock,.hero>.dates,.hero>.next{z-index:1}
 .bism{font-family:'AlMushaf',serif;text-align:center;font-size:19px;line-height:1.7;color:var(--gold);margin:0}
 .clock{font-family:'Inter','Roboto',sans-serif;font-variant-numeric:tabular-nums;font-size:56px;font-size:clamp(46px,14vw,70px);font-weight:700;line-height:1.1;text-align:center;margin-top:6px;letter-spacing:-.5px}
 .clock small{font-size:.3em;font-weight:600;margin-left:6px;color:var(--gold);letter-spacing:.5px}
@@ -276,39 +274,9 @@ html{-webkit-tap-highlight-color:transparent}
 .ae{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:1.5em;height:1.5em;padding:0 .2em;margin:0 .3em;border:1.6px solid var(--accent);border-radius:50%;font-family:'Noto Naskh Arabic','Droid Arabic Naskh','Amiri',serif;font-size:.46em;line-height:1;font-weight:700;color:var(--primary);vertical-align:middle;text-align:center}
 .reader .mt{line-height:calc(var(--lh) - .2)}
 
-.reader.pagemode{padding:8px 10px 14px}
-.pgh{display:flex;justify-content:space-between;direction:rtl;padding:0 4px 6px;font-family:var(--ff);font-size:19px;color:var(--primary);font-weight:700}
-.pgbox{border:4px double var(--accent);border-radius:3px;background:var(--surface);direction:rtl;font-family:AlMushaf,serif;font-size:26px}
-.pgbox .pl{display:block;white-space:nowrap;overflow:visible;text-align:justify;text-align-last:justify;text-justify:inter-word;line-height:2.15;padding:0 10px;border-bottom:1px solid var(--line);color:var(--on)}
-.pgbox .pl:last-child{border-bottom:0}
-.pgbox .pl.sh{text-align-last:center}
-.pgbox .pl.ph{text-align:center;text-align-last:center;font-size:1.1em;color:var(--primary);background:linear-gradient(180deg,transparent,rgba(200,150,46,.14));border-top:1px solid var(--accent);border-bottom:1px solid var(--accent)}
-.pgbox .pl.pb{text-align:center;text-align-last:center;color:var(--on)}
-.pgbox .pl.pe{height:1.2em;line-height:1.2}
-.pgzw{position:relative;overflow:hidden;touch-action:pan-y;-webkit-user-select:none;user-select:none}
-.pgnav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}
-.pgnav .btn{padding:8px 16px}
-.pgnav #pgP,.pgnav #pgN{display:none}
-.pghint{margin-top:10px;text-align:center;font-size:13.5px;line-height:1.6;color:var(--muted)}
-.pghint b{color:var(--primary)}
-.pgin{display:flex;align-items:center;gap:6px;color:var(--muted);font-weight:600}
-.pgin input{width:68px;text-align:center;padding:6px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--on);font:inherit}
 .hn{font-family:'Noto Naskh Arabic','Droid Arabic Naskh','Amiri',serif;font-weight:700;font-size:.9em}
 
-.pgfr{--pp:#fffdf5;--pk:#141414;--pr:#2c2c2c;--b:13px;padding:var(--b);margin:2px 0;border:3px solid #c8962e;border-radius:8px;box-shadow:0 0 0 1.5px #0f5c4d,0 4px 16px rgba(0,0,0,.3);background-color:#0f5c4d;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%230f5c4d'/%3E%3Ccircle cx='10' cy='10' r='9' fill='%23c8962e'/%3E%3Ccircle cx='10' cy='10' r='7.4' fill='%230f5c4d'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4' transform='rotate(45 10 10)'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%230f5c4d'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%230f5c4d'/%3E%3Ccircle cx='10' cy='10' r='9' fill='%23c8962e'/%3E%3Ccircle cx='10' cy='10' r='7.4' fill='%230f5c4d'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4' transform='rotate(45 10 10)'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%230f5c4d'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%230f5c4d'/%3E%3Ccircle cx='10' cy='10' r='9' fill='%23c8962e'/%3E%3Ccircle cx='10' cy='10' r='7.4' fill='%230f5c4d'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4' transform='rotate(45 10 10)'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%230f5c4d'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%230f5c4d'/%3E%3Ccircle cx='10' cy='10' r='9' fill='%23c8962e'/%3E%3Ccircle cx='10' cy='10' r='7.4' fill='%230f5c4d'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4'/%3E%3Crect x='5.6' y='5.6' width='8.8' height='8.8' fill='%23f6e7b4' transform='rotate(45 10 10)'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%230f5c4d'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='%230f5c4d'/%3E%3Cpath d='M10 2l2.2 5.8L18 10l-5.8 2.2L10 18l-2.2-5.8L2 10l5.8-2.2z' fill='none' stroke='%23e9c46a' stroke-width='1.1'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23e9c46a'/%3E%3C/svg%3E");background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,space;background-position:0 0,100% 0,0 100%,100% 100%,0 0;background-size:var(--b) var(--b),var(--b) var(--b),var(--b) var(--b),var(--b) var(--b),var(--b) var(--b)}
-.pgfr.orn{--b:15px}
-.pgfr.nt{--pp:#12231f;--pk:#ece9dc;--pr:#44665c;border-color:#9b7a2f}
-.pgfr .pgbox{background:var(--pp);border:1.5px solid #c8962e;border-radius:3px;color:var(--pk);box-shadow:0 0 0 2px #0f5c4d,0 0 0 3px #e9c46a}
-.pgfr .pgbox .pl{color:var(--pk);border-bottom:1px solid var(--pr);overflow:visible}
-.pgfr .pgbox .pl:last-child{border-bottom:0}
-.pgfr .pgbox .pl.ph{background:#141414;color:#e9c46a;border-top:0;border-bottom:1px solid var(--pr);box-shadow:inset 0 0 0 2px #141414,inset 0 0 0 3px #b8892b}
-.pgfr .pgbox .pl.pb{color:var(--pk)}
-.pgfr .pgbox .ae{border-color:var(--pk);color:var(--pk)}
-.pgbox .pl.cart{height:6em;line-height:1;display:flex;align-items:center;justify-content:center;padding:.5em;margin:.5em .6em 0;border:3px double var(--pk);border-radius:3.2em 3.2em .3em .3em / 2.6em 2.6em .3em .3em;background:radial-gradient(circle at 50% 30%,rgba(184,137,43,.28),transparent 70%)}
-.pgbox .pl.cart b{display:block;padding:.4em 1.2em;border-radius:1em;background:#141414;color:#e9c46a;font-weight:400;font-size:1.05em;box-shadow:0 0 0 2px #141414,0 0 0 3.5px #b8892b}
-.pgh{align-items:center}.pgh .pn{font-size:1.15em;color:var(--on)}
-.pgft{text-align:center;direction:rtl;font-family:var(--ff);color:var(--primary);font-size:17px;padding-top:6px}
-.pgtone{all:unset;cursor:pointer;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--chip);color:var(--primary);font-size:20px}
+.har,.body .har,.daily .har,.body .ar,.ah .ar,.ahd .ar,.ahd .vs .ar{font-family:'AlMushaf','Noto Naskh Arabic','Droid Arabic Naskh',serif}
 </style>
 </head>
 <body>
@@ -334,7 +302,6 @@ html{-webkit-tap-highlight-color:transparent}
 <!-- হোম -->
 <section class="view" id="v-home">
   <div class="hero">
-    <svg class="mosque-bg" viewBox="0 200 720 650" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><radialGradient id="dmG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#f3d27a" stop-opacity=".42"/><stop offset=".55" stop-color="#f3d27a" stop-opacity=".12"/><stop offset="1" stop-color="#f3d27a" stop-opacity="0"/></radialGradient><linearGradient id="dmF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient><path id="dmA" d="M0 110V48Q0 16 30 0Q60 16 60 48V110Z"/><path id="dmM" d="M0 0L10 -52L20 0Z"/></defs><ellipse cx="360" cy="600" rx="340" ry="300" fill="url(#dmG)"/><g transform="translate(0 200)"><path d="M628 52A46 46 0 1 0 662 128A38 38 0 1 1 628 52Z" fill="#f3d27a" opacity=".85"/><path d="M676 84l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" fill="#f3d27a" opacity=".8"/><g fill="#f3d27a" opacity=".6"><circle cx="560" cy="40" r="2"/><circle cx="470" cy="70" r="1.6"/><circle cx="90" cy="150" r="2"/><circle cx="640" cy="200" r="1.6"/><circle cx="40" cy="280" r="1.8"/><circle cx="680" cy="300" r="2"/><circle cx="130" cy="60" r="1.6"/></g><g stroke="#f3d27a" stroke-opacity=".55" fill="none" stroke-width="1.5"><path d="M56 0V64"/><path d="M44 64h24l-4 30q-8 10-16 0z" fill="#f3d27a" fill-opacity=".35"/><path d="M56 94v14"/></g></g><g fill="#fff" fill-opacity=".10"><path d="M236 706C236 600 296 550 360 520C424 550 484 600 484 706Z"/><rect x="359" y="486" width="2" height="36"/><circle cx="360" cy="482" r="5"/><rect x="246" y="700" width="228" height="150"/><path d="M110 770Q110 696 180 696Q250 696 250 770Z"/><path d="M470 770Q470 696 540 696Q610 696 610 770Z"/><rect x="104" y="768" width="152" height="82"/><rect x="464" y="768" width="152" height="82"/><rect x="40" y="560" width="22" height="290"/><rect x="34" y="600" width="34" height="9"/><rect x="34" y="680" width="34" height="9"/><path d="M36 560L51 490L66 560Z"/><rect x="50" y="470" width="2" height="22"/><rect x="658" y="560" width="22" height="290"/><rect x="652" y="600" width="34" height="9"/><rect x="652" y="680" width="34" height="9"/><path d="M654 560L669 490L684 560Z"/><rect x="668" y="470" width="2" height="22"/><rect x="190" y="620" width="14" height="230"/><rect x="186" y="650" width="22" height="7"/><path d="M186 620L197 568L208 620Z"/><rect x="516" y="620" width="14" height="230"/><rect x="512" y="650" width="22" height="7"/><path d="M512 620L523 568L534 620Z"/></g><g fill="none" stroke="#f3d27a" stroke-opacity=".5" stroke-width="2"><path d="M300 850V770Q300 722 360 700Q420 722 420 770V850"/><path d="M286 850V766Q286 706 360 676Q434 706 434 766V850" stroke-opacity=".28"/><path d="M236 706C236 600 296 550 360 520C424 550 484 600 484 706" stroke-opacity=".4"/></g><g fill="#000" fill-opacity=".22"><use href="#dmA" x="124" y="760"/><use href="#dmA" x="196" y="760"/><use href="#dmA" x="464" y="760"/><use href="#dmA" x="536" y="760"/><use href="#dmA" x="330" y="740" transform="translate(0 0)"/></g><g fill="#f3d27a" fill-opacity=".5"><path d="M360 640l8 16 16 8-16 8-8 16-8-16-16-8 16-8z"/><path d="M180 728l5 10 10 5-10 5-5 10-5-10-10-5 10-5z"/><path d="M540 728l5 10 10 5-10 5-5 10-5-10-10-5 10-5z"/></g><rect x="0" y="560" width="720" height="290" fill="url(#dmF)"/><rect x="0" y="838" width="720" height="4" fill="#f3d27a" fill-opacity=".45"/></svg>
     <div class="bism">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
     <div class="clock" id="clock">--:--:--</div>
     <div class="dates"><div id="gdate"></div><div id="hdate"></div></div>
@@ -839,7 +806,6 @@ async function fetchIndopak(n, count){
 async function loadSurah(){
   const n = $('surahSel').value;
   try{ localStorage.setItem('surah', n); }catch(e){}
-  if(pageMode()){ gotoSurahPage(+n); return; }
   $('reader').innerHTML = '<p class="hint">'+S.surahLoad+'</p>';
   try{
     const d = (await jfetch('https://api.alquran.cloud/v1/surah/'+n+'/editions/quran-uthmani,'+LANGS.find(x=>x[0]===lang)[3])).data;
@@ -851,7 +817,6 @@ async function loadSurah(){
   }
 }
 function renderReader(){
-  if(pageMode()){ showPage(pgNo); return; }
   try{ $('fs').parentNode.style.display = ''; }catch(e){}
   if(!cur) return;
   const n = cur.n, useInd = style === 'hafezi' && cur.ind;
@@ -886,175 +851,6 @@ function renderMushaf(useInd){
   $('reader').innerHTML = html + '<p class="mt" lang="ar" dir="rtl">'+body+'</p>';
 }
 
-/* ---------- হাফেজী কুরআন শরীফের পৃষ্ঠা (১৫ লাইন) ---------- */
-const JUZ = ['الم','سيقول','تلك الرسل','لن تنالوا','والمحصنات','لا يحب الله','وإذا سمعوا','ولو أننا','قال الملأ','واعلموا','يعتذرون','وما من دابة','وما أبرئ','ربما','سبحان الذي','قال ألم','اقترب للناس','قد أفلح','وقال الذين','أمن خلق','اتل ما أوحي','ومن يقنت','وما لي','فمن أظلم','إليه يرد','حم','قال فما خطبكم','قد سمع الله','تبارك الذي','عم'];
-const toEU = k => String(k).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
-let pgNight = false; try{ pgNight = localStorage.getItem('qnight') === '1'; }catch(e){}
-const manzil = c => c <= 4 ? 1 : c <= 9 ? 2 : c <= 16 ? 3 : c <= 25 ? 4 : c <= 36 ? 5 : c <= 49 ? 6 : 7;
-let pgNo = 1, noPage = false, pgTotal = 610; try{ pgNo = +localStorage.getItem('qpage') || 1; }catch(e){}
-function pageMode(){ return !noPage && style === 'hafezi' && !$('showTr').checked; }
-let MID = 6;
-const PG_URL = p => 'https://api.quran.com/api/v4/verses/by_page/'+p+'?mushaf='+MID+'&words=true&word_fields=text_indopak,line_number,page_number&per_page=50';
-let MUSH = null, CHSTART = null;
-async function mush(){
-  if(MUSH !== null) return MUSH;
-  try{ const r = await fetch('mushaf.json'); MUSH = r.ok ? await r.json() : {}; }catch(e){ MUSH = {}; }
-  if(MUSH._){ MID = MUSH._.i || 6; pgTotal = MUSH._.n || 610; }
-  if(Object.keys(MUSH).length){ CHSTART = {}; for(let p = 1; p <= pgTotal; p++){ const d = MUSH[p]; if(!d) continue; d.r.forEach(x => { if(x.charAt(0) === '#'){ const c = +x.slice(1); if(!CHSTART[c]) CHSTART[c] = p; } }); } }
-  return MUSH;
-}
-async function gotoSurahPage(n){
-  $('reader').className = 'card reader hafezi pagemode';
-  $('reader').innerHTML = '<p class="hint">'+S.surahLoad+'</p>';
-  try{
-    await mush(); if(CHSTART && CHSTART[n]){ showPage(CHSTART[n]); return; }
-    const j = await jfetch('https://api.quran.com/api/v4/verses/by_chapter/'+n+'?mushaf='+MID+'&words=true&word_fields=page_number&per_page=1');
-    const v = j.verses[0], p = (v.words && v.words[0] && v.words[0].page_number) || v.page_number;
-    if(!p) throw new Error('nopage');
-    showPage(p);
-  }catch(e){ pageFail(); }
-}
-async function pageFail(){
-  noPage = true; try{ await loadSurah(); }catch(e){} noPage = false;
-  $('reader').insertAdjacentHTML('beforeend','<p class="hint">'+(lang==='bn'?'পৃষ্ঠা-ভিত্তিক পাঠ এখন লোড হয়নি (ইন্টারনেট লাগবে), তাই একটানা পাঠ দেখানো হচ্ছে।':'Page view could not load (needs internet), showing continuous text instead.')+'</p>');
-}
-async function showPage(p){
-  try{ $('fs').parentNode.style.display = 'none'; }catch(e){}
-  p = Math.max(1, Math.min(pgTotal, p|0 || 1)); pgNo = p; try{ localStorage.setItem('qpage', p); }catch(e){}
-  $('reader').className = 'card reader hafezi pagemode';
-  try{
-    const nm = c => (surahs[c-1] && surahs[c-1].name) || 'سورة';
-    const B = (await mush())[p]; let rows = '', juz = 0, ch0 = 0;
-    if(B){
-      juz = B.j; ch0 = B.c;
-      B.r.forEach(x => { rows += x === '@' ? '<div class="pl pb">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>' : x === '' ? '<div class="pl pe"></div>' : x.charAt(0) === '#' ? '<div class="pl ph">'+nm(+x.slice(1))+'</div>' : '<div class="pl">'+x.replace(/\u27E6(\d+)\u27E7/g, (m, k) => '<span class="ae">'+toEU(k)+'</span>')+'</div>'; });
-    }else{
-    const j = await jfetch(PG_URL(p));
-    const lines = {}, starts = {}; let maxL = 0; ch0 = 0;
-    j.verses.forEach(v => {
-      juz = juz || v.juz_number || 0; const ch = +String(v.verse_key).split(':')[0]; ch0 = ch0 || ch;
-      (v.words || []).forEach((w, i) => {
-        const L = w.line_number; if(!L) return;
-        (lines[L] = lines[L] || []).push(w.char_type_name === 'end' ? '<span class="ae">'+toEU(v.verse_number)+'</span>' : (w.text_indopak || w.text || ''));
-        if(L > maxL) maxL = L;
-        if(v.verse_number === 1 && i === 0) starts[L] = ch;
-      });
-    });
-    if(!maxL) throw new Error('empty');
-    let last = 0;
-    for(let L = 1; L <= maxL; L++){
-      if(lines[L]){ rows += '<div class="pl">'+lines[L].join(' ')+'</div>'; last = L; continue; }
-      let n2 = L; while(n2 <= maxL && !lines[n2]) n2++;
-      const ch = starts[n2], total = n2 - last - 1, off = L - last;
-      if(ch){
-        if(total >= 2 && off === 2) rows += ch === 9 ? '<div class="pl pe"></div>' : '<div class="pl pb">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>';
-        else rows += '<div class="pl ph">'+nm(ch)+'</div>';
-      }else rows += '<div class="pl pe"></div>';
-    }
-    }
-    const nR = (rows.match(/class="pl/g) || []).length, big = /class="pl ph"/.test(rows) && nR <= 10;
-    if(big) rows = rows.replace(/<div class="pl ph">([^<]*)<\/div>/, '<div class="pl cart"><b>$1</b></div>');
-    const prev = lang==='bn'?'আগের':'Prev', next = lang==='bn'?'পরের':'Next', pg = lang==='bn'?'পৃষ্ঠা':'Page';
-    $('reader').innerHTML =
-      '<div class="pgh"><span>'+(juz ? JUZ[juz-1]+' <b class="hn">'+toEU(juz)+'</b>' : '')+'</span><b class="hn pn">'+toEU(p)+'</b><span>'+nm(ch0).replace('سُورَةُ ','')+' <b class="hn">'+toEU(ch0)+'</b></span></div>'+
-      '<div class="pgfr'+(big ? ' orn' : '')+(pgNight ? ' nt' : '')+'"><div class="pgbox" id="pgbox">'+rows+'</div></div>'+
-      '<div class="pgft">منزل <b class="hn">'+toEU(manzil(ch0))+'</b></div>'+
-      '<div class="pgnav"><button type="button" class="btn" id="pgP">‹ '+prev+'</button><span class="pgin">'+pg+' <input id="pgIn" type="number" inputmode="numeric" min="1" max="'+pgTotal+'" value="'+p+'"> / '+pgTotal+'</span><button type="button" class="btn" id="pgN">'+next+' ›</button><button type="button" class="pgtone" id="pgT" aria-label="tone">◐</button></div>'+
-      '<div class="pghint">'+(lang==='bn' ? '<b>পৃষ্ঠা পরিবর্তনের নিয়ম:</b> আঙুল বাম থেকে ডানে টানলে পরের পৃষ্ঠা, ডান থেকে বামে টানলে আগের পৃষ্ঠা। জুম করতে দুইবার ট্যাপ বা দুই আঙুলে পিঞ্চ করুন।' : '<b>Turn pages:</b> swipe left to right for the next page, right to left for the previous. Double-tap or pinch to zoom.')+'</div>';
-    $('pgP').onclick = () => { if(pgNo > 1) { showPage(pgNo-1); window.scrollTo(0,0); } };
-    $('pgN').onclick = () => { if(pgNo < pgTotal) { showPage(pgNo+1); window.scrollTo(0,0); } };
-    $('pgIn').onchange = e => showPage(+e.target.value);
-    $('pgT').onclick = () => { pgNight = !pgNight; try{ localStorage.setItem('qnight', pgNight ? '1' : '0'); }catch(e){} document.querySelector('.pgfr').classList.toggle('nt', pgNight); };
-    initPageZoom();
-    (document.fonts && document.fonts.load ? document.fonts.load('40px AlMushaf', 'ا') : Promise.resolve()).then(fitPage, fitPage);
-  }catch(e){ pageFail(); }
-}
-function initPageZoom(){
-  const fr = document.querySelector('.pgfr'); if(!fr || fr.parentNode.classList.contains('pgzw')) return;
-  const wrap = document.createElement('div'); wrap.className = 'pgzw';
-  fr.parentNode.insertBefore(wrap, fr); wrap.appendChild(fr);
-  fr.style.transformOrigin = '0 0';
-  let sc = 1, x = 0, y = 0, nat = 0, g = null, lastTap = 0, lastX = 0, lastY = 0;
-  function apply(){
-    const w = wrap.clientWidth, h = wrap.clientHeight;
-    x = Math.min(0, Math.max(w - w * sc, x));
-    y = Math.min(0, Math.max(h - fr.offsetHeight * sc, y));
-    fr.style.transform = sc === 1 ? '' : 'translate(' + x + 'px,' + y + 'px) scale(' + sc + ')';
-    wrap.style.touchAction = sc > 1 ? 'none' : 'pan-y';
-  }
-  function setH(){
-    if(sc > 1){ if(!nat) nat = fr.offsetHeight; wrap.style.height = Math.min(nat, window.innerHeight * 0.78) + 'px'; }
-    else { wrap.style.height = ''; nat = 0; }
-  }
-  function zoomAt(ns, cx, cy){
-    ns = Math.max(1, Math.min(5, ns));
-    x = cx - (cx - x) * ns / sc; y = cy - (cy - y) * ns / sc; sc = ns;
-    if(sc < 1.02){ sc = 1; x = 0; y = 0; }
-    setH(); apply();
-  }
-  function rel(t){ const r = wrap.getBoundingClientRect(); return [t.clientX - r.left, t.clientY - r.top]; }
-  wrap.addEventListener('touchstart', e => {
-    if(e.target.closest('.pgzb')) return;
-    if(e.touches.length === 2){
-      const a = rel(e.touches[0]), b = rel(e.touches[1]);
-      g = {k:2, d:Math.hypot(a[0]-b[0], a[1]-b[1]), s:sc, x:x, y:y, mx:(a[0]+b[0])/2, my:(a[1]+b[1])/2};
-    }else if(e.touches.length === 1){
-      const a = rel(e.touches[0]);
-      g = {k:1, sx:a[0], sy:a[1], x:x, y:y, moved:false, fresh:true};
-    }
-  }, {passive:true});
-  wrap.addEventListener('touchmove', e => {
-    if(!g) return;
-    if(e.touches.length === 2 && g.k === 2){
-      e.preventDefault();
-      const a = rel(e.touches[0]), b = rel(e.touches[1]);
-      const d = Math.hypot(a[0]-b[0], a[1]-b[1]), mx = (a[0]+b[0])/2, my = (a[1]+b[1])/2;
-      const ns = Math.max(1, Math.min(5, g.s * d / g.d));
-      x = mx - (g.mx - g.x) * ns / g.s; y = my - (g.my - g.y) * ns / g.s; sc = ns;
-      if(sc === 1){ x = 0; y = 0; }
-      setH(); apply();
-    }else if(e.touches.length === 1 && g.k === 1){
-      const a = rel(e.touches[0]);
-      if(Math.abs(a[0]-g.sx) + Math.abs(a[1]-g.sy) > 8) g.moved = true;
-      if(sc > 1){ e.preventDefault(); x = g.x + a[0] - g.sx; y = g.y + a[1] - g.sy; apply(); }
-    }
-  }, {passive:false});
-  wrap.addEventListener('touchend', e => {
-    if(g && g.k === 1 && g.fresh && sc === 1 && e.changedTouches.length){
-      const a0 = rel(e.changedTouches[0]), dx = a0[0] - g.sx, dy = a0[1] - g.sy;
-      if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5){
-        const bt = document.getElementById(dx > 0 ? 'pgN' : 'pgP');
-        g = null; lastTap = 0;
-        if(bt) bt.click();
-        return;
-      }
-    }
-    if(g && g.k === 1 && !g.moved && e.changedTouches.length){
-      const now = Date.now(), a = rel(e.changedTouches[0]);
-      if(now - lastTap < 320 && Math.abs(a[0]-lastX) < 30 && Math.abs(a[1]-lastY) < 30){
-        if(sc > 1) zoomAt(1, a[0], a[1]); else zoomAt(2.4, a[0], a[1]);
-        lastTap = 0;
-      }else{ lastTap = now; lastX = a[0]; lastY = a[1]; }
-    }
-    if(!e.touches.length) g = null;
-    else if(e.touches.length === 1){ const a = rel(e.touches[0]); g = {k:1, sx:a[0], sy:a[1], x:x, y:y, moved:true}; }
-  }, {passive:true});
-}
-function fitPage(){
-  const box = $('pgbox'); if(!box) return;
-  const avail = (box.clientWidth - 20) * 0.95, rows = [].slice.call(box.querySelectorAll('.pl:not(.ph):not(.pb):not(.pe):not(.cart)'));
-  const probe = document.createElement('span');
-  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;direction:rtl;font-family:AlMushaf,serif;font-size:40px;left:0;top:0';
-  box.appendChild(probe);
-  const w = rows.map(r => { probe.innerHTML = r.innerHTML; return probe.offsetWidth; }), maxW = Math.max.apply(null, w.concat([1]));
-  let fs = Math.max(14, Math.min(46, 40 * avail / maxW));
-  box.style.fontSize = fs + 'px';
-  rows.forEach((r, i) => { if(w[i] * fs / 40 < avail * 0.6) r.classList.add('sh'); });
-  const over = () => { let m = -999; rows.forEach(r => { const rg = document.createRange(); rg.selectNodeContents(r); const t = rg.getBoundingClientRect(), q = r.getBoundingClientRect(); if(t.width) m = Math.max(m, (q.left + 6) - t.left, t.right - (q.right - 6)); }); return m; };
-  for(let t = 0; t < 40 && fs > 12 && over() > 0; t++){ fs *= 0.97; box.style.fontSize = fs + 'px'; }
-  box.removeChild(probe);
-}
-window.addEventListener('resize', () => { if(pageMode()) fitPage(); });
 function applyTr(){ document.querySelectorAll('.tr').forEach(e => e.style.display = $('showTr').checked ? '' : 'none'); }
 $('surahSel').onchange = loadSurah;
 try{ $('showTr').checked = localStorage.getItem('qtr') !== '0'; }catch(e){}
@@ -1417,7 +1213,7 @@ function renderOffline(msg,pct){
     '<p style="margin:0 0 8px;font-weight:700;color:var(--primary)">'+(b?'কুরআন: ':'Quran: ')+(done?(b?'✓ অফলাইনে সংরক্ষিত':'✓ saved for offline'):(b?'এখনো ডাউনলোড হয়নি':'not downloaded yet'))+'</p>'+
     '<div class="pbar"><i style="width:'+(pct||0)+'%"></i></div>'+(msg?'<p class="hint" style="margin:6px 0">'+msg+'</p>':'')+
     '<button class="btn" id="dlQ" type="button" style="margin-top:8px">'+(done?(b?'আবার ডাউনলোড':'Download again'):(b?'কুরআন ডাউনলোড করুন':'Download the Quran'))+'</button>'+
-    '<p class="hint" style="margin:8px 0 0">'+(b?'তিলাওয়াতের অডিও চালাতে ইন্টারনেট লাগে। ডাউনলোডে প্রায় ২০-৩০ MB ডেটা খরচ হবে। যে ভাষা এখন চালু, তার অনুবাদসহ নামবে।':'Audio recitation needs internet. The download uses about 20-30 MB and includes the translation of the current language.')+'</p>';
+    '<p class="hint" style="margin:8px 0 0">'+(b?'তিলাওয়াতের অডিও চালাতে ইন্টারনেট লাগে। ডাউনলোডে প্রায় ১০-১৫ MB ডেটা খরচ হবে। যে ভাষা এখন চালু, তার অনুবাদসহ নামবে।':'Audio recitation needs internet. The download uses about 10-15 MB and includes the translation of the current language.')+'</p>';
   $('dlQ').onclick=dlQuran;
 }
 async function dlQuran(){
@@ -1425,11 +1221,10 @@ async function dlQuran(){
   try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist(); }catch(e){}
   var ed=LANGS.find(function(x){return x[0]===lang;})[3];
   try{
-    var list=(await jfetch('https://api.alquran.cloud/v1/surah')).data, q=list.slice(), n=0, fail=0, pq=[], have=Object.keys(await mush()).length>500; if(!have) for(var pp=1;pp<=pgTotal;pp++) pq.push(pp); var TOT=list.length+pq.length;
+    var list=(await jfetch('https://api.alquran.cloud/v1/surah')).data, q=list.slice(), n=0, fail=0, TOT=list.length;
     var w=async function(){ while(q.length){ var s=q.shift(), ok=false;
       for(var k=0;k<3&&!ok;k++){ try{ await jfetch('https://api.alquran.cloud/v1/surah/'+s.number+'/editions/quran-uthmani,'+ed); await fetchIndopak(s.number,s.numberOfAyahs); ok=true; }catch(e){} }
-      if(!ok) fail++; n++; renderOffline((b?'ডাউনলোড হচ্ছে… ':'Downloading… ')+n+'/'+TOT,Math.round(n*100/TOT)); }
-      while(pq.length){ var pn=pq.shift(), ok2=false; for(var k2=0;k2<3&&!ok2;k2++){ try{ await jfetch(PG_URL(pn)); ok2=true; }catch(e){} } if(!ok2) fail++; n++; renderOffline((b?'ডাউনলোড হচ্ছে… ':'Downloading… ')+n+'/'+TOT,Math.round(n*100/TOT)); } };
+      if(!ok) fail++; n++; renderOffline((b?'ডাউনলোড হচ্ছে… ':'Downloading… ')+n+'/'+TOT,Math.round(n*100/TOT)); } };
     await Promise.all([w(),w(),w()]);
     if(!fail){ try{ localStorage.setItem('qdl-'+lang,'1'); }catch(e){} renderOffline(b?'সম্পন্ন! এখন ইন্টারনেট ছাড়াই কুরআন পড়তে পারবেন।':'Done! You can read the Quran offline now.',100); }
     else renderOffline(b?'কিছু সূরা নামানো যায়নি, আবার চেষ্টা করুন।':'Some surahs failed, please try again.',Math.round((n-fail)*100/TOT));
