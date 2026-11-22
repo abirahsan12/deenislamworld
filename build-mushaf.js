@@ -32,8 +32,9 @@ const getPage = (id, p) => getJson(URLP(id, p));
 // একটি পৃষ্ঠাকে ছোট করে সাজানো: ১৫টি লাইন, আর কোন লাইনে কোন সূরা শুরু।
 const build = (j, pageNo) => {
   const lines = {}, starts = {};
-  let maxLine = 15;
+  let maxLine = 15, juz = 0;
   (j.verses || []).forEach(v => {
+    if (!juz && v.juz_number) juz = v.juz_number;
     const ch = +String(v.verse_key).split(':')[0];
     (v.words || []).forEach((w, i) => {
       const L = w.line_number; if (!L) return;
@@ -50,7 +51,7 @@ const build = (j, pageNo) => {
   const r = [];
   for (let n = 1; n <= maxLine; n++) r.push(lines[n] ? lines[n].join(' ') : '');
   const first = (j.verses[0] || {}).verse_key;
-  return { r, s: starts, c: first ? +String(first).split(':')[0] : 0 };
+  return { r, s: starts, c: first ? +String(first).split(':')[0] : 0, j: juz };
 };
 
 const keys = j => { const v = (j && j.verses) || []; return v.length ? [v[0].verse_key, v[v.length - 1].verse_key] : ['-', '-']; };
