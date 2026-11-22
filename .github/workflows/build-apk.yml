@@ -22,6 +22,7 @@ jobs:
             if [ -f "$f" ] && { [ ! -f "www/$f" ] || newer "$f" "www/$f"; }; then cp -f "$f" "www/$f"; fi
           done
           if [ -f localfonts.js ] && { [ ! -f scripts/localfonts.js ] || newer localfonts.js scripts/localfonts.js; }; then cp -f localfonts.js scripts/localfonts.js; fi
+          if [ -f build-mushaf.js ] && { [ ! -f scripts/build-mushaf.js ] || newer build-mushaf.js scripts/build-mushaf.js; }; then cp -f build-mushaf.js scripts/build-mushaf.js; fi
           if [ -f deen.keystore ] && [ ! -f keystore/deen.keystore ]; then cp -f deen.keystore keystore/deen.keystore; fi
           ls -R www scripts keystore
       - uses: actions/setup-node@v4
@@ -35,6 +36,10 @@ jobs:
         run: npm install
       - name: Bundle fonts inside the app (offline)
         run: node scripts/localfonts.js
+      - name: Bundle Hafezi 15-line Quran pages and similar-ayah list (offline)
+        run: |
+          if [ -f scripts/build-mushaf.js ]; then node scripts/build-mushaf.js || echo "::warning::mushaf.json বানানো যায়নি"; else echo "::warning::scripts/build-mushaf.js নেই"; fi
+          ls -la www/mushaf.json || echo "::warning::mushaf.json নেই, অ্যাপে পৃষ্ঠা-ভিত্তিক কুরআন দেখাবে না"
       - name: Add Android platform
         run: npx cap add android && npx cap sync android
       - name: Check Android 7 support (minSdk must be 24 or lower)
