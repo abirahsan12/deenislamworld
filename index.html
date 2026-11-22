@@ -53,6 +53,10 @@ main{max-width:680px;margin:0 auto;padding:0 14px 110px}
 .mpg-pn input{width:66px;text-align:center;font:inherit;font-size:16px;font-weight:700;padding:6px 4px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--on)}
 .mpl{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:15px;font-weight:600}
 .mpg-vp{position:relative;overflow:hidden;touch-action:pan-y;border-radius:18px;background:var(--surface);border:2px solid var(--accent);box-shadow:inset 0 0 0 3px var(--surface),inset 0 0 0 4.5px rgba(200,150,46,.5),0 4px 14px rgba(0,0,0,.08);-webkit-user-select:none;user-select:none}
+.mpg-vp{background:#fbf6e9 !important;touch-action:none !important}
+.mpslot{color:#1b1407 !important}
+.mpslot .mpn{color:#6b5a3a !important}
+.mpzb{min-width:44px}
 .mpg-strip{position:absolute;top:0;left:0;width:100%;height:100%;will-change:transform}
 .mpslot{position:absolute;left:0;top:0;width:100%;height:100%;box-sizing:border-box;padding:10px 12px 4px;font-family:'AlMushaf',serif;color:var(--on);direction:rtl;overflow:hidden}
 .mpr{height:var(--rh,28px);display:flex;justify-content:space-between;align-items:center;white-space:nowrap;line-height:1}
@@ -424,7 +428,8 @@ html{-webkit-tap-highlight-color:transparent}
     <select id="scriptSel" aria-label="লিপিশৈলী">
       <option value="page">হাফেজী ১৫ লাইন · পৃষ্ঠা উল্টে পড়ুন</option>
       <option value="hafezi" data-i="hafezi">হাফেজী (১৫ লাইন)</option>
-      <option value="uthmani" data-i="uthmani">উসমানী</option>
+      
+      
     </select>
     <label class="inl">অক্ষরের মাপ <input type="range" id="fs" min="24" max="56" value="34"></label>
     <label class="inl"><input type="checkbox" id="showTr" checked> বাংলা অনুবাদ</label>
@@ -435,9 +440,13 @@ html{-webkit-tap-highlight-color:transparent}
       <span class="mpg-pn"><input type="number" id="mpNum" min="1" max="610" inputmode="numeric" aria-label="পৃষ্ঠা নম্বর"> / <span id="mpTot">610</span></span>
       <button type="button" id="mpPrev" aria-label="আগের পৃষ্ঠা">আগের ›</button>
     </div>
-    <div class="mpg-top" style="padding-top:0">
+    <div class="mpg-top" style="padding-top:0;gap:8px">
+        <select id="mpPara" aria-label="পারা বাছুন" style="flex:1;min-height:40px;border-radius:12px;padding:6px"></select>
+        <select id="mpSurah" aria-label="সূরা বাছুন" style="flex:1.6;min-height:40px;border-radius:12px;padding:6px"></select>
+      </div>
+      <div class="mpg-top" style="padding-top:0">
       <label class="mpl"><input type="checkbox" id="mpMut" checked> অনুরূপ আয়াতের চিহ্ন</label>
-      <button type="button" id="mpFull">পূর্ণ পর্দা</button>
+      <button type="button" class="mpzb" id="mpZout" aria-label="ছোট করুন">−</button><button type="button" class="mpzb" id="mpZin" aria-label="বড় করুন">+</button><button type="button" id="mpFull">পূর্ণ পর্দা</button>
     </div>
     <div class="mpg-vp" id="mpVp"><div class="mpg-strip" id="mpStrip"></div></div>
     <p class="hint" id="mpNote">পৃষ্ঠা উল্টাতে বাম থেকে ডানে টানুন (পরের পৃষ্ঠা), ডান থেকে বামে টানলে আগের পৃষ্ঠা। সোনালি গোল চিহ্নে ট্যাপ করলে অনুরূপ শব্দের অন্য আয়াত দেখা যাবে। এই মিলগুলো কম্পিউটারে শব্দ মিলিয়ে বের করা, আলেমদের সংকলিত তালিকার সাথে হুবহু নাও মিলতে পারে।</p>
@@ -879,6 +888,7 @@ function updateNext(){
 let surahs = [];
 function fillSurahs(){
   if(!surahs.length) return;
+  const _su = $('mpSurah'); if(_su){ _su.innerHTML = ''; } if(typeof mpFillNav === 'function') mpFillNav();
   const a = $('surahSel').value, b = $('tSurah').value;
   $('surahSel').innerHTML = ''; $('tSurah').innerHTML = '';
   surahs.forEach(s => { const t = bn(s.number)+'. '+s.englishName+' - '+s.name; $('surahSel').add(new Option(t, s.number)); $('tSurah').add(new Option(t, s.number)); });
@@ -900,7 +910,7 @@ async function loadSurahs(){
 let cur = null;
 let style = 'page';
 try{
-  style = localStorage.getItem('qstyle') || 'page';
+  style = localStorage.getItem('qstyle') || 'page'; if(style === 'uthmani') style = 'hafezi';
   if(localStorage.getItem('qmig3') !== '1'){ style = 'page'; localStorage.setItem('qstyle', 'page'); localStorage.setItem('qmig3', '1'); }
 }catch(e){}
 $('scriptSel').value = style;
@@ -1043,11 +1053,11 @@ function mpSize(){
 }
 function mpShow(p){
   if(!MP) return;
-  p = Math.max(1, Math.min(MPT, Math.round(p) || 1)); MPcur = p;
+  p = Math.max(1, Math.min(MPT, Math.round(p) || 1)); if(p !== MPcur){ MPz = 1; MPtx = 0; MPty = 0; } MPcur = p;
   const vp = $('mpVp'), st = $('mpStrip');
   if(!MPfull) vp.style.height = Math.round(Math.min((vp.clientWidth || window.innerWidth - 28) * 1.5, 780)) + 'px'; else vp.style.height = '';
   const sz = mpSize(), w = sz[0], h = sz[1];
-  st.style.transition = 'none'; st.style.transform = 'translateX(0)'; st.innerHTML = '';
+  st.style.transition = 'none'; MPdx = 0; mpT(0); st.innerHTML = '';
   [[p+1, -100], [p, 0], [p-1, 100]].forEach(function(a, idx){
     const q = a[0], ok = q >= 1 && q <= MPT;
     const el = ok ? mpPage(q) : document.createElement('div');
@@ -1061,7 +1071,7 @@ function mpShow(p){
 function mpTurn(dir){
   const st = $('mpStrip'), w = $('mpVp').clientWidth || window.innerWidth;
   const t = (dir === 1 && MPcur < MPT) ? 1 : (dir === -1 && MPcur > 1) ? -1 : 0;
-  MPbusy = true; st.style.transition = 'transform .24s ease-out'; st.style.transform = 'translateX(' + (t * w) + 'px)';
+  MPbusy = true; st.style.transition = 'transform .24s ease-out'; st.style.transform = 'translate(' + (t * w) + 'px,0) scale(1)';
   setTimeout(function(){ MPbusy = false; if(t) mpShow(MPcur + t); else st.style.transition = 'none'; }, 250);
 }
 function mpSheet(key){
@@ -1077,37 +1087,113 @@ function mpSheet(key){
   h += '<p class="hint">কম্পিউটারে শব্দ মিলিয়ে বের করা তালিকা; আলেমদের সংকলিত মুতাশাবিহাতের সাথে হুবহু নাও মিলতে পারে।</p><button type="button" class="mx" id="mpSheetX">বন্ধ করুন</button>';
   $('mpSheetBody').innerHTML = h; $('mpSheet').hidden = false;
 }
+var MPz = 1, MPtx = 0, MPty = 0, MPdx = 0;
+function mpT(extra){
+  const st = $('mpStrip'); if(!st) return;
+  st.style.transform = 'translate(' + (MPtx + (extra || 0)) + 'px,' + MPty + 'px) scale(' + MPz + ')';
+}
+function mpClamp(){
+  const vp = $('mpVp'), vw = vp.clientWidth, vh = vp.clientHeight;
+  const mx = vw * (MPz - 1) / 2, my = vh * (MPz - 1) / 2;
+  MPtx = Math.max(-mx, Math.min(mx, MPtx)); MPty = Math.max(-my, Math.min(my, MPty));
+}
+function mpZoom(f){
+  const st = $('mpStrip');
+  MPz = Math.max(1, Math.min(3, MPz * f));
+  if(MPz === 1){ MPtx = 0; MPty = 0; }
+  mpClamp(); st.style.transition = 'none'; mpT(0);
+}
+function mpFillNav(){
+  const pa = $('mpPara'), su = $('mpSurah');
+  if(pa && !pa.options.length){
+    for(let n = 1; n <= 30; n++){ const o = document.createElement('option'); o.value = n; o.textContent = 'পারা ' + bn(n); pa.appendChild(o); }
+  }
+  if(su && !su.options.length){
+    for(let n = 1; n <= 114; n++){
+      const sm = surahs[n-1], o = document.createElement('option');
+      o.value = n; o.textContent = bn(n) + '. ' + (sm && sm.englishName ? sm.englishName : 'সূরা ' + bn(n));
+      su.appendChild(o);
+    }
+  }
+}
 function mpBind(){
   if(MPbound) return; MPbound = true;
   const vp = $('mpVp'), st = $('mpStrip');
-  let x0 = 0, y0 = 0, t0 = 0, dx = 0, mode = 0, id = null;
+  const PT = new Map();
+  let x0 = 0, y0 = 0, t0 = 0, dx = 0, mode = 0, id = null, pd0 = 1, pz0 = 1, pan = [0, 0], moved = false, lastTap = 0;
   vp.addEventListener('pointerdown', function(e){
     if(MPbusy || (e.pointerType === 'mouse' && e.button)) return;
-    x0 = e.clientX; y0 = e.clientY; t0 = Date.now(); dx = 0; mode = 0; id = e.pointerId;
+    PT.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if(PT.size === 2){
+      const v = [...PT.values()];
+      pd0 = Math.hypot(v[0].x - v[1].x, v[0].y - v[1].y) || 1; pz0 = MPz; mode = 3; moved = true; id = null;
+      st.style.transition = 'none';
+    } else if(PT.size === 1){
+      x0 = e.clientX; y0 = e.clientY; t0 = Date.now(); dx = 0; mode = 0; moved = false; id = e.pointerId; pan = [MPtx, MPty];
+    }
   });
   vp.addEventListener('pointermove', function(e){
-    if(e.pointerId !== id) return;
+    if(!PT.has(e.pointerId)) return;
+    PT.get(e.pointerId).x = e.clientX; PT.get(e.pointerId).y = e.clientY;
+    if(PT.size === 2){
+      const v = [...PT.values()], d = Math.hypot(v[0].x - v[1].x, v[0].y - v[1].y);
+      MPz = Math.max(1, Math.min(3, pz0 * d / pd0));
+      if(MPz === 1){ MPtx = 0; MPty = 0; } else mpClamp();
+      mpT(0); e.preventDefault(); return;
+    }
+    if(PT.size !== 1 || e.pointerId !== id || mode === 5) return;
     const ddx = e.clientX - x0, ddy = e.clientY - y0;
+    if(MPz > 1){
+      if(!mode && (Math.abs(ddx) > 4 || Math.abs(ddy) > 4)){ mode = 4; moved = true; }
+      if(mode === 4){ MPtx = pan[0] + ddx; MPty = pan[1] + ddy; mpClamp(); mpT(0); e.preventDefault(); }
+      return;
+    }
     if(!mode){
-      if(Math.abs(ddx) > 9 && Math.abs(ddx) > Math.abs(ddy) * 1.3){ mode = 1; try{ vp.setPointerCapture(id); }catch(_){} st.style.transition = 'none'; }
+      if(Math.abs(ddx) > 9 && Math.abs(ddx) > Math.abs(ddy) * 1.3){ mode = 1; moved = true; try{ vp.setPointerCapture(id); }catch(_){} st.style.transition = 'none'; }
       else if(Math.abs(ddy) > 9) mode = 2;
     }
     if(mode === 1){
       dx = ddx; if((dx > 0 && MPcur >= MPT) || (dx < 0 && MPcur <= 1)) dx *= 0.3;
-      st.style.transform = 'translateX(' + dx + 'px)'; e.preventDefault();
+      MPdx = dx; mpT(dx); e.preventDefault();
     }
   });
   const end = function(e){
-    if(e.pointerId !== id) return; id = null; if(mode !== 1) return;
+    if(!PT.has(e.pointerId)) return;
+    PT.delete(e.pointerId);
+    if(PT.size > 0){ if(mode === 3) mode = 5; return; }
+    if(mode === 5){ mode = 0; id = null; return; }
+    const was = mode; id = null; mode = 0;
+    if(was !== 1){ return; }
     const w = vp.clientWidth || window.innerWidth, v = dx / Math.max(1, Date.now() - t0);
     let dir = 0; if(Math.abs(dx) > w * 0.22 || (Math.abs(v) > 0.5 && Math.abs(dx) > 30)) dir = dx > 0 ? 1 : -1;
     mpTurn(dir);
   };
   vp.addEventListener('pointerup', end); vp.addEventListener('pointercancel', end);
   vp.addEventListener('click', function(e){
-    if(mode === 1){ mode = 0; return; }
+    if(moved){ moved = false; return; }
+    const now = Date.now();
+    if(MPz > 1 && now - lastTap < 320){ MPz = 1; MPtx = 0; MPty = 0; mpT(0); lastTap = 0; return; }
+    lastTap = now;
     const m = e.target.closest && e.target.closest('.ae.mu'); if(m && MPmut && MP) mpSheet(m.dataset.k);
   });
+  mpFillNav();
+  $('mpPara').onchange = async function(e){
+    const n = +e.target.value; await mpLoad();
+    let t = 0;
+    for(let p = 1; p <= MPT && MP; p++){ const d = MP[p]; if(d && d.j === n){ t = p; break; } }
+    if(t) mpShow(t); else alert('এই পারার পৃষ্ঠা-তথ্য এখনো নেই। অ্যাপের নতুন বিল্ডে যুক্ত হবে।');
+  };
+  $('mpSurah').onchange = async function(e){
+    const n = +e.target.value; await mpLoad();
+    let t = 0;
+    for(let p = 1; p <= MPT && MP; p++){
+      const d = MP[p]; if(!d) continue;
+      if(Object.keys(d.s || {}).some(function(L){ return d.s[L] === n; })){ t = p; break; }
+    }
+    if(t) mpShow(t);
+  };
+  $('mpZin').onclick = function(){ mpZoom(1.3); };
+  $('mpZout').onclick = function(){ mpZoom(1 / 1.3); };
   $('mpNext').onclick = function(){ if(!MPbusy) mpTurn(1); };
   $('mpPrev').onclick = function(){ if(!MPbusy) mpTurn(-1); };
   $('mpNum').onchange = function(e){ mpShow(+e.target.value); };
