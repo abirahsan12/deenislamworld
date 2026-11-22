@@ -33,12 +33,21 @@ def bn(n):
 def load_surah_names():
     """সূরার আরবি নাম quran.com থেকে; না পেলে শুধু নম্বর।"""
     names = {}
-    try:
-        with urllib.request.urlopen('https://api.quran.com/api/v4/chapters', timeout=20) as r:
-            for c in json.loads(r.read().decode('utf-8')).get('chapters', []):
-                names[int(c['id'])] = c.get('name_arabic') or str(c['id'])
-    except Exception as e:  # নেটওয়ার্ক না থাকলেও বিল্ড থামবে না
-        print('::warning::সূরার নাম আনা যায়নি: ' + str(e))
+    headers = {'User-Agent': 'Mozilla/5.0 (DeenIslam PDF builder)', 'Accept': 'application/json'}
+    sources = [
+        ('https://api.quran.com/api/v4/chapters', 'chapters', 'id', 'name_arabic'),
+        ('https://api.alquran.cloud/v1/surah', 'data', 'number', 'name'),
+    ]
+    for url, key, idk, nk in sources:
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=20) as r:
+                for c in json.loads(r.read().decode('utf-8')).get(key, []):
+                    names[int(c[idk])] = c.get(nk) or str(c[idk])
+            if names:
+                break
+        except Exception as e:  # নেটওয়ার্ক না থাকলেও বিল্ড থামবে না
+            print('::warning::সূরার নাম ' + url + ' থেকে আনা যায়নি: ' + str(e))
     return names
 
 

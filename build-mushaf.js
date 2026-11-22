@@ -64,7 +64,7 @@ async function pickLayout() {
   let best = CANDIDATES[0], bestScore = -1;
   for (const c of CANDIDATES) {
     const p2 = keys(await getPage(c[0], 2)), p3 = keys(await getPage(c[0], 3));
-    const score = (p2[1] === '2:4') + (p3[0] === '2:5') + (p3[1] === '2:15');
+    const score = (p2[1] === '2:5') + (p3[0] === '2:6') + (p3[1] === '2:16');
     console.log('layout ' + c[0] + ': page2 ends ' + p2[1] + ', page3 ' + p3[0] + ' .. ' + p3[1] + ' -> match ' + score + '/3');
     if (score > bestScore) { best = c; bestScore = score; }
   }
