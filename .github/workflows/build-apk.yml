@@ -11,7 +11,7 @@ jobs:
     env:
       RUN: ${{ github.run_number }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Organize files (fix flat upload from phone)
@@ -25,7 +25,7 @@ jobs:
           if [ -f build-mushaf.js ] && { [ ! -f scripts/build-mushaf.js ] || newer build-mushaf.js scripts/build-mushaf.js; }; then cp -f build-mushaf.js scripts/build-mushaf.js; fi
           if [ -f deen.keystore ] && [ ! -f keystore/deen.keystore ]; then cp -f deen.keystore keystore/deen.keystore; fi
           ls -R www scripts keystore
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - uses: actions/setup-java@v5
@@ -110,7 +110,7 @@ jobs:
           cp android/app/build/outputs/apk/release/app-release.apk Deen-Islam.apk
           ls -la Deen-Islam.apk
           $ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort -V | tail -1)/apksigner verify --print-certs Deen-Islam.apk || true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: deen-islam-apk
           path: Deen-Islam.apk
