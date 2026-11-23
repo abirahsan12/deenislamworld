@@ -53,7 +53,7 @@ main{max-width:680px;margin:0 auto;padding:0 14px 110px}
 .mpg-pn input{width:66px;text-align:center;font:inherit;font-size:16px;font-weight:700;padding:6px 4px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--on)}
 .mpl{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:15px;font-weight:600}
 .mpg-vp{position:relative;overflow:hidden;touch-action:pan-y;border-radius:18px;background:var(--surface);border:2px solid var(--accent);box-shadow:inset 0 0 0 3px var(--surface),inset 0 0 0 4.5px rgba(200,150,46,.5),0 4px 14px rgba(0,0,0,.08);-webkit-user-select:none;user-select:none}
-.mpg-vp{background:#fbf6e9 !important;touch-action:none !important}
+.mpg-vp{background:#fbf6e9 !important}
 .mpslot{color:#1b1407 !important}
 .mpslot .mpn{color:#6b5a3a !important}
 .mpzb{min-width:44px}
@@ -335,6 +335,25 @@ html{-webkit-tap-highlight-color:transparent}
 .hn{font-family:'Noto Naskh Arabic','Droid Arabic Naskh','Amiri',serif;font-weight:700;font-size:.9em}
 
 .har,.body .har,.daily .har,.body .ar,.ah .ar,.ahd .ar,.ahd .vs .ar{font-family:'AlMushaf','Noto Naskh Arabic','Droid Arabic Naskh',serif}
+
+/* ---- প্রিমিয়াম রূপ: হিরো, কার্ড, আলো ও ছায়া ---- */
+html[data-theme=jannat][data-tod=day] .hero{background:radial-gradient(circle at 80% 12%,rgba(255,222,140,.85) 0,rgba(255,222,140,.35) 9%,transparent 22%),radial-gradient(ellipse at 50% 120%,rgba(255,236,200,.45),transparent 60%),linear-gradient(180deg,#0a4a86 0%,#1f74b8 50%,#4aa4dc 100%)}
+html[data-theme=jannat][data-tod=night] .hero{background:radial-gradient(circle at 86% 8%,rgba(255,226,150,.22),transparent 30%),radial-gradient(ellipse at 10% 110%,rgba(120,150,255,.18),transparent 55%),linear-gradient(172deg,#050d24 0%,#0f2358 52%,#1e3a8a 100%)}
+.hero{text-shadow:0 1px 16px rgba(0,18,46,.28)}
+.hero .clock{letter-spacing:.5px;color:#ffffff;text-shadow:0 2px 14px rgba(0,24,56,.35)}
+.hero .bism{color:#f7e3a3;opacity:.95}
+.hero .dates #hdate{color:#ffe49a}
+.hero .dates #gdate{color:#fff8e6}
+.hero .sun{filter:drop-shadow(0 0 16px rgba(255,226,140,.9))}
+.hero .sun .gd{fill:#ffe7a0}
+.hero .cloud ellipse{filter:blur(1.5px)}
+.deco svg{filter:drop-shadow(0 0 7px rgba(243,213,142,.45))}
+.next{background:linear-gradient(135deg,rgba(8,44,88,.42),rgba(8,44,88,.18));border:1px solid rgba(247,221,152,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 30px rgba(0,20,50,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.next b{text-shadow:0 2px 10px rgba(0,0,0,.25)}
+.card{box-shadow:0 1px 0 rgba(243,213,142,.5) inset,0 2px 6px rgba(0,0,0,.06),0 14px 34px rgba(10,40,80,.12);border:1px solid rgba(200,150,46,.18)}
+.row{transition:background .25s ease}
+.row:active{background:rgba(200,150,46,.08)}
+.appbar{background:linear-gradient(180deg,#0a4a86,#11599c);box-shadow:0 1px 0 rgba(243,213,142,.45),0 6px 18px rgba(0,0,0,.18)}
 </style>
 </head>
 <body>
@@ -374,7 +393,7 @@ html{-webkit-tap-highlight-color:transparent}
 <path d="M329 6Q324 22 329 38H347Q352 22 347 6Z" fill="rgba(243,213,142,.22)" class="gs"/>
 <path class="gs" d="M338 6V38M333 7Q330 22 333 38M343 7Q346 22 343 38" stroke-width=".9" opacity=".7"/>
 <path class="gd" d="M328 38h20l-3 5h-14z"/><circle class="gd" cx="338" cy="46" r="2"/></g>
-<g class="sun" transform="translate(290 28)"><circle r="26" fill="url(#sg)"/><g class="rays gs" stroke-width="2"><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(0)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(30)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(60)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(90)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(120)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(150)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(180)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(210)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(240)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(270)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(300)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(330)"/></g><circle class="gd" r="11"/></g>
+<g class="sun" transform="translate(300 34) scale(.8)"><circle r="26" fill="url(#sg)"/><g class="rays gs" stroke-width="2"><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(0)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(30)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(60)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(90)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(120)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(150)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(180)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(210)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(240)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(270)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(300)"/><line x1="0" y1="-17" x2="0" y2="-23" transform="rotate(330)"/></g><circle class="gd" r="11"/></g>
 <g class="cloud"><ellipse cx="238" cy="40" rx="20" ry="6" fill="#fff" fill-opacity=".16"/><ellipse cx="250" cy="35" rx="11" ry="6" fill="#fff" fill-opacity=".16"/><ellipse cx="86" cy="58" rx="22" ry="6" fill="#fff" fill-opacity=".13"/><ellipse cx="98" cy="53" rx="12" ry="6" fill="#fff" fill-opacity=".13"/></g>
 <g class="moon"><g transform="translate(300 8)"><path class="gd" d="M20 2a16 16 0 1 0 12 26 13 13 0 1 1 -12 -26z" transform="translate(-14 0)"/></g></g>
 <g class="stars"><path class="gd tw" d="M326 24l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z" transform="translate(-6 36)"/>
@@ -427,14 +446,14 @@ html{-webkit-tap-highlight-color:transparent}
   <div class="bar" style="padding-top:0">
     <select id="scriptSel" aria-label="লিপিশৈলী">
       <option value="page">হাফেজী ১৫ লাইন · পৃষ্ঠা উল্টে পড়ুন</option>
-      <option value="hafezi" data-i="hafezi">হাফেজী (১৫ লাইন)</option>
+      <option value="hafezi" data-i="hafezi">অনুবাদ কুরআন</option>
       
       
     </select>
     <label class="inl">অক্ষরের মাপ <input type="range" id="fs" min="24" max="56" value="34"></label>
     <label class="inl"><input type="checkbox" id="showTr" checked> বাংলা অনুবাদ</label>
   </div>
-  <div class="mpg mut" id="mpg" hidden>
+  <div class="mpg" id="mpg" hidden>
     <div class="mpg-top">
       <button type="button" id="mpNext" aria-label="পরের পৃষ্ঠা">‹ পরের</button>
       <span class="mpg-pn"><input type="number" id="mpNum" min="1" max="610" inputmode="numeric" aria-label="পৃষ্ঠা নম্বর"> / <span id="mpTot">610</span></span>
@@ -445,8 +464,7 @@ html{-webkit-tap-highlight-color:transparent}
         <select id="mpSurah" aria-label="সূরা বাছুন" style="flex:1.6;min-height:40px;border-radius:12px;padding:6px"></select>
       </div>
       <div class="mpg-top" style="padding-top:0">
-      <label class="mpl"><input type="checkbox" id="mpMut" checked> অনুরূপ আয়াতের চিহ্ন</label>
-      <button type="button" class="mpzb" id="mpZout" aria-label="ছোট করুন">−</button><button type="button" class="mpzb" id="mpZin" aria-label="বড় করুন">+</button><button type="button" id="mpFull">পূর্ণ পর্দা</button>
+      <button type="button" class="mpzb" id="mpZout" aria-label="ছোট করুন">−</button><button type="button" class="mpzb" id="mpZin" aria-label="বড় করুন">+</button>
     </div>
     <div class="mpg-vp" id="mpVp"><div class="mpg-strip" id="mpStrip"></div></div>
     <p class="hint" id="mpNote">পৃষ্ঠা উল্টাতে বাম থেকে ডানে টানুন (পরের পৃষ্ঠা), ডান থেকে বামে টানলে আগের পৃষ্ঠা। সোনালি গোল চিহ্নে ট্যাপ করলে অনুরূপ শব্দের অন্য আয়াত দেখা যাবে। এই মিলগুলো কম্পিউটারে শব্দ মিলিয়ে বের করা, আলেমদের সংকলিত তালিকার সাথে হুবহু নাও মিলতে পারে।</p>
@@ -977,7 +995,7 @@ function renderMushaf(useInd){
 function applyTr(){ document.querySelectorAll('.tr').forEach(e => e.style.display = $('showTr').checked ? '' : 'none'); }
 /* ---------- হাফেজী ১৫ লাইন মুসহাফ: পৃষ্ঠা উল্টানো, অফলাইনে পড়া ---------- */
 var SURAH_FB = [["الفاتحة","Al-Fatihah",7],["البقرة","Al-Baqarah",286],["آل عمران","Ali 'Imran",200],["النساء","An-Nisa",176],["المائدة","Al-Ma'idah",120],["الأنعام","Al-An'am",165],["الأعراف","Al-A'raf",206],["الأنفال","Al-Anfal",75],["التوبة","At-Tawbah",129],["يونس","Yunus",109],["هود","Hud",123],["يوسف","Yusuf",111],["الرعد","Ar-Ra'd",43],["ابراهيم","Ibrahim",52],["الحجر","Al-Hijr",99],["النحل","An-Nahl",128],["الإسراء","Al-Isra",111],["الكهف","Al-Kahf",110],["مريم","Maryam",98],["طه","Taha",135],["الأنبياء","Al-Anbya",112],["الحج","Al-Hajj",78],["المؤمنون","Al-Mu'minun",118],["النور","An-Nur",64],["الفرقان","Al-Furqan",77],["الشعراء","Ash-Shu'ara",227],["النمل","An-Naml",93],["القصص","Al-Qasas",88],["العنكبوت","Al-'Ankabut",69],["الروم","Ar-Rum",60],["لقمان","Luqman",34],["السجدة","As-Sajdah",30],["الأحزاب","Al-Ahzab",73],["سبإ","Saba",54],["فاطر","Fatir",45],["يس","Ya-Sin",83],["الصافات","As-Saffat",182],["ص","Sad",88],["الزمر","Az-Zumar",75],["غافر","Ghafir",85],["فصلت","Fussilat",54],["الشورى","Ash-Shuraa",53],["الزخرف","Az-Zukhruf",89],["الدخان","Ad-Dukhan",59],["الجاثية","Al-Jathiyah",37],["الأحقاف","Al-Ahqaf",35],["محمد","Muhammad",38],["الفتح","Al-Fath",29],["الحجرات","Al-Hujurat",18],["ق","Qaf",45],["الذاريات","Adh-Dhariyat",60],["الطور","At-Tur",49],["النجم","An-Najm",62],["القمر","Al-Qamar",55],["الرحمن","Ar-Rahman",78],["الواقعة","Al-Waqi'ah",96],["الحديد","Al-Hadid",29],["المجادلة","Al-Mujadila",22],["الحشر","Al-Hashr",24],["الممتحنة","Al-Mumtahanah",13],["الصف","As-Saf",14],["الجمعة","Al-Jumu'ah",11],["المنافقون","Al-Munafiqun",11],["التغابن","At-Taghabun",18],["الطلاق","At-Talaq",12],["التحريم","At-Tahrim",12],["الملك","Al-Mulk",30],["القلم","Al-Qalam",52],["الحاقة","Al-Haqqah",52],["المعارج","Al-Ma'arij",44],["نوح","Nuh",28],["الجن","Al-Jinn",28],["المزمل","Al-Muzzammil",20],["المدثر","Al-Muddaththir",56],["القيامة","Al-Qiyamah",40],["الانسان","Al-Insan",31],["المرسلات","Al-Mursalat",50],["النبإ","An-Naba",40],["النازعات","An-Nazi'at",46],["عبس","'Abasa",42],["التكوير","At-Takwir",29],["الإنفطار","Al-Infitar",19],["المطففين","Al-Mutaffifin",36],["الإنشقاق","Al-Inshiqaq",25],["البروج","Al-Buruj",22],["الطارق","At-Tariq",17],["الأعلى","Al-A'la",19],["الغاشية","Al-Ghashiyah",26],["الفجر","Al-Fajr",30],["البلد","Al-Balad",20],["الشمس","Ash-Shams",15],["الليل","Al-Layl",21],["الضحى","Ad-Duhaa",11],["الشرح","Ash-Sharh",8],["التين","At-Tin",8],["العلق","Al-'Alaq",19],["القدر","Al-Qadr",5],["البينة","Al-Bayyinah",8],["الزلزلة","Az-Zalzalah",8],["العاديات","Al-'Adiyat",11],["القارعة","Al-Qari'ah",11],["التكاثر","At-Takathur",8],["العصر","Al-'Asr",3],["الهمزة","Al-Humazah",9],["الفيل","Al-Fil",5],["قريش","Quraysh",4],["الماعون","Al-Ma'un",7],["الكوثر","Al-Kawthar",3],["الكافرون","Al-Kafirun",6],["النصر","An-Nasr",3],["المسد","Al-Masad",5],["الإخلاص","Al-Ikhlas",4],["الفلق","Al-Falaq",5],["الناس","An-Nas",6]];
-var MP = null, MPT = 610, MPcur = 1, MPmut = true, MPfs = {}, MPbusy = false, MPfull = false, MPexplicit = false, MPbound = false;
+var MP = null, MPT = 610, MPcur = 1, MPmut = false, MPfs = {}, MPbusy = false, MPfull = false, MPexplicit = false, MPbound = false;
 var MPAD = '۰۱۲۳۴۵۶۷۸۹';
 function mpAr(n){ return String(n).replace(/\d/g, function(d){ return MPAD[d]; }); }
 async function mpLoad(){
@@ -1055,6 +1073,7 @@ function mpShow(p){
   if(!MP) return;
   p = Math.max(1, Math.min(MPT, Math.round(p) || 1)); if(p !== MPcur){ MPz = 1; MPtx = 0; MPty = 0; } MPcur = p;
   const vp = $('mpVp'), st = $('mpStrip');
+  { const dd = MP && MP[p]; if(dd){ if(dd.c && $('mpSurah')) $('mpSurah').value = dd.c; if(dd.j && $('mpPara')) $('mpPara').value = dd.j; } }
   if(!MPfull) vp.style.height = Math.round(Math.min((vp.clientWidth || window.innerWidth - 28) * 1.5, 780)) + 'px'; else vp.style.height = '';
   const sz = mpSize(), w = sz[0], h = sz[1];
   st.style.transition = 'none'; MPdx = 0; mpT(0); st.innerHTML = '';
@@ -1090,6 +1109,7 @@ function mpSheet(key){
 var MPz = 1, MPtx = 0, MPty = 0, MPdx = 0;
 function mpT(extra){
   const st = $('mpStrip'); if(!st) return;
+  const vpe = $('mpVp'); if(vpe) vpe.style.touchAction = MPz > 1 ? 'none' : 'pan-y';
   st.style.transform = 'translate(' + (MPtx + (extra || 0)) + 'px,' + MPty + 'px) scale(' + MPz + ')';
 }
 function mpClamp(){
@@ -1197,11 +1217,6 @@ function mpBind(){
   $('mpNext').onclick = function(){ if(!MPbusy) mpTurn(1); };
   $('mpPrev').onclick = function(){ if(!MPbusy) mpTurn(-1); };
   $('mpNum').onchange = function(e){ mpShow(+e.target.value); };
-  $('mpMut').onchange = function(e){ MPmut = e.target.checked; $('mpg').classList.toggle('mut', MPmut); };
-  $('mpFull').onclick = function(){
-    MPfull = !MPfull; $('mpg').classList.toggle('full', MPfull); $('mpFull').textContent = MPfull ? 'বন্ধ করুন' : 'পূর্ণ পর্দা';
-    requestAnimationFrame(function(){ mpShow(MPcur); });
-  };
   $('mpSheet').addEventListener('click', function(e){
     const b = e.target.closest && e.target.closest('.mi');
     if(b && b.dataset.p){ $('mpSheet').hidden = true; mpShow(+b.dataset.p); return; }
@@ -1214,7 +1229,7 @@ function mpBind(){
   let rt = null;
   window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ if(MP && !$('mpg').hidden) mpShow(MPcur); }, 200); });
 }
-function mpUi(on){ $('v-quran').classList.toggle('pgmode', on); $('mpg').hidden = !on; if(!on){ MPfull = false; $('mpg').classList.remove('full'); $('mpFull').textContent = 'পূর্ণ পর্দা'; } }
+function mpUi(on){ $('v-quran').classList.toggle('pgmode', on); $('mpg').hidden = !on; if(!on){ MPfull = false; $('mpg').classList.remove('full'); } }
 async function mpOpenSurah(n){
   const ok = await mpLoad();
   if(!ok){
